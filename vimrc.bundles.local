@@ -1,1 +1,2 @@
 Bundle 'vcscommand.vim'
+Bundle 'grep.vim'

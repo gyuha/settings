@@ -2,50 +2,59 @@
 # Vim setting base : http://vim.spf13.com/
 
 echo "Copy Settings"
-LPATH=`pwd`
-ln -snf $LPATH/bin $HOME/.bin
-ln -snf $LPATH/vim $HOME/.vim
-ln -snf $LPATH/vimrc.bundles $HOME/.vimrc.bundles
-ln -snf $LPATH/vimrc.bundles.local $HOME/.vimrc.bundles.local
-ln -snf $LPATH/vimrc $HOME/.vimrc
-ln -snf $LPATH/vimrc.local $HOME/.vimrc.local
+SCRIPT=$(readlink -f "$0")
+BASEDIR=$(dirname "$SCRIPT")
+echo $BASEDIR
+ln -snf $BASEDIR/bin $HOME/.bin
+#ln -snf $BASEDIR/vim $HOME/.vim
+#ln -snf $BASEDIR/vimrc.bundles $HOME/.vimrc.bundles
+#ln -snf $BASEDIR/vimrc.bundles.local $HOME/.vimrc.bundles.local
+#ln -snf $BASEDIR/vimrc $HOME/.vimrc
+#ln -snf $BASEDIR/vimrc.local $HOME/.vimrc.local
 
 rm -rf $HOME/.tmux.conf
 
 PROFILE=$HOME"/.bashrc"
-ADD_PROFILE="./bashrc"
-POWERLINE="./powerline"
+POWERLINE="$BASEDIR/powerline"
 
 function usage()
 {
-	echo "
+    echo "
 Gyuha's linux setting install
 Usage: `basename $0` [-p]
 
--p : Use powerline
--h : help
-"
+    -p : Use powerline
+    -h : help
+    "
 }
 
 function powerline_setting()
 {
-	echo "Use powerline"
-	# Tmux 세팅
-	ln -snf $LPATH/tmux.conf $HOME/.tmux.conf
-	# vim
-	#sed -i "s/\"let g:Powerline_symbols/let g:Powerline_symbols/" $HOME/.vimrc
-	# shell 세팅.
-	cd $HOME/.bin/powerline-shell
-	$HOME/.bin/powerline-shell/install.py
-	cd -
-	cat $POWERLINE >> $PROFILE
+    echo "Use powerline"
+    # Tmux 세팅
+    ln -snf $BASEDIR/tmux.conf $HOME/.tmux.conf
+    sed -i "s/\t\"wan_ip/\t\#\"wan_ip/" $BASEDIR/bin/tmux-powerline/themes/default.sh
+    sed -i "s/\t\"mailcount/\t\#\"mailcount/" $BASEDIR/bin/tmux-powerline/themes/default.sh
+    sed -i "s/\t\"now_playing/\t\#\"now_playing/" $BASEDIR/bin/tmux-powerline/themes/default.sh
+    sed -i "s/\t\"load/\t\#\"load/" $BASEDIR/bin/tmux-powerline/themes/default.sh
+    sed -i "s/\t\"battery/\t\#\"battery/" $BASEDIR/bin/tmux-powerline/themes/default.sh
+    sed -i "s/\t\"weather/\t\#\"weather/" $BASEDIR/bin/tmux-powerline/themes/default.sh
+    # vim
+    #   sed -i "s/\"let g:Powerline_symbols/let g:Powerline_symbols/" $HOME/.vimrc
+    cat $POWERLINE >> $PROFILE
 }
 
 
 if [ ! -f $PROFILE ]
 then
-PROFILE=$HOME/.bashrc
+    PROFILE=$HOME/.bashrc
 fi
+
+BASHRC_SRC="# GYUHA SETTINGS
+if [ -f $BASEDIR/bash_profile ]; then
+    . $BASEDIR/bash_profile
+fi
+"
 
 LINE=`grep -n "# GYUHA" $PROFILE |sed 's/\:.*$//g'`
 LINE=`expr $LINE - 1`
@@ -53,13 +62,13 @@ LINE=`expr $LINE - 1`
 # read the options
 if grep -Fxq "# GYUHA SETTINGS" $PROFILE
 then
-	echo "Exist profile Settings"
-	TMP_FILE="tmp"
-	head -n $LINE $PROFILE > $TMP_FILE
-	cat $ADD_PROFILE >> $TMP_FILE
-	mv -f $TMP_FILE $PROFILE
+    echo "Exist profile Settings"
+    TMP_FILE="tmp"
+    head -n $LINE $PROFILE > $TMP_FILE
+    echo "$BASHRC_SRC" >> $TMP_FILE
+    mv -f $TMP_FILE $PROFILE
 else
-	cat $ADD_PROFILE >> $PROFILE
+    echo "$BASHRC_SRC" >> $PROFILE
 fi
 
 while [[ "$1" == -* ]]; do
@@ -70,7 +79,7 @@ while [[ "$1" == -* ]]; do
             ;;
         -p)
             shift
-			powerline_setting;
+            powerline_setting;
             ;;
     esac
     shift

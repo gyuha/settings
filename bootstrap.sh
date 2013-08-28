@@ -55,3 +55,6 @@ clone_repo() {
 }
 
 clone_repo "Successfully cloned $app_name"
+cd "$HOME/.$app_name"
+./setup.sh -p
+./vimsetup.sh

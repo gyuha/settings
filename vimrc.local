@@ -25,3 +25,5 @@ set si
 
 "BufExplorer.
 :nnoremap <silent> <F6> :BufExplorer<CR>
+
+nnoremap Y Y

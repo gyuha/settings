@@ -18,7 +18,7 @@ alias devgrep="grep --exclude-dir='.svn' --exclude='*.swp'"
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	export PS1='[\[\033[0;35m\]\u@\h\[\033[0;34m\]:\W\[\033[00m\]]$ '
 else
-    export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
+	export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
 fi
 
 # ryan 256 color support
