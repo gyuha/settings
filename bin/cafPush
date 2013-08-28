@@ -1,0 +1,7 @@
+#!/bin/bash
+# Push Notification용으로 변경
+for f in *.mp3; do
+	echo "Processing $f file..."
+	afconvert "$f" "${f/mp3/caf}" -d ima4 -f caff -v
+done
+
