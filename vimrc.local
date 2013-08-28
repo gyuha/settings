@@ -27,3 +27,8 @@ set si
 :nnoremap <silent> <F6> :BufExplorer<CR>
 
 nnoremap Y Y
+
+"색상 지정.
+syntax enable
+set background=dark
+colorscheme solarized
