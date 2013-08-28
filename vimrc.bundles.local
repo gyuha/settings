@@ -1,2 +1,3 @@
 Bundle 'vcscommand.vim'
 Bundle 'grep.vim'
+Bundle 'bufexplorer.zip'
