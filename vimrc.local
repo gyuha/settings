@@ -47,15 +47,7 @@ colorscheme solarized
 set nofoldenable    " disable folding"
 set noexpandtab     " expandtab off"
 
+set wrap
+
 " 사용하지 않는 플러그인 끄기
 UnBundle 'spf13/vim-autoclose'
-UnBundle 'garbas/vim-snipmate'
-UnBundle 'honza/vim-snippets'
-UnBundle 'Shougo/neocomplcache'
-UnBundle 'Shougo/neosnippet'
-UnBundle 'honza/vim-snippets'
-UnBundle 'Shougo/neocomplete.vim.git'
-UnBundle 'Shougo/neosnippet'
-UnBundle 'honza/vim-snippets'
-UnBundle 'spf13/PIV'
-UnBundle 'arnaud-lb/vim-php-namespace'
