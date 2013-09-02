@@ -39,7 +39,7 @@ nnoremap Y Y
 " 색상 지정.
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
 
 
 " 저장시 자동으로 화이트 스페이스 제거.
@@ -122,8 +122,8 @@ endif
 " Most prefer to automatically switch to the current file directory when
 " a new buffer is opened; to prevent this behavior, add the following to
 " your .vimrc.bundles.local file:
-"   let g:spf13_no_autochdir = 1
-if !exists('g:spf13_no_autochdir')
+"   let g:g_no_autochdir = 1
+if !exists('g:g_no_autochdir')
     autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
     " Always switch to the current file directory
 endif
@@ -149,8 +149,8 @@ if has('persistent_undo')
 endif
 
 " To disable views add the following to your .vimrc.bundles.local file:
-"   let g:spf13_no_views = 1
-if !exists('g:spf13_no_views')
+"   let g:g_no_views = 1
+if !exists('g:g_no_views')
     " Add exclusions to mkview and loadview
     " eg: *.*, svn-commit.tmp
     let g:skipview_files = [
@@ -256,19 +256,19 @@ autocmd FileType haskell setlocal nospell
 " The default leader is '\', but many people prefer ',' as it's in a standard
 " location. To override this behavior and set it back to '\' (or any other
 " character) add the following to your .vimrc.bundles.local file:
-"   let g:spf13_leader='\'
-if !exists('g:spf13_leader')
+"   let g:g_leader='\'
+if !exists('g:g_leader')
     let mapleader = ','
 else
-    let mapleader=g:spf13_leader
+    let mapleader=g:g_leader
 endif
 
 " Easier moving in tabs and windows
 " The lines conflict with the default digraph mapping of <C-K>
-" If you prefer that functionality, add let g:spf13_no_easyWindows = 1
+" If you prefer that functionality, add let g:g_no_easyWindows = 1
 " in your .vimrc.bundles.local file
 
-if !exists('g:spf13_no_easyWindows')
+if !exists('g:g_no_easyWindows')
     map <C-J> <C-W>j<C-W>_
     map <C-K> <C-W>k<C-W>_
     map <C-L> <C-W>l<C-W>_
@@ -283,14 +283,14 @@ noremap k gk
 " bottom of the screen
 " If you prefer that functionality, add the following to your
 " .vimrc.bundles.local file:
-"   let g:spf13_no_fastTabs = 1
-if !exists('g:spf13_no_fastTabs')
+"   let g:g_no_fastTabs = 1
+if !exists('g:g_no_fastTabs')
     map <S-H> gT
     map <S-L> gt
 endif
 
 " Stupid shift key fixes
-if !exists('g:spf13_no_keyfixes')
+if !exists('g:g_no_keyfixes')
     if has("user_commands")
         command! -bang -nargs=* -complete=file E e<bang> <args>
         command! -bang -nargs=* -complete=file W w<bang> <args>
@@ -544,7 +544,7 @@ nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 "}
 
 " neocomplete {
-if count(g:spf13_bundle_groups, 'neocomplete')
+if count(g:g_bundle_groups, 'neocomplete')
     let g:acp_enableAtStartup = 0
     let g:neocomplete#enable_at_startup = 1
     let g:neocomplete#enable_smart_case = 1
@@ -575,10 +575,10 @@ if count(g:spf13_bundle_groups, 'neocomplete')
 
     " These two lines conflict with the default digraph mapping of <C-K>
     " If you prefer that functionality, add
-    " let g:spf13_no_neosnippet_expand = 1
+    " let g:g_no_neosnippet_expand = 1
     " in your .vimrc.bundles.local file
 
-    if !exists('g:spf13_no_neosnippet_expand')
+    if !exists('g:g_no_neosnippet_expand')
         imap <C-k> <Plug>(neosnippet_expand_or_jump)
         smap <C-k> <Plug>(neosnippet_expand_or_jump)
     endif
@@ -645,7 +645,7 @@ endif
 " }
 
 " neocomplcache {
-if count(g:spf13_bundle_groups, 'neocomplcache')
+if count(g:g_bundle_groups, 'neocomplcache')
     let g:acp_enableAtStartup = 0
     let g:neocomplcache_enable_at_startup = 1
     let g:neocomplcache_enable_camel_case_completion = 1
@@ -678,10 +678,10 @@ if count(g:spf13_bundle_groups, 'neocomplcache')
 
     " These two lines conflict with the default digraph mapping of <C-K>
     " If you prefer that functionality, add
-    " let g:spf13_no_neosnippet_expand = 1
+    " let g:g_no_neosnippet_expand = 1
     " in your .vimrc.bundles.local file
 
-    if !exists('g:spf13_no_neosnippet_expand')
+    if !exists('g:g_no_neosnippet_expand')
         imap <C-k> <Plug>(neosnippet_expand_or_jump)
         smap <C-k> <Plug>(neosnippet_expand_or_jump)
     endif
@@ -754,7 +754,7 @@ let g:undotree_SetFocusWhenToggle=1
 " }
 
 " indent_guides {
-if !exists('g:spf13_no_indent_guides_autocolor')
+if !exists('g:g_no_indent_guides_autocolor')
     let g:indent_guides_auto_colors = 1
 else
     " For some colorschemes, autocolor will not work (eg: 'desert', 'ir_black')
@@ -832,10 +832,10 @@ function! InitializeDirectories()
     " To specify a different directory in which to place the vimbackup,
     " vimviews, vimundo, and vimswap files/directories, add the following to
     " your .vimrc.local file:
-    "   let g:spf13_consolidated_directory = <full path to desired directory>
-    "   eg: let g:spf13_consolidated_directory = $HOME . '/.vim/'
-    if exists('g:spf13_consolidated_directory')
-        let common_dir = g:spf13_consolidated_directory . prefix
+    "   let g:g_consolidated_directory = <full path to desired directory>
+    "   eg: let g:g_consolidated_directory = $HOME . '/.vim/'
+    if exists('g:g_consolidated_directory')
+        let common_dir = g:g_consolidated_directory . prefix
     else
         let common_dir = parent . '/.' . prefix
     endif
@@ -876,8 +876,8 @@ endfunction
 function! StripTrailingWhitespace()
     " To disable the stripping of whitespace, add the following to your
     " .vimrc.local file:
-    "   let g:spf13_keep_trailing_whitespace = 1
-    if !exists('g:spf13_keep_trailing_whitespace')
+    "   let g:g_keep_trailing_whitespace = 1
+    if !exists('g:g_keep_trailing_whitespace')
         " Preparation: save last search, and cursor position.
         let _s=@/
         let l = line(".")
