@@ -6,11 +6,6 @@ SCRIPT=$(readlink -f "$0")
 BASEDIR=$(dirname "$SCRIPT")
 echo $BASEDIR
 ln -snf $BASEDIR/bin $HOME/.bin
-#ln -snf $BASEDIR/vim $HOME/.vim
-#ln -snf $BASEDIR/vimrc.bundles $HOME/.vimrc.bundles
-#ln -snf $BASEDIR/vimrc.bundles.local $HOME/.vimrc.bundles.local
-#ln -snf $BASEDIR/vimrc $HOME/.vimrc
-#ln -snf $BASEDIR/vimrc.local $HOME/.vimrc.local
 
 rm -rf $HOME/.tmux.conf
 
