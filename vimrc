@@ -374,8 +374,8 @@ map zh zH
 " Plugins {
 
 " PIV {
-let g:DisableAutoPHPFolding = 0
-let g:PIVAutoClose = 0
+let g:DisableAutoPHPFolding = 1
+let g:PIVAutoClose = 1
 " }
 
 " Misc {
