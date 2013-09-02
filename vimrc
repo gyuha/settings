@@ -1,3 +1,4 @@
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0  foldmethod=marker spell:
 set enc=utf-8
 set fenc=utf-8
 set fencs=utf-8,cp949,cp932,euc-jp,shift-jis,big5,ucs-2le,latin1
