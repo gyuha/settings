@@ -135,7 +135,7 @@ if !exists('g:g_no_autochdir')
 	" Always switch to the current file directory
 endif
 
-"set autowrite						" Automatically write a file when leaving a modified buffer
+"set autowrite						 " Automatically write a file when leaving a modified buffer
 set shortmess+=filmnrxoOtT			" Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore				" Allow for cursor beyond last character
@@ -277,10 +277,10 @@ endif
 " in your .vimrc.bundles.local file
 
 if !exists('g:g_no_easyWindows')
-	map <C-J> <C-W>j<C-W>_
-	map <C-K> <C-W>k<C-W>_
-	map <C-L> <C-W>l<C-W>_
-	map <C-H> <C-W>h<C-W>_
+	map <C-J> <C-W>j
+	map <C-K> <C-W>k
+	map <C-L> <C-W>l
+	map <C-H> <C-W>h
 endif
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
