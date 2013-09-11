@@ -5,16 +5,16 @@ set fencs=utf-8,cp949,cp932,euc-jp,shift-jis,big5,ucs-2le,latin1
 
 "Key Mapping {
 "Directory Explorer를 위한 키맵핑
-:nnoremap <silent> <F5> :NERDTreeToggle<CR>
+nnoremap <silent> <F5> :NERDTreeToggle<CR>
 
 "BufExplorer.
-:nnoremap <silent> <F6> :BufExplorer<CR>
+nnoremap <silent> <F6> :BufExplorer<CR>
 
 "List Toggle
-:nnoremap <silent> <F7> :set list!<CR>
+nnoremap <silent> <F7> :set list!<CR>
 
 "Auto retab
-:nnoremap <silent> <F8> :call RetabText()<CR>
+nnoremap <silent> <F8> :call RetabText()<CR>
 function! RetabText()
 	:%retab!
 	echo "retab"
@@ -30,6 +30,11 @@ function! ToggleMouse()
 		echo "Mouse usage enabled"
 	endif
 endfunction
+
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
 "}
 
 
@@ -557,11 +562,16 @@ let g:indent_guides_enable_on_vim_startup = 0
 " }
 
 " airline {
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='powerlineish'		" airline users use the powerline theme
-let g:airline_left_sep='⮀'				" Slightly fancier separator, instead of '>'
-let g:airline_right_sep='⮂'				" Slightly fancier separator, instead of '<'
-"let g:airline_left_sep=' ›'				" Slightly fancier separator, instead of '>'
-"let g:airline_right_sep='‹'				" Slightly fancier separator, instead of '<'
+
+let g:airline_left_sep='⮀'				" Slightly fancier separator, instead of '⮀'
+let g:airline_right_sep='⮂'				" Slightly fancier separator, instead of '⮂'
+let g:airline_powerline_fonts=0
+"if exists('g:airline_powerline_fonts')
+	"let g:airline_left_sep=' ›'				" Slightly fancier separator, instead of '>'
+	"let g:airline_right_sep='‹'				" Slightly fancier separator, instead of '<'
+"endif
 " }
 
 " vim-gitgutter {
