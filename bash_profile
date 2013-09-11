@@ -21,12 +21,12 @@ else
 	export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
 fi
 
-# ryan 256 color support
-#if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-#	export TERM='xterm-256color'
-#else
-#	export TERM='xterm-color'
-#fi
-#
-export TERM='screen-256color'
+#ryan 256 color support
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+	export TERM='xterm-256color'
+else
+	export TERM='xterm-color'
+fi
+
+#export TERM='screen-256color'
 export EDITOR=vim
