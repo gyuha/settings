@@ -7,10 +7,6 @@ export SVN_EDITOR="vim --noplugin"
 PATH=$PATH:~/bin:~/.bin
 
 set -o vi
-alias vi='vim'
-# 우분투에서 현재 폴더 탐색기로 열기
-alias of='/usr/bin/nautilus .'
-alias devgrep="grep --exclude-dir='.svn' --exclude='*.swp'"
 
 # shell prompt
 #export PS1='\[\033[0;35m\]\h\[\033[0;33m\] \w\[\033[00m\]$ '
@@ -22,11 +18,16 @@ else
 fi
 
 #ryan 256 color support
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-	export TERM='xterm-256color'
-else
-	export TERM='xterm-color'
-fi
+#if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+#	export TERM='xterm-256color'
+#else
+#	export TERM='xterm-color'
+#fi
 
-#export TERM='screen-256color'
+export TERM='screen-256color'
 export EDITOR=vim
+
+alias tmux="tmux -2"
+alias vi='vim'
+alias of='/usr/bin/nautilus .' # 우분투에서 현재 폴더 탐색기로 열기
+alias devgrep="grep --exclude-dir='.svn' --exclude='*.swp'"
