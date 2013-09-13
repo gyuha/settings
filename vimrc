@@ -31,10 +31,27 @@ function! ToggleMouse()
 	endif
 endfunction
 
+" Tab move
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
 nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . tabpagenr()<CR>
+
+" Buffer move
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
 "}
 
 
@@ -433,7 +450,7 @@ nmap <leader>nt :NERDTreeFind<CR>
 let NERDTreeShowBookmarks=1
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
 let NERDTreeChDirMode=0
-let NERDTreeQuitOnOpen=0
+let NERDTreeQuitOnOpen=1
 let NERDTreeMouseMode=2
 let NERDTreeShowHidden=1
 let NERDTreeKeepTreeInNewTab=1
@@ -568,10 +585,12 @@ let g:airline_theme='powerlineish'		" airline users use the powerline theme
 let g:airline_left_sep='⮀'				" Slightly fancier separator, instead of '⮀'
 let g:airline_right_sep='⮂'				" Slightly fancier separator, instead of '⮂'
 let g:airline_powerline_fonts=0
-"if exists('g:airline_powerline_fonts')
+if exists('g:airline_powerline_fonts')
+	let g:airline_left_sep='⮀'				" Slightly fancier separator, instead of '⮀'
+	let g:airline_right_sep='⮂'				" Slightly fancier separator, instead of '⮂'
 	"let g:airline_left_sep=' ›'				" Slightly fancier separator, instead of '>'
 	"let g:airline_right_sep='‹'				" Slightly fancier separator, instead of '<'
-"endif
+endif
 " }
 
 " vim-gitgutter {
