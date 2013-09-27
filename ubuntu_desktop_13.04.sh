@@ -117,6 +117,12 @@ media() {
 	success "Complete"
 }
 
+dictionary() {
+	msg "Install dictionary"
+	apt-get install -y goldendict
+	success "Complete"
+}
+
 gimp() {
 	msg "Install gimp"
 	apt-get install -y gimp
@@ -177,6 +183,7 @@ if [ $1 == "all" ]; then
 	torrent;
 	copyQ;
 	media;
+	dictionary;
 	gimp;
 	restrictedExtras;
 	googleCalendar;
