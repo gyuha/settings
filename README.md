@@ -25,4 +25,4 @@ Simply copying and pasting the following line into a terminal.
 
 ### 설정 파일 설치
 
-    curl https://raw.github.com/gyuha/ubuntu_setting/master/ubutu13.04.sh | sudo bash -s copyconf
+    curl https://raw.github.com/gyuha/ubuntu_setting/master/ubuntu_13.04.sh | sudo bash -s copyconf
