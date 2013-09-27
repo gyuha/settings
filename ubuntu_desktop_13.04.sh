@@ -155,15 +155,16 @@ googleCalendar() {
 	success "Complete"
 }
 
-compression() {
-	msg " Install Compression/Decompression tools"
+utilities() {
+	msg "Install Compression/Decompression tools"
 	apt-get install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
+	apt-get install -y gnome-commander
 	success "Complete"
 }
 
 guiDevTools() {
-	msg " Install GUI Dev Tools"
-	apt-get install -y gitg rapidsvn
+	msg "Install GUI Dev Tools"
+	apt-get install -y gitg rapidsvn vim-gnome
 	success "Complete"
 }
 
@@ -187,7 +188,7 @@ if [ $1 == "all" ]; then
 	gimp;
 	restrictedExtras;
 	googleCalendar;
-	compression;
+	utilities;
 	guiDevTools;
 	#freeUpSpace;
 	msg "Complete."
