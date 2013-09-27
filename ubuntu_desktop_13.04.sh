@@ -45,6 +45,11 @@ program_exists() {
 	fi
 }
 
+function_exists() {
+	declare -f -F $1 > /dev/null
+	return $?
+}
+
 update() {
 	msg "Ubuntu update start."
 	apt-get update
@@ -106,9 +111,9 @@ copyQ() {
 	success "Complete"
 }
 
-vlc() {
+media() {
 	msg "Install VLC"
-	apt-get install -y vlc
+	apt-get install -y vlc audacious goldendict
 	success "Complete"
 }
 
@@ -121,6 +126,18 @@ gimp() {
 restrictedExtras() {
 	msg "Install Ubuntu Restricted Extras"
 	apt-get install -y ubuntu-restricted-extras libavformat-extra-53 libavcodec-extra-53
+	success "Complete"
+}
+
+mysqlworkbench() {
+	msg " Install mysql-workbench"
+	apt-get install -y mysql-workbench
+	success "Complete"
+}
+
+serviceManager() {
+	msg "Install Service Manager"
+	apt-get install -y bum rcconf
 	success "Complete"
 }
 
@@ -138,6 +155,12 @@ compression() {
 	success "Complete"
 }
 
+guiDevTools() {
+	msg " Install GUI Dev Tools"
+	apt-get install -y gitg rapidsvn
+	success "Complete"
+}
+
 if [ $# -eq 0 ]; then
 	msg "Select any packages.";
 	exit;
@@ -146,17 +169,19 @@ fi
 if [ $1 == "all" ]; then
 	msg "Install all packages."
 	disableUnnecessayErrorMessage;
+	serviceManager;
 	uiTweakTools;
 	cpuMemIndicator;
 	removeLens;
 	flash;
 	torrent;
 	copyQ;
-	vlc;
+	media;
 	gimp;
 	restrictedExtras;
 	googleCalendar;
 	compression;
+	guiDevTools;
 	#freeUpSpace;
 	msg "Complete."
 	exit;
@@ -164,7 +189,5 @@ fi
 
 for (( i=1;$i<=$#;i=$i+1 ))
 do
-	if type ${!i} | grep -i function > /dev/null &2>1; then
-		eval ${!i};
-	fi
+	function_exists ${!i} && eval ${!i} || msg "Can't find function..";
 done

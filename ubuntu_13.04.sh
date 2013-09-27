@@ -45,6 +45,12 @@ program_exists() {
 	fi
 }
 
+function_exists() {
+	declare -f -F $1 > /dev/null
+	return $?
+}
+
+
 repo_change() {
 	# 기본 저장소를 다음으로 바꾸기. 빨라진다
 	sed -i 's/us.archive.ubuntu.com/ftp.daum.net/' /etc/apt/sources.list
@@ -67,7 +73,7 @@ openssh() {
 utillity() {
 	# Utillity install
 	msg "Utillities install start."
-	apt-get install -y cronolog vim ctags git subversion build-essential g++ curl libssl-dev sysv-rc-conf expect tmux
+	apt-get install -y cronolog vim ctags git subversion build-essential g++ curl libssl-dev sysv-rc-conf expect tmux htop rcconf
 	success "Install Utillities"
 }
 
@@ -122,7 +128,7 @@ phpfpm() {
 	apt-get install -y python-software-properties
 	add-apt-repository -y "ppa:l-mierzwa/lucid-php5"
 	apt-get update
-	apt-get install -y php5 php-apc php-pear php5-cli php5-common php5-curl php5-dev php5-fpm php5-gd php5-gmp php5-imap php5-ldap php5-mcrypt php5-memcache php5-memcached php5-mysql php5-odbc php5-pspell php5-recode php5-snmp php5-sqlite php5-sybase php5-tidy php5-xmlrpc php5-xsl libapache2-mod-php5 php5-mongo php5-xmlrpc
+	apt-get install -y php5 php-apc php-pear php5-cli php5-common php5-curl php5-dev php5-fpm php5-gd php5-gmp php5-imap php5-ldap php5-mcrypt php5-memcache php5-memcached php5-mysql php5-odbc php5-pspell php5-recode php5-snmp php5-sqlite php5-sybase php5-tidy php5-xmlrpc php5-xsl php5-mongo php5-xmlrpc
 	success "Install PHP-FPM"
 }
 
@@ -184,7 +190,5 @@ fi
 
 for (( i=1;$i<=$#;i=$i+1 ))
 do
-	if type ${!i} | grep -i function > /dev/null &2>1; then
-		eval ${!i};
-	fi
+	function_exists ${!i} && eval ${!i} || msg "Can't find function..";
 done
