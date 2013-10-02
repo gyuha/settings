@@ -120,6 +120,8 @@ media() {
 dictionary() {
 	msg "Install dictionary"
 	apt-get install -y goldendict
+	# 다음 미니 영한사전 : http://engdic.daum.net/dicen/small_search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
+	# 다음 일반 영한사전: http://engdic.daum.net/dicen/search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
 	success "Complete"
 }
 
