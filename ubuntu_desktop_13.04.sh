@@ -164,7 +164,9 @@ utilities() {
 
 guiDevTools() {
 	msg "Install GUI Dev Tools"
-	apt-get install -y gitg rapidsvn vim-gnome meld
+	sudo add-apt-repository -y ppa:eugenesan/ppa
+	sudo apt-get update
+	apt-get install -y gitg rapidsvn vim-gnome meld smartgit
 	success "Complete"
 }
 
