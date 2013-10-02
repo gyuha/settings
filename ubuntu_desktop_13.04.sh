@@ -164,7 +164,7 @@ utilities() {
 
 guiDevTools() {
 	msg "Install GUI Dev Tools"
-	apt-get install -y gitg rapidsvn vim-gnome
+	apt-get install -y gitg rapidsvn vim-gnome meld
 	success "Complete"
 }
 
