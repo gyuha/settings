@@ -159,6 +159,7 @@ utilities() {
 	msg "Install Compression/Decompression tools"
 	apt-get install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
 	apt-get install -y gnome-commander
+	apt-get install -y filezilla
 	success "Complete"
 }
 

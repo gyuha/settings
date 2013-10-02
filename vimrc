@@ -20,7 +20,7 @@ function! RetabText()
 	echo "retab"
 endfunction
 
-nnoremap <F11> :call ToggleMouse()<CR>
+nnoremap <silent> <F9> :call ToggleMouse()<CR>
 function! ToggleMouse()
 	if &mouse == 'a'
 		set mouse=

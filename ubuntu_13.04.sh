@@ -98,7 +98,7 @@ nodejs() {
 	add-apt-repository -y  "ppa:chris-lea/node.js"
 	apt-get update
 	apt-get install -y nodejs
-	npm install express jade stylus socket.io locally -g
+	npm install express jade stylus socket.io locally redis-commander -g
 	success "Install Node.js"
 }
 
