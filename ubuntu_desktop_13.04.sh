@@ -174,6 +174,7 @@ guiDevTools() {
 	apt-get update
 	apt-get install -y gitg rapidsvn vim-gnome meld
 	apt-get install -y smartgit
+	apt-get install -y mysql-workbench
 	success "Complete"
 }
 
