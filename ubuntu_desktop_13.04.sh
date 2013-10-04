@@ -160,7 +160,7 @@ googleCalendar() {
 utilities() {
 	msg "Install Compression/Decompression tools"
 	apt-get install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
-	apt-get install -y gnome-commander
+	apt-get install -y gnome-commander libgnomevfs2-extra
 	apt-get install -y filezilla
 	apt-get install -y chromium-browser
 	apt-get install -y geany geany-common geany-plugins
