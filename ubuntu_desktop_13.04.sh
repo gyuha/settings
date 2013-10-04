@@ -120,6 +120,8 @@ media() {
 dictionary() {
 	msg "Install dictionary"
 	apt-get install -y goldendict
+	# 다음 미니 영한사전 : http://engdic.daum.net/dicen/small_search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
+	# 다음 일반 영한사전: http://engdic.daum.net/dicen/search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
 	success "Complete"
 }
 
@@ -160,6 +162,7 @@ utilities() {
 	apt-get install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
 	apt-get install -y gnome-commander
 	apt-get install -y filezilla
+	apt-get install -y chromium-browser
 	apt-get install -y geany geany-common geany-plugins
 	apt-get install -y terminator
 	#copy ./geany/colorschemes/* ~/.config/geany/colorschemes
@@ -168,9 +171,11 @@ utilities() {
 
 guiDevTools() {
 	msg "Install GUI Dev Tools"
-	sudo add-apt-repository -y ppa:eugenesan/ppa
-	sudo apt-get update
-	apt-get install -y gitg rapidsvn vim-gnome meld smartgit kdiff3
+	add-apt-repository -y ppa:eugenesan/ppa
+	apt-get update
+	apt-get install -y gitg rapidsvn vim-gnome meld
+	apt-get install -y smartgit
+	apt-get install -y mysql-workbench
 	success "Complete"
 }
 
