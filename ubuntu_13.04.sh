@@ -15,6 +15,11 @@ CYAN='\e[0;36m'
 WHITE='\e[0;37m'
 END_COLOR='\e[0m'
 
+# apt-repository array
+REPOS=()
+APTS=()
+
+
 # BASIC SETUP TOOLS
 msg() {
 	printf $MAGENTA'%b\n'$END_COLOR "$1" >&2
@@ -57,6 +62,21 @@ repo_change() {
 	sed -i 's/kr.archive.ubuntu.com/ftp.daum.net/' /etc/apt/sources.list
 }
 
+apt_add() {
+	for p in $*;
+	do
+		APTS+=($p)
+	done;
+}
+
+repo_add() {
+	for p in $*;
+	do
+		REPOS+=($p)
+	done;
+}
+
+
 update() {
 	msg "Ubuntu update start."
 	apt-get update
@@ -64,72 +84,70 @@ update() {
 	success "Update Complete"
 }
 
+run_all() {
+	apt_add python-software-properties software-properties-common
+
+	for p in ${REPOS[@]};
+	do
+		add-apt-repository -y $p
+	done;
+
+	update;
+
+	for p in ${APTS[@]};
+	do
+		msg "$p Install.."
+		apt-get install -y $p
+	done;
+	success "Complete"
+}
+
+
 openssh() {
-	msg "Openssh install start."
-	apt-get install -y openssh-server
-	success "Install openssh-server"
+	apt_add openssh-server
 }
 
 utillity() {
 	# Utillity install
-	msg "Utillities install start."
-	apt-get install -y cronolog vim ctags git subversion build-essential g++ curl libssl-dev sysv-rc-conf expect tmux htop rcconf
-	success "Install Utillities"
+	apt_add cronolog vim ctags git subversion build-essential g++ curl libssl-dev sysv-rc-conf expect tmux htop rcconf
 }
 
 # MySQL install
 mysql() {
-	msg "MySQL install start."
-	apt-get install -y mysql-server mysql-client
-	success "Install Mysql"
+	apt_add mysql-server mysql-client
 }
 
 # Redis install
 redis() {
-	msg "Redis install start."
-	apt-get install -y redis-server
-	success "Install Reids"
+	apt_add redis-server
 }
 
 # Node.js install
 nodejs() {
 	msg "Node.js install start."
-	apt-get install -y python-software-properties software-properties-common
+	apt_add python-software-properties software-properties-common
 	add-apt-repository -y  "ppa:chris-lea/node.js"
-	apt-get update
-	apt-get install -y nodejs
+	apt_add nodejs
 	npm install express jade stylus socket.io locally redis-commander -g
-	success "Install Node.js"
+	success "Complate Node.js install"
 }
 
 # Java 7 install
 java() {
-	msg "Java install start."
-	# Java 7 install
-	add-apt-repository -y "ppa:webupd8team/java"
-	apt-get update
-	apt-get install -y oracle-java7-installer
-	success "Install Java7"
+	repo_add "ppa:webupd8team/java"
+	apt_add oracle-java7-installer
 }
 
 # Nginx install
 nginx() {
-	msg "Nginx install start."
-	apt-get install python-software-properties
-	add-apt-repository -y "ppa:nginx/stable"
-	apt-get update
-	apt-get install -y nginx
-	success "Install Nginx"
+	repo_add "ppa:nginx/stable"
+	apt_add nginx
 }
 
 # PHP-FPM install
 phpfpm() {
-	msg "PHP-FPM install start."
-	apt-get install -y python-software-properties
-	add-apt-repository -y "ppa:l-mierzwa/lucid-php5"
-	apt-get update
-	apt-get install -y php5 php-apc php-pear php5-cli php5-common php5-curl php5-dev php5-fpm php5-gd php5-gmp php5-imap php5-ldap php5-mcrypt php5-memcache php5-memcached php5-mysql php5-odbc php5-pspell php5-recode php5-snmp php5-sqlite php5-sybase php5-tidy php5-xmlrpc php5-xsl php5-mongo php5-xmlrpc
-	success "Install PHP-FPM"
+	repo_add "ppa:l-mierzwa/lucid-php5"
+	apt_add php5 php-apc php-pear php5-cli php5-common php5-curl php5-dev php5-fpm php5-gd php5-gmp php5-imap php5-ldap php5-mcrypt php5-memcache php5-memcached php5-mysql php5-odbc php5-pspell php5-recode php5-snmp php5-sqlite php5-sybase php5-tidy php5-xmlrpc php5-xsl php5-mongo php5-xmlrpc
 }
 
 phpredis() {
@@ -146,9 +164,7 @@ phpredis() {
 }
 
 samba() {
-	msg "Samba install start"
-	apt-get install -y samba
-	success "Install samba"
+	apt_add samba
 }
 
 copyconf() {
@@ -174,21 +190,25 @@ fi
 if [ $1 == "all" ]; then
 	msg "Install all packages."
 	repo_change;
-	update;
 	openssh;
 	utillity;
 	mysql;
 	redis;
-	nodejs;
 	java;
 	nginx;
 	phpfpm;
+	run_all;
+	nodejs;
 	phpredis;
-	msg "Complete."
 	exit;
 fi
 
+RUN=false;
 for (( i=1;$i<=$#;i=$i+1 ))
 do
-	function_exists ${!i} && eval ${!i} || msg "Can't find function..";
+	function_exists ${!i} && eval ${!i} ;RUN=true || msg "Can't find function..";
 done
+if $RUN eq true
+then
+	run_all;
+fi
