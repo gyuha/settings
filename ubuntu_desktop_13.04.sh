@@ -161,6 +161,7 @@ utilities() {
 	apt-get install -y gnome-commander
 	apt-get install -y filezilla
 	apt-get install -y geany geany-common geany-plugins
+	apt-get install -y terminator
 	#copy ./geany/colorschemes/* ~/.config/geany/colorschemes
 	success "Complete"
 }
@@ -169,7 +170,7 @@ guiDevTools() {
 	msg "Install GUI Dev Tools"
 	sudo add-apt-repository -y ppa:eugenesan/ppa
 	sudo apt-get update
-	apt-get install -y gitg rapidsvn vim-gnome meld smartgit
+	apt-get install -y gitg rapidsvn vim-gnome meld smartgit kdiff3
 	success "Complete"
 }
 
