@@ -165,6 +165,7 @@ utilities() {
 	apt-get install -y chromium-browser
 	apt-get install -y geany geany-common geany-plugins
 	apt-get install -y terminator
+	apt-get install -y launchy launchy-plugins launchy-skins
 	#copy ./geany/colorschemes/* ~/.config/geany/colorschemes
 	success "Complete"
 }
