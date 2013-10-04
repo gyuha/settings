@@ -170,6 +170,15 @@ utilities() {
 	success "Complete"
 }
 
+# only local run..
+copyconf() {
+	msg "Copy application settings"
+	cp -rf ./conf/geany/colorschemes/* ~/.config/geany/colorschemes
+	cp -rf ./conf/terminator ~/.config/
+	cp -rf ./conf/copyq  ~/.config/
+	success "Complete"
+}
+
 guiDevTools() {
 	msg "Install GUI Dev Tools"
 	add-apt-repository -y ppa:eugenesan/ppa

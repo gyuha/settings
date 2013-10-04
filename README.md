@@ -9,20 +9,37 @@ Simply copying and pasting the following line into a terminal.
 
 ### curl 설치
 기본 설치를 위해서 받아야 함.
+
     sudo apt-get install -y curl
 
-### Ubuntu 13.04 패키지 설치
+-----
+### 기본 서비스 패키지 설치
+
+#### Ubuntu 13.04 패키지 설치
+nodejs, java, nginx, vim, mysql, php-fpm 등 웹서비스에 필요한 패키지들 설치
 
     curl https://raw.github.com/gyuha/settings/master/ubuntu_13.04.sh | sudo bash -s all
 
-### Ubuntu Desktop 13.04 어플리케이션 설치
+#### 설정 파일 설치
 
-    curl https://raw.github.com/gyuha/settings/master/ubuntu_desktop_13.04.sh | sudo bash -s all
+    curl https://raw.github.com/gyuha/ubuntu_setting/master/ubuntu_13.04.sh | sudo bash -s copyconf
 
-### Linux user setting
+#### Linux user setting
+vim 및 리눅스 터미널용 설정.
+
     curl https://raw.github.com/gyuha/settings/master/bootstrap.sh | sh
 
 
-### 설정 파일 설치
+-----
+### Desktop 어플리케이션 설치
 
-    curl https://raw.github.com/gyuha/ubuntu_setting/master/ubuntu_13.04.sh | sudo bash -s copyconf
+#### Ubuntu Desktop 13.04 어플리케이션 설치
+
+    curl https://raw.github.com/gyuha/settings/master/ubuntu_desktop_13.04.sh | sudo bash -s all
+
+#### 어플케이션 설정 복사
+바로 위의 리눅스 사용자 설정을 한 이후에 해야 함.
+
+    cd ~/.settings
+	./ubuntu_desktop_13.04.sh copyconf
+
