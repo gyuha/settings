@@ -125,6 +125,7 @@ nodejs() {
 	msg "Node.js install start."
 	apt-get install -y python-software-properties software-properties-common
 	add-apt-repository -y  "ppa:chris-lea/node.js"
+	apt-get update
 	apt-get install -y nodejs
 	npm install express jade stylus socket.io locally redis-commander -g
 	success "Complate Node.js install"

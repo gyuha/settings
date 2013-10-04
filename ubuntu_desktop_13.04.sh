@@ -139,6 +139,7 @@ copyQ() {
 
 media() {
 	apt_add vlc audacious goldendict
+	apt_add smplayer
 }
 
 dictionary() {
@@ -152,6 +153,7 @@ gimp() {
 }
 
 restrictedExtras() {
+	# 여러가지 멀티 미디어에 쓰이는코덱과 폰트등을 설치해주는 도구
 	apt_add ubuntu-restricted-extras libavformat-extra-53 libavcodec-extra-53
 }
 
