@@ -129,21 +129,19 @@ nodejs() {
 	add-apt-repository -y  "ppa:chris-lea/node.js"
 	apt_add nodejs
 	npm install express jade stylus socket.io locally redis-commander -g
-	success "Install Node.js"
+	success "Complate Node.js install"
 }
 
 # Java 7 install
 java() {
 	repo_add "ppa:webupd8team/java"
 	apt_add oracle-java7-installer
-	success "Install Java7"
 }
 
 # Nginx install
 nginx() {
 	repo_add "ppa:nginx/stable"
 	apt_add nginx
-	success "Install Nginx"
 }
 
 # PHP-FPM install
