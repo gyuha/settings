@@ -19,7 +19,19 @@ END_COLOR='\e[0m'
 REPOS=()
 APTS=()
 
+apt_add() {
+	for p in $*;
+	do
+		APTS+=($p)
+	done;
+}
 
+repo_add() {
+	for p in $*;
+	do
+		REPOS+=($p)
+	done;
+}
 # BASIC SETUP TOOLS
 msg() {
 	printf $MAGENTA'%b\n'$END_COLOR "$1" >&2
@@ -60,20 +72,6 @@ repo_change() {
 	# 기본 저장소를 다음으로 바꾸기. 빨라진다
 	sed -i 's/us.archive.ubuntu.com/ftp.daum.net/' /etc/apt/sources.list
 	sed -i 's/kr.archive.ubuntu.com/ftp.daum.net/' /etc/apt/sources.list
-}
-
-apt_add() {
-	for p in $*;
-	do
-		APTS+=($p)
-	done;
-}
-
-repo_add() {
-	for p in $*;
-	do
-		REPOS+=($p)
-	done;
 }
 
 
@@ -125,9 +123,9 @@ redis() {
 # Node.js install
 nodejs() {
 	msg "Node.js install start."
-	apt_add python-software-properties software-properties-common
+	apt-get install -y python-software-properties software-properties-common
 	add-apt-repository -y  "ppa:chris-lea/node.js"
-	apt_add nodejs
+	apt-get install -y nodejs
 	npm install express jade stylus socket.io locally redis-commander -g
 	success "Complate Node.js install"
 }
@@ -206,7 +204,7 @@ fi
 RUN=false;
 for (( i=1;$i<=$#;i=$i+1 ))
 do
-	function_exists ${!i} && eval ${!i} ;RUN=true || msg "Can't find function..";
+	function_exists ${!i} && eval ${!i} && RUN=true || msg "Can't find function..";
 done
 if $RUN eq true
 then

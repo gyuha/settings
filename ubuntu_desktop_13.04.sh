@@ -15,6 +15,43 @@ CYAN='\e[0;36m'
 WHITE='\e[0;37m'
 END_COLOR='\e[0m'
 
+# apt-repository array
+REPOS=()
+APTS=()
+
+apt_add() {
+	for p in $*;
+	do
+		APTS+=($p)
+	done;
+}
+
+repo_add() {
+	for p in $*;
+	do
+		REPOS+=($p)
+	done;
+}
+
+run_all() {
+	apt_add python-software-properties software-properties-common
+
+	for p in ${REPOS[@]};
+	do
+		add-apt-repository -y $p
+	done;
+
+	update;
+
+	for p in ${APTS[@]};
+	do
+		msg "$p Install.."
+		apt-get install -y $p
+	done;
+	success "Complete"
+}
+
+
 # BASIC SETUP TOOLS
 msg() {
 	printf $MAGENTA'%b\n'$END_COLOR "$1" >&2
@@ -65,16 +102,12 @@ disableUnnecessayErrorMessage() {
 }
 
 uiTweakTools() {
-	msg "Install Compiz Config Settings Manager (CCSM)"
-	apt-get install -y compizconfig-settings-manager unity-tweak-tool gnome-tweak-tool
-	success "Complete"
+	apt_add compizconfig-settings-manager unity-tweak-tool gnome-tweak-tool
 }
 
 cpuMemIndicator() {
-	msg "Install CPU/Memory Indicator Applet"
-	add-apt-repository -y ppa:indicator-multiload/stable-daily
-	apt-get update
-	apt-get install -y indicator-multiload
+	repo_add ppa:indicator-multiload/stable-daily
+	apt_add indicator-multiload
 	success "Complete"
 }
 
@@ -92,82 +125,57 @@ removeLens() {
 }
 
 flash() {
-	msg "Install Adobe Flash Plugin"
-	apt-get install -y flashplugin-installer
-	success "Complete"
+	apt_add flashplugin-installer
 }
 
 torrent() {
-	msg "Install qBittorrent"
-	apt-get install -y qbittorrent
-	success "Complete"
+	apt_add qbittorrent
 }
 
 copyQ() {
-	msg "Install Copyq Indicator"
-	add-apt-repository -y ppa:samrog131/ppa
-	apt-get update
-	apt-get install -y copyq
-	success "Complete"
+	repo_add ppa:samrog131/ppa
+	apt_add copyq
 }
 
 media() {
-	msg "Install VLC"
-	apt-get install -y vlc audacious goldendict
-	success "Complete"
+	apt_add vlc audacious goldendict
 }
 
 dictionary() {
-	msg "Install dictionary"
-	apt-get install -y goldendict
+	apt_add -y goldendict
 	# 다음 미니 영한사전 : http://engdic.daum.net/dicen/small_search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
 	# 다음 일반 영한사전: http://engdic.daum.net/dicen/search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
-	success "Complete"
 }
 
 gimp() {
-	msg "Install gimp"
-	apt-get install -y gimp
-	success "Complete"
+	apt_add gimp
 }
 
 restrictedExtras() {
-	msg "Install Ubuntu Restricted Extras"
-	apt-get install -y ubuntu-restricted-extras libavformat-extra-53 libavcodec-extra-53
-	success "Complete"
+	apt_add ubuntu-restricted-extras libavformat-extra-53 libavcodec-extra-53
 }
 
 mysqlworkbench() {
-	msg " Install mysql-workbench"
-	apt-get install -y mysql-workbench
-	success "Complete"
+	apt_add mysql-workbench
 }
 
 serviceManager() {
-	msg "Install Service Manager"
-	apt-get install -y bum rcconf
-	success "Complete"
+	apt_add bum rcconf
 }
 
 googleCalendar() {
-	msg "Install Google Calendar Indicator"
-	add-apt-repository -y ppa:atareao/atareao
-	apt-get update
-	apt-get install -y calendar-indicator
-	success "Complete"
+	repo_add ppa:atareao/atareao
+	apt_add calendar-indicator
 }
 
 utilities() {
-	msg "Install Compression/Decompression tools"
-	apt-get install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
-	apt-get install -y gnome-commander libgnomevfs2-extra
-	apt-get install -y filezilla
-	apt-get install -y chromium-browser
-	apt-get install -y geany geany-common geany-plugins
-	apt-get install -y terminator
-	apt-get install -y gnome-do gnome-doc-utils gnome-do-plugins
-	#copy ./geany/colorschemes/* ~/.config/geany/colorschemes
-	success "Complete"
+	apt_add p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
+	apt_add gnome-commander libgnomevfs2-extra
+	apt_add filezilla
+	apt_add chromium-browser
+	apt_add geany geany-common geany-plugins
+	apt_add terminator
+	apt_add gnome-do gnome-doc-utils gnome-do-plugins
 }
 
 # only local run..
@@ -180,12 +188,10 @@ copyconf() {
 }
 
 guiDevTools() {
-	msg "Install GUI Dev Tools"
-	add-apt-repository -y ppa:eugenesan/ppa
-	apt-get update
-	apt-get install -y gitg rapidsvn vim-gnome meld
-	apt-get install -y smartgit
-	apt-get install -y mysql-workbench
+	repo_add ppa:eugenesan/ppa
+	apt_add gitg rapidsvn vim-gnome meld
+	apt_add smartgit
+	apt_add mysql-workbench
 	success "Complete"
 }
 
@@ -216,7 +222,12 @@ if [ $1 == "all" ]; then
 	exit;
 fi
 
+RUN=false;
 for (( i=1;$i<=$#;i=$i+1 ))
 do
-	function_exists ${!i} && eval ${!i} || msg "Can't find function..";
+	function_exists ${!i} && eval ${!i} && RUN=true || msg "Can't find function..";
 done
+if $RUN eq true
+then
+	run_all;
+fi
