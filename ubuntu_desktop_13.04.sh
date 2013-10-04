@@ -219,6 +219,7 @@ if [ $1 == "all" ]; then
 	googleCalendar;
 	utilities;
 	guiDevTools;
+	run_all;
 	#freeUpSpace;
 	msg "Complete."
 	exit;
