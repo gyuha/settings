@@ -107,7 +107,7 @@ openssh() {
 
 utillity() {
 	# Utillity install
-	apt_add cronolog vim ctags git subversion build-essential g++ curl libssl-dev sysv-rc-conf expect tmux htop rcconf
+	apt_add cronolog vim ctags git subversion build-essential g++ curl libssl-dev sysv-rc-conf expect tmux htop rcconf mc iotop
 }
 
 # MySQL install
