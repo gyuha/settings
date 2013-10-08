@@ -202,6 +202,11 @@ if [ $1 == "all" ]; then
 	exit;
 fi
 
+if [ $1 == "copyconf" ]; then
+	copyconf;
+	exit;
+fi
+
 RUN=false;
 for (( i=1;$i<=$#;i=$i+1 ))
 do
