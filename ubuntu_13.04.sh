@@ -70,8 +70,8 @@ function_exists() {
 
 repo_change() {
 	# 기본 저장소를 다음으로 바꾸기. 빨라진다
-	sed -i 's/us.archive.ubuntu.com/ftp.daum.net/' /etc/apt/sources.list
-	sed -i 's/kr.archive.ubuntu.com/ftp.daum.net/' /etc/apt/sources.list
+	#sed -i 's/us.archive.ubuntu.com/ftp.daum.net/' /etc/apt/sources.list
+	#sed -i 's/kr.archive.ubuntu.com/ftp.daum.net/' /etc/apt/sources.list
 }
 
 
