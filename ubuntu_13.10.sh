@@ -163,7 +163,9 @@ phpredis() {
 }
 
 samba() {
-	apt_add samba
+	apt-get install -y samba
+	sed -i 's/#  security = user/   security = user/' /etc/samba/smb.conf
+	sed -i 's/;\[homes\]/\[homes\]/' /etc/samba/smb.conf
 }
 
 copyconf() {
