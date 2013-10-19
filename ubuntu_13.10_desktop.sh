@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-if [ $UID -ne 0 ]; then
-	echo Non root user. Please run as root.
-	exit 1;
-fi
-
 BLACK='\e[0;30m'
 RED='\e[0;31m'
 GREEN='\e[0;32m'
@@ -94,11 +89,38 @@ update() {
 	success "Update Complete"
 }
 
+
+# only local run..
+copyconf() {
+	msg "Copy application settings"
+	cp -rf ./conf/geany/colorschemes ~/.config/geany
+	cp -rf ./conf/terminator ~/.config/
+	cp -rf ./conf/copyq  ~/.config/
+	success "Complete"
+}
+
+if [ $1 == "copyconf" ]; then
+	copyconf;
+	exit;
+fi
+
+
+# 관리자만 실행.
+if [ $UID -ne 0 ]; then
+	echo Non root user. Please run as root.
+	exit 1;
+fi
+
 disableUnnecessayErrorMessage() {
 	msg "Disable Unnecessary Error Messages from Appearing"
     sed -i "s/enabled=1/enabled=0/" /etc/default/apport
 	restart apport
 	success "Complete"
+}
+
+languagePack() {
+	apt-get install -y language-pack-ko language-pack-gnome-ko language-pack-ko-base language-pack-gnome-ko-base
+	check-language-support -l ko
 }
 
 uiTweakTools() {
@@ -180,14 +202,6 @@ utilities() {
 	apt_add gnome-do gnome-doc-utils gnome-do-plugins
 }
 
-# only local run..
-copyconf() {
-	msg "Copy application settings"
-	cp -rf ./conf/geany/colorschemes/* ~/.config/geany/colorschemes
-	cp -rf ./conf/terminator ~/.config/
-	cp -rf ./conf/copyq  ~/.config/
-	success "Complete"
-}
 
 guiDevTools() {
 	repo_add ppa:eugenesan/ppa
@@ -205,6 +219,7 @@ fi
 if [ $1 == "all" ]; then
 	msg "Install all packages."
 	disableUnnecessayErrorMessage;
+	languagePack;
 	serviceManager;
 	uiTweakTools;
 	cpuMemIndicator;
