@@ -202,10 +202,20 @@ utilities() {
 	apt_add gnome-do gnome-doc-utils gnome-do-plugins
 }
 
+powerlinefont() {
+	msg "Install powerline font"
+	cd /tmp
+	wget https://github.com/eugeneching/consolas-powerline-vim/raw/master/CONSOLA-Powerline.ttf
+	mv /tmp/CONSOLA-Powerline.ttf /usr/share/fonts/truetype
+	fc-cache -f
+	cd -
+	success "Complete"
+}
+
 
 guiDevTools() {
 	repo_add ppa:eugenesan/ppa
-	apt_add gitg rapidsvn vim-gnome meld
+	apt_add gitg rapidsvn vim-gtk meld
 	apt_add smartgit
 	apt_add mysql-workbench
 	success "Complete"
@@ -235,6 +245,7 @@ if [ $1 == "all" ]; then
 	utilities;
 	guiDevTools;
 	run_all;
+	powerlinefont;
 	#freeUpSpace;
 	msg "Complete."
 	exit;

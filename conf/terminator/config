@@ -10,7 +10,7 @@
 [profiles]
   [[default]]
     use_system_font = False
-    font = NanumConsolasPowerLine 12
+    font = Consolas for Powerline 12
     autoclean_groups = False
 [layouts]
   [[default]]

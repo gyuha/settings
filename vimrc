@@ -606,7 +606,7 @@ let g:gitgutter_realtime = 0
 if has('gui_running')
 	"set guioptions-=T			" Remove the toolbar
 	set lines=80 columns=120
-	set guifont=NanumConsolasPowerLine\ 12
+	set guifont=Consolas\ for\ Powerline\ 12
 	"if has("gui_gtk2")
 		"set guifont=NanumConsolasPowerLine\ 14
 		""set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
