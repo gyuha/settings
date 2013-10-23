@@ -199,7 +199,7 @@ utilities() {
 	apt_add chromium-browser
 	apt_add geany geany-common geany-plugins
 	apt_add terminator
-	apt_add gnome-do gnome-doc-utils gnome-do-plugins
+	# apt_add gnome-do gnome-doc-utils gnome-do-plugins
 }
 
 powerlinefont() {

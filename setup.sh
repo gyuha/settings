@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Vim setting base : http://vim.spf13.com/
 
 echo "Copy Settings"

@@ -25,12 +25,12 @@ nodejs, java, nginx, vim, mysql, php-fpm 등 웹서비스에 필요한 패키지
 
 #### 설정 파일 설치
 
-    curl https://raw.github.com/gyuha/ubuntu_setting/master/ubuntu_13.10.sh | sudo bash -s copyconf
+    curl https://raw.github.com/gyuha/settings/master/ubuntu_13.10.sh | sudo bash -s copyconf
 
 #### 리눅스 사용자 설정
 vim 및 리눅스 터미널용 설정.
 
-    curl https://raw.github.com/gyuha/settings/master/bootstrap.sh | sh
+    curl https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash
 
 
 ### Desktop 어플리케이션 설치
@@ -57,12 +57,12 @@ nodejs, java, nginx, vim, mysql, php-fpm 등 웹서비스에 필요한 패키지
 
 #### 설정 파일 설치
 
-    curl https://raw.github.com/gyuha/ubuntu_setting/master/ubuntu_13.04.sh | sudo bash -s copyconf
+    curl https://raw.github.com/gyuha/settings/master/ubuntu_13.04.sh | sudo bash -s copyconf
 
 #### 리눅스 사용자 설정
 vim 및 리눅스 터미널용 설정.
 
-    curl https://raw.github.com/gyuha/settings/master/bootstrap.sh | sh
+    curl https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash
 
 
 ### Desktop 어플리케이션 설치
