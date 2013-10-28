@@ -96,6 +96,16 @@ copyconf() {
 	cp -rf ./conf/geany/colorschemes ~/.config/geany
 	cp -rf ./conf/terminator ~/.config/
 	cp -rf ./conf/copyq  ~/.config/
+	# 한글 폴더명을 영문으로 바꾸기
+	cp -rf ./conf/user-dirs.dirs  ~/.config/
+	mv -f ~/바탕화면 ~/Desktop
+	mv -f ~/다운로드 ~/Downloads
+	mv -f ~/템플릿 ~/Templates
+	mv -f ~/공개 ~/Public
+	mv -f ~/문서 ~/Documents
+	mv -f ~/음악 ~/Music
+	mv -f ~/사진 ~/Pictures
+	mv -f ~/비디오 ~/Videos
 	success "Complete"
 }
 
