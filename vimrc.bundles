@@ -71,8 +71,8 @@
 	" In your .vimrc.bundles.local file"
 	" list only the plugin groups you will use
 	if !exists('g:g_bundle_groups')
-		"let g:g_bundle_groups=['general', 'neocomplcache', 'programming', 'php', 'ruby', 'python', 'go', 'twig', 'javascript', 'haskell', 'html', 'misc', 'scala']
-		let g:g_bundle_groups=['general', 'snipmate', 'autocomplpop', 'programming', 'php', 'ruby', 'python', 'go', 'twig', 'javascript', 'haskell', 'html', 'misc', 'scala']
+		let g:g_bundle_groups=['general', 'neocomplcache', 'programming', 'php', 'ruby', 'python', 'go', 'twig', 'javascript', 'haskell', 'html', 'misc', 'scala']
+		"let g:g_bundle_groups=['general', 'snipmate', 'autocomplpop', 'programming', 'php', 'ruby', 'python', 'go', 'twig', 'javascript', 'haskell', 'html', 'misc', 'scala']
 	endif
 
 	" To override all the included bundles, put
