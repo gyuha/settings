@@ -183,6 +183,13 @@ copyconf() {
 	success "Copy complete"
 }
 
+capistrano() {
+	apt-get install ruby rubygems
+	gem update
+	gem install capistrano
+	gem install capistrano-ext --no-ri --no-rdoc
+}
+
 if [ $# -eq 0 ]; then
 	msg "Select any packages.";
 	exit;
