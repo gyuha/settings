@@ -10,6 +10,8 @@ server {
 	autoindex on;
 	index index.php;
 
+	client_max_body_size 20M;
+
 	location / {
 
 		try_files $uri $uri/ /index.php;
