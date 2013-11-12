@@ -190,6 +190,14 @@ capistrano() {
 	gem install capistrano-ext --no-ri --no-rdoc
 }
 
+motd() {
+	msg "Dynamic MOTD"
+	curl https://raw.github.com/gyuha/ubuntu_setting/master/conf/50-system-info > /tmp/50-system-info
+	chmod +x /tmp/50-system-info
+	cp -f /tmp/50-system-info /etc/update-motd.d/50-system-info
+	rm -f /tmp/50-system-info
+}
+
 if [ $# -eq 0 ]; then
 	msg "Select any packages.";
 	exit;
@@ -198,6 +206,7 @@ fi
 if [ $1 == "all" ]; then
 	msg "Install all packages."
 	#repo_change;
+	motd;
 	openssh;
 	utillity;
 	mysql;
