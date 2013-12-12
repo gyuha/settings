@@ -186,7 +186,11 @@ let g:solarized_visibility="high"
 set tabpagemax=15				" Only show 15 tabs
 set showmode					" Display the current mode
 
-set cursorline					" Highlight current line
+if has("gui_running")
+	set cursorline					" Highlight current line
+else
+	set nocursorline					" Highlight current line
+endif
 
 highlight clear SignColumn		" SignColumn should match background for
 " things like vim-gitgutter
