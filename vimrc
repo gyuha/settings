@@ -54,6 +54,7 @@ nnoremap <Leader>9 :9b<CR>
 nnoremap <Leader>0 :10b<CR>
 "}
 
+noremap ; :
 
 " 저장시 자동으로 화이트 스페이스 제거.
 " 참고 : http://vim.wikia.com/wiki/Remove_unwanted_spaces
