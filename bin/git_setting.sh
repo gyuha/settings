@@ -48,6 +48,7 @@ git config --global color.interactive auto
 git config --global color.status auto
 git config --global core.editor vim
 git config --global push.default matching
+git config --global core.autocrlf true
 
 # Default git alias settings
 #  Reference URL : http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples
