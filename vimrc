@@ -150,44 +150,51 @@ set history=1000					" Store a ton of history (default is 20)
 set nospell							  " Spell checking off
 set hidden							" Allow buffer switching without saving
 
-" 홈 디렉토리가 존재할 때에만 사용할 수 있는 기능들
-if exists("$HOME")
-	" 홈 디렉토리를 구한다.
-	" 특정 시스템에서는 홈 디렉토리 경로 끝에 / 또는 \ 문자가
-	" 붙어 있기 때문에, 그것들을 제거한다.
-	let s:home_dir = $HOME
-	let s:temp = strpart(s:home_dir,strlen(s:home_dir)-1,1)
-	if s:temp == "/" || s:temp == "\\"
-		let s:home_dir = strpart(s:home_dir,0,strlen(s:home_dir)-1)
-	endif
-
-	" 경로 설정
-	if has("win32")
-		let s:dir_tmp = s:home_dir."/_vim/tmp"
-		let s:dir_backup = s:home_dir."/_vim/backup"
-	else
-		let s:dir_tmp = s:home_dir."/.vim/tmp"
-		let s:dir_backup = s:home_dir."/.vim/backup"
-	endif
-
-	" 임시 디렉토리 설정
-	if isdirectory(s:dir_tmp)
-		set swf
-		let &dir = s:dir_tmp
-	else
-		set noswf
-		set dir=.
-	endif
-
-	" 백업 디렉토리 설정
-	if isdirectory(s:dir_backup)
-		set bk
-		let &bdir = s:dir_backup
-		set bex=.bak
-	else
-		set nobk
-	endif
+if has("unix")
+	set backupdir=~/.vim/backup
+	set directory=~/.vim/tmp
+	silent execute '!del "~/.vim/tmp/*~"'
 endif
+
+" 홈 디렉토리가 존재할 때에만 사용할 수 있는 기능들
+"if exists("$HOME")
+	"" 홈 디렉토리를 구한다.
+	"" 특정 시스템에서는 홈 디렉토리 경로 끝에 / 또는 \ 문자가
+	"" 붙어 있기 때문에, 그것들을 제거한다.
+	"let s:home_dir = $HOME
+	"let s:temp = strpart(s:home_dir,strlen(s:home_dir)-1,1)
+	"if s:temp == "/" || s:temp == "\\"
+		"let s:home_dir = strpart(s:home_dir,0,strlen(s:home_dir)-1)
+	"endif
+
+	"" 경로 설정
+	"if has("win32")
+		"let s:dir_tmp = s:home_dir."/_vim/tmp"
+		"let s:dir_backup = s:home_dir."/_vim/backup"
+	"else
+		"let s:dir_tmp = s:home_dir."/.vim/tmp"
+		"let s:dir_backup = s:home_dir."/.vim/backup"
+	"endif
+
+	"" 임시 디렉토리 설정
+	"if isdirectory(s:dir_tmp)
+		"set swf
+		""let &dir = s:dir_tmp
+		"set backupdir=~/.vim/tmp
+	"else
+		"set noswf
+	"endif
+
+	"" 백업 디렉토리 설정
+	"if isdirectory(s:dir_backup)
+		"set bk
+		""let &bdir = s:dir_backup
+		""set bex=.bak
+		"set backupdir=~/.vim/backup
+	"else
+		"set nobk
+	"endif
+"endif
 
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
