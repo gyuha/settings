@@ -204,7 +204,7 @@ googleCalendar() {
 
 utilities() {
 	apt_add p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
-	apt_add gnome-commander libgnomevfs2-extra
+	apt_add gnome-commander libgnomevfs2-extra krusader krename
 	apt_add filezilla
 	apt_add chromium-browser
 	apt_add geany geany-common geany-plugins
