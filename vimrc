@@ -150,6 +150,45 @@ set history=1000					" Store a ton of history (default is 20)
 set nospell							  " Spell checking off
 set hidden							" Allow buffer switching without saving
 
+" 홈 디렉토리가 존재할 때에만 사용할 수 있는 기능들
+if exists("$HOME")
+	" 홈 디렉토리를 구한다.
+	" 특정 시스템에서는 홈 디렉토리 경로 끝에 / 또는 \ 문자가
+	" 붙어 있기 때문에, 그것들을 제거한다.
+	let s:home_dir = $HOME
+	let s:temp = strpart(s:home_dir,strlen(s:home_dir)-1,1)
+	if s:temp == "/" || s:temp == "\\"
+		let s:home_dir = strpart(s:home_dir,0,strlen(s:home_dir)-1)
+	endif
+
+	" 경로 설정
+	if has("win32")
+		let s:dir_tmp = s:home_dir."/_vim/tmp"
+		let s:dir_backup = s:home_dir."/_vim/backup"
+	else
+		let s:dir_tmp = s:home_dir."/.vim/tmp"
+		let s:dir_backup = s:home_dir."/.vim/backup"
+	endif
+
+	" 임시 디렉토리 설정
+	if isdirectory(s:dir_tmp)
+		set swf
+		let &dir = s:dir_tmp
+	else
+		set noswf
+		set dir=.
+	endif
+
+	" 백업 디렉토리 설정
+	if isdirectory(s:dir_backup)
+		set bk
+		let &bdir = s:dir_backup
+		set bex=.bak
+	else
+		set nobk
+	endif
+endif
+
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
@@ -644,48 +683,6 @@ com! -nargs=+		  UnBundle
 			\ call UnBundle(<args>)
 " }
 
-" Initialize directories {
-function! InitializeDirectories()
-	let parent = $HOME
-	let prefix = 'vim'
-	let dir_list = {
-				\ 'backup': 'backupdir',
-				\ 'views': 'viewdir',
-				\ 'swap': 'directory' }
-
-	if has('persistent_undo')
-		let dir_list['undo'] = 'undodir'
-	endif
-
-	" To specify a different directory in which to place the vimbackup,
-	" vimviews, vimundo, and vimswap files/directories, add the following to
-	" your .vimrc.local file:
-	"	let g:g_consolidated_directory = <full path to desired directory>
-	"	eg: let g:g_consolidated_directory = $HOME . '/.vim/'
-	if exists('g:g_consolidated_directory')
-		let common_dir = g:g_consolidated_directory . prefix
-	else
-		let common_dir = parent . '/.' . prefix
-	endif
-
-	for [dirname, settingname] in items(dir_list)
-		let directory = common_dir . dirname . '/'
-		if exists("*mkdir")
-			if !isdirectory(directory)
-				call mkdir(directory)
-			endif
-		endif
-		if !isdirectory(directory)
-			echo "Warning: Unable to create backup directory: " . directory
-			echo "Try: mkdir -p " . directory
-		else
-			let directory = substitute(directory, " ", "\\\\ ", "g")
-			exec "set " . settingname . "=" . directory
-		endif
-	endfor
-endfunction
-" }
-
 " Initialize NERDTree as needed {
 function! NERDTreeInitAsNeeded()
 	redir => bufoutput
@@ -763,9 +760,6 @@ if has('gui_running')
 endif
 " }
 
-" Finish local initializations {
-call InitializeDirectories()
-" }
 
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0

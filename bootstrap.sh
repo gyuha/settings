@@ -131,10 +131,20 @@ create_symlinks() {
         mkdir -p "$endpath/.vim/bundle"
     fi
 
-    ret="$?"
+    if [ ! -d "$endpath/.vim/tmp" ]; then
+        mkdir -p "$endpath/.vim/tmp"
+    fi
+
+    if [ ! -d "$endpath/.vim/backup" ]; then
+        mkdir -p "$endpath/.vim/backup"
+    fi
+
+    ret="ckup
+	$?"
     success "$1"
     debug
 }
+
 
 setup_vundle() {
     system_shell="$SHELL"
