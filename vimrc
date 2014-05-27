@@ -150,51 +150,45 @@ set history=1000					" Store a ton of history (default is 20)
 set nospell							  " Spell checking off
 set hidden							" Allow buffer switching without saving
 
-if has("unix")
-	set backupdir=~/.vim/backup
-	set directory=~/.vim/tmp
-	silent execute '!del "~/.vim/tmp/*~"'
+" Save your backups to a less annoying place than the current directory.
+" If you have .vim-backup in the current directory, it'll use that.
+" Otherwise it saves it to ~/.vim/backup or . if all else fails.
+if isdirectory($HOME . '/.vim/backup') == 0
+  :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
 endif
+set backupdir-=.
+set backupdir+=.
+set backupdir-=~/
+set backupdir^=~/.vim/backup/
+set backupdir^=./.vim-backup/
+set backup
 
-" 홈 디렉토리가 존재할 때에만 사용할 수 있는 기능들
-"if exists("$HOME")
-	"" 홈 디렉토리를 구한다.
-	"" 특정 시스템에서는 홈 디렉토리 경로 끝에 / 또는 \ 문자가
-	"" 붙어 있기 때문에, 그것들을 제거한다.
-	"let s:home_dir = $HOME
-	"let s:temp = strpart(s:home_dir,strlen(s:home_dir)-1,1)
-	"if s:temp == "/" || s:temp == "\\"
-		"let s:home_dir = strpart(s:home_dir,0,strlen(s:home_dir)-1)
-	"endif
+" Save your swp files to a less annoying place than the current directory.
+" If you have .vim-swap in the current directory, it'll use that.
+" Otherwise it saves it to ~/.vim/swap, ~/tmp or .
+if isdirectory($HOME . '/.vim/swap') == 0
+  :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+endif
+set directory=./.vim-swap//
+set directory+=~/.vim/swap//
+set directory+=~/tmp//
+set directory+=.
 
-	"" 경로 설정
-	"if has("win32")
-		"let s:dir_tmp = s:home_dir."/_vim/tmp"
-		"let s:dir_backup = s:home_dir."/_vim/backup"
-	"else
-		"let s:dir_tmp = s:home_dir."/.vim/tmp"
-		"let s:dir_backup = s:home_dir."/.vim/backup"
-	"endif
+" viminfo stores the the state of your previous editing session
+set viminfo+=n~/.vim/viminfo
 
-	"" 임시 디렉토리 설정
-	"if isdirectory(s:dir_tmp)
-		"set swf
-		""let &dir = s:dir_tmp
-		"set backupdir=~/.vim/tmp
-	"else
-		"set noswf
-	"endif
-
-	"" 백업 디렉토리 설정
-	"if isdirectory(s:dir_backup)
-		"set bk
-		""let &bdir = s:dir_backup
-		""set bex=.bak
-		"set backupdir=~/.vim/backup
-	"else
-		"set nobk
-	"endif
-"endif
+if exists("+undofile")
+  " undofile - This allows you to use undos after exiting and restarting
+  " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+  " :help undo-persistence
+  " This is only present in 7.3+
+  if isdirectory($HOME . '/.vim/undo') == 0
+    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  endif
+  set undodir=./.vim-undo//
+  set undodir+=~/.vim/undo//
+  set undofile
+endif
 
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
