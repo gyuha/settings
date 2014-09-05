@@ -176,7 +176,7 @@ copyconf() {
 	rm -f /tmp/nginx.conf
 	service nginx restart
 	msg "php-fpm"
-	curl https://raw.github.com/gyuha/ubuntu_setting/master/conf/php.dev.ini > /tmp/php.dev.ini
+	curl https://raw.github.com/gyuha/ubuntu_setting/master/conf/php.dev.14.04.ini > /tmp/php.dev.ini
 	cp -f /tmp/php.dev.ini /etc/php5/fpm/php.ini
 	rm -f /tmp/php.dev.ini
 	service php5-fpm restart
