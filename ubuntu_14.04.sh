@@ -205,7 +205,7 @@ fi
 
 if [ $1 == "all" ]; then
 	msg "Install all packages."
-	#repo_change;
+	repo_change;
 	motd;
 	openssh;
 	utillity;
