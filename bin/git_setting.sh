@@ -48,6 +48,8 @@ git config --global color.interactive auto
 git config --global color.status auto
 git config --global core.editor vim
 git config --global push.default matching
+git config --global diff.tool vimdiff
+git config --global difftool.prompt false
 
 # Default git alias settings
 #  Reference URL : http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples
@@ -84,6 +86,7 @@ git config --global alias.co 'checkout'
 git config --global alias.br 'branch'
 git config --global alias.diff 'diff --word-diff'
 git config --global alias.dc 'diff --cached'
+git config --global alias.d difftool
 git config --global alias.r 'reset'
 git config --global alias.r1 'reset HEAD^'
 git config --global alias.r2 'reset HEAD^^'
