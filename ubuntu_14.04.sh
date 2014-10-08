@@ -146,7 +146,7 @@ nginx() {
 # PHP-FPM install
 phpfpm() {
 	repo_add "ppa:l-mierzwa/lucid-php5"
-	apt_add php5-fpm php5 php-apc php-pear php5-cli php5-common php5-curl php5-dev php5-fpm php5-gd php5-gmp php5-imap php5-ldap php5-mcrypt php5-memcache php5-memcached php5-mysql php5-odbc php5-pspell php5-recode php5-snmp php5-sqlite php5-sybase php5-tidy php5-xmlrpc php5-xsl php5-mongo php5-xmlrpc php5-json php5-imagick
+	apt_add php5-fpm php5 php-apc php-pear php5-cli php5-common php5-curl php5-dev php5-fpm php5-gd php5-gmp php5-imap php5-ldap php5-mcrypt php5-memcache php5-memcached php5-mysql php5-odbc php5-pspell php5-recode php5-sqlite php5-sybase php5-tidy php5-xmlrpc php5-xsl php5-mongo php5-xmlrpc php5-json php5-imagick php5-redis
 }
 
 phpredis() {
@@ -176,7 +176,8 @@ copyconf() {
 	rm -f /tmp/nginx.conf
 	service nginx restart
 	msg "php-fpm"
-	curl -L https://raw.github.com/gyuha/ubuntu_setting/master/conf/php.dev.14.04.ini > /tmp/php.dev.ini
+	#curl -L https://raw.github.com/gyuha/ubuntu_setting/master/conf/php.dev.14.04.ini > /tmp/php.dev.ini
+	curl -L https://raw.githubusercontent.com/gyuha/settings/master/conf/php.dev.14.04.ini > /tmp/php.dev.ini
 	cp -f /tmp/php.dev.ini /etc/php5/fpm/php.ini
 	rm -f /tmp/php.dev.ini
 	service php5-fpm restart
