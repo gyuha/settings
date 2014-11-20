@@ -110,9 +110,9 @@ utillity() {
 	apt_add cronolog vim ctags git subversion build-essential g++ curl libssl-dev sysv-rc-conf expect tmux htop rcconf mc iotop
 }
 
-# MySQL install
+ MySQL install
 mysql() {
-	apt_add mysql-server mysql-client
+	apt_add mariadb-sever mysql-client
 }
 
 # Redis install

@@ -112,7 +112,7 @@ utillity() {
 
 # MySQL install
 mysql() {
-	apt_add mysql-server mysql-client
+	apt_add mariadb-server mysql-client
 }
 
 # Redis install
