@@ -210,6 +210,7 @@ utilities() {
 	apt_add geany geany-common geany-plugins
 	apt_add terminator
 	apt_add arandr
+	apt_add clipit
 	# apt_add gnome-do gnome-doc-utils gnome-do-plugins
 }
 
@@ -242,9 +243,9 @@ if [ $1 == "all" ]; then
 	disableUnnecessayErrorMessage;
 	languagePack;
 	serviceManager;
-	uiTweakTools;
+	#uiTweakTools;
 	cpuMemIndicator;
-	removeLens;
+	#removeLens;
 	flash;
 	torrent;
 	copyQ;
