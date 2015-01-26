@@ -54,7 +54,7 @@ git config --global difftool.prompt false
 # Default git alias settings
 #  Reference URL : http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples
 git config --global alias.l 'log --pretty=format:"%C(yellow)%h\\ [%ad]%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short --graph'
-git config --global alias.ls 'log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
+git config --global alias.ls 'log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --graph'
 git config --global alias.ll 'log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat'
 git config --global alias.lnc 'log --pretty=format:"%h\\ %s\\ [%cn]"'
 git config --global alias.lds 'log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short'
