@@ -42,11 +42,11 @@ auto lo
 iface lo inet loopback
 
 auto $1
-iface $1 inet static
-address $2
-netmask 255.255.255.0
-gateway $3
-dns-nameservers 168.126.63.1 8.8.8.8
+	iface $1 inet static
+	address $2
+	netmask 255.255.255.0
+	gateway $3
+	dns-nameservers 168.126.63.1 8.8.8.8
 "
 
 case "$1" in
