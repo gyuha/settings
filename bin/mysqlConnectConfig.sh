@@ -10,6 +10,12 @@ MAGENTA='\e[0;35m'
 RED='\e[0;31m'
 END_COLOR='\e[0m'
 
+echo -e "$MAGENTA
+###############################################
+#  NOTICE : Only User development service...  #
+############################################### $END_COLOR
+"
+
 echo -n MySQL Password:
 read -s password
 echo
