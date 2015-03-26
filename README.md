@@ -16,6 +16,15 @@ Simply copying and pasting the following line into a terminal.
 
 ### 기본 서비스 패키지 설치
 
+#### 리눅스 사용자 설정
+vim 및 리눅스 터미널용 설정.
+
+    curl -L https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash
+
+
+-----
+### Server
+
 #### php-fpm 개발 환경
 nodejs, java, nginx, vim, mysql, php-fpm 등 웹서비스에 필요한 패키지들 설치
 
@@ -25,15 +34,11 @@ nodejs, java, nginx, vim, mysql, php-fpm 등 웹서비스에 필요한 패키지
 
     curl -L https://raw.github.com/gyuha/settings/master/phpfpm.sh | sudo bash -s copyconf
 
-#### 리눅스 사용자 설정
-vim 및 리눅스 터미널용 설정.
 
-    curl -L https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash
+-----
+### Desktop
 
-
-### Desktop 어플리케이션 설치
-
-#### Ubuntu Desktop 14.10 어플리케이션 설치
+#### Desktop 어플리케이션 설치
 
     curl -L https://raw.github.com/gyuha/settings/master/desktop.sh | sudo bash -s all
 
