@@ -4,7 +4,7 @@
 JAVA=java
 
 # the location where closure-compiler Compressor is installed
-COMPILER=~/bin/compiler.jar
+COMPILER=~/.bin/compiler.jar
 
 ###############################################################################
 all=
