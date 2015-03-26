@@ -7,12 +7,7 @@ Gyuha's Linux Setting...
 
 Simply copying and pasting the following line into a terminal.
 
-### curl 설치
-기본 설치를 위해서 받아야 함.
-
-    sudo apt-get install -y curl
------
-#Ubuntu 14.10
+#Ubuntu 14.04
 
 ### 기본 서비스 패키지 설치
 
