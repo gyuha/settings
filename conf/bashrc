@@ -1,4 +1,4 @@
 # GYUHA SETTINGS
-if [ -f ~/linux_vim/bash_profile ]; then
-	. ~/linux_vim/bash_profile
+if [ -f ~/.settings/conf/bash_profile ]; then
+	. ~/.settings/conf/bash_profile
 fi
