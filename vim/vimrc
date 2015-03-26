@@ -762,7 +762,7 @@ endif
 " }
 
 
-if v:version < 703 || (v:version == 703 && !has('patch584'))
+"if v:version < 703 || (v:version == 703 && !has('patch584'))
 	" Disable AutoComplPop.
 	let g:acp_enableAtStartup = 0
 	" Use neocomplcache.
@@ -789,4 +789,4 @@ if v:version < 703 || (v:version == 703 && !has('patch584'))
 		let g:neocomplcache_keyword_patterns = {}
 	endif
 	let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-endif
+"endif
