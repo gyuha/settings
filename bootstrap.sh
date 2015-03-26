@@ -107,11 +107,10 @@ clone_vundle() {
 }
 
 create_symlinks() {
-    endpath="$HOME/.$app_name"
+    endpath="$HOME/.$app_name/vim"
 
     lnif "$endpath/vimrc"              "$HOME/.vimrc"
     lnif "$endpath/vimrc.bundles"      "$HOME/.vimrc.bundles"
-    lnif "$endpath/vim"                "$HOME/.vim"
 
     # Useful for fork maintainers
     touch  "$HOME/.vimrc.local"
@@ -139,8 +138,7 @@ create_symlinks() {
         mkdir -p "$endpath/.vim/backup"
     fi
 
-    ret="ckup
-	$?"
+	ret="$?"
     success "$1"
     debug
 }

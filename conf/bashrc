@@ -1,0 +1,4 @@
+# GYUHA SETTINGS
+if [ -f ~/.settings/conf/bash_profile ]; then
+	. ~/.settings/conf/bash_profile
+fi

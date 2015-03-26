@@ -10,7 +10,7 @@ ln -snf $BASEDIR/bin $HOME/.bin
 rm -rf $HOME/.tmux.conf
 
 PROFILE=$HOME"/.bashrc"
-POWERLINE="$BASEDIR/powerline"
+POWERLINE="$BASEDIR/conf/powerline"
 
 function usage()
 {
@@ -27,7 +27,7 @@ function powerline_setting()
 {
     echo "Use powerline"
     # Tmux 세팅
-    ln -snf $BASEDIR/tmux.conf $HOME/.tmux.conf
+    ln -snf $BASEDIR/conf/tmux.conf $HOME/.tmux.conf
     sed -i "s/\t\"wan_ip/\t\#\"wan_ip/" $BASEDIR/bin/tmux-powerline/themes/default.sh
     sed -i "s/\t\"mailcount/\t\#\"mailcount/" $BASEDIR/bin/tmux-powerline/themes/default.sh
     sed -i "s/\t\"now_playing/\t\#\"now_playing/" $BASEDIR/bin/tmux-powerline/themes/default.sh
@@ -46,8 +46,8 @@ then
 fi
 
 BASHRC_SRC="# GYUHA SETTINGS
-if [ -f $BASEDIR/bash_profile ]; then
-    . $BASEDIR/bash_profile
+if [ -f $BASEDIR/conf/bash_profile ]; then
+    . $BASEDIR/conf/bash_profile
 fi
 "
 

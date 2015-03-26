@@ -71,7 +71,11 @@
 	" In your .vimrc.bundles.local file"
 	" list only the plugin groups you will use
 	if !exists('g:g_bundle_groups')
-		let g:g_bundle_groups=['general', 'neocomplcache', 'programming', 'ruby', 'python', 'go', 'twig', 'javascript', 'haskell', 'misc', 'scala']
+		if v:version < 703 || (v:version == 703 && !has('patch584'))
+			let g:g_bundle_groups=['general', 'neocomplcache', 'programming', 'ruby', 'python', 'go', 'twig', 'javascript', 'haskell', 'misc', 'scala']
+		else
+			let g:g_bundle_groups=['general', 'YouCompleteMe', 'programming', 'ruby', 'python', 'go', 'twig', 'javascript', 'haskell', 'misc', 'scala']
+		endif
 		"let g:g_bundle_groups=['general', 'snipmate', 'autocomplpop', 'programming', 'php', 'ruby', 'python', 'go', 'twig', 'javascript', 'haskell', 'html', 'misc', 'scala']
 	endif
 
@@ -130,7 +134,7 @@
 			endif
 		endif
 
-	" Snippets & AutoComplete
+	" Auto Complete
 		if count(g:g_bundle_groups, 'snipmate')
 			Bundle 'garbas/vim-snipmate'
 			Bundle 'honza/vim-snippets'
@@ -142,13 +146,12 @@
 			Bundle 'Shougo/neocomplcache'
 			Bundle 'Shougo/neosnippet'
 			Bundle 'honza/vim-snippets'
-		elseif count(g:g_bundle_groups, 'neocomplete')
-			Bundle 'Shougo/neocomplete.vim.git'
-			Bundle 'Shougo/neosnippet'
-			Bundle 'honza/vim-snippets'
-		endif
-
-		if count(g:g_bundle_groups, 'autocomplpop')
+		elseif count(g:g_bundle_groups, 'YouCompleteMe')
+			Bundle 'gmarik/vundle'
+			Bundle 'Valloric/YouCompleteMe'
+			Bundle 'Valloric/ListToggle'
+			Bundle 'scrooloose/syntastic'
+		elseif count(g:g_bundle_groups, 'autocomplpop')
 			Bundle 'AutoComplPop'
 		endif
 

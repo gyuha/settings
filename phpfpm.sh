@@ -216,7 +216,7 @@ if [ $1 == "all" ]; then
 	nginx;
 	phpfpm;
 	run_all;
-	nodejs;
+	#nodejs;
 	phpredis;
 	exit;
 fi
