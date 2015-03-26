@@ -147,10 +147,8 @@
 			Bundle 'Shougo/neosnippet'
 			Bundle 'honza/vim-snippets'
 		elseif count(g:g_bundle_groups, 'YouCompleteMe')
-			Bundle 'gmarik/vundle'
 			Bundle 'Valloric/YouCompleteMe'
 			Bundle 'Valloric/ListToggle'
-			Bundle 'scrooloose/syntastic'
 		elseif count(g:g_bundle_groups, 'autocomplpop')
 			Bundle 'AutoComplPop'
 		endif
