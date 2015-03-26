@@ -111,7 +111,6 @@ create_symlinks() {
 
     lnif "$endpath/vimrc"              "$HOME/.vimrc"
     lnif "$endpath/vimrc.bundles"      "$HOME/.vimrc.bundles"
-#    lnif "$endpath/vim"                "$HOME/.vim"
 
     # Useful for fork maintainers
     touch  "$HOME/.vimrc.local"
