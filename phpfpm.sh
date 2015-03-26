@@ -139,28 +139,16 @@ java() {
 
 # Nginx install
 nginx() {
-	repo_add "ppa:nginx/stable"
+#	repo_add "ppa:nginx/stable"
 	apt_add nginx
 }
 
 # PHP-FPM install
 phpfpm() {
-	repo_add "ppa:l-mierzwa/lucid-php5"
+#	repo_add "ppa:l-mierzwa/lucid-php5"
 	apt_add php5-fpm php5 php-apc php-pear php5-cli php5-common php5-curl php5-dev php5-fpm php5-gd php5-gmp php5-imap php5-ldap php5-mcrypt php5-memcache php5-memcached php5-mysql php5-odbc php5-pspell php5-recode php5-sqlite php5-sybase php5-tidy php5-xmlrpc php5-xsl php5-mongo php5-xmlrpc php5-json php5-imagick php5-redis
 }
 
-phpredis() {
-	msg "phpredis install start"
-	pecl install redis
-	#git clone https://github.com/nicolasff/phpredis.git
-	#cd phpredis
-	#phpize
-	#./configure [--enable-redis-igbinary]
-	#make && make install
-	#cd -
-	#rm -rf phpredis
-	success "Install phpredis"
-}
 
 samba() {
 	apt-get install -y samba
@@ -211,13 +199,11 @@ if [ $1 == "all" ]; then
 	openssh;
 	utillity;
 	mysql;
-	redis;
 	#java;
 	nginx;
 	phpfpm;
 	run_all;
 	#nodejs;
-	phpredis;
 	exit;
 fi
 
