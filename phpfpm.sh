@@ -159,13 +159,13 @@ samba() {
 copyconf() {
 	msg "Copy service conf"
 	msg "Nginx"
-	curl -L https://raw.github.com/gyuha/ubuntu_setting/master/conf/nginx > /tmp/nginx.conf
+	curl -L https://raw.githubusercontent.com/gyuha/settings/master/conf/nginx > /tmp/nginx.conf
 	cp -f /tmp/nginx.conf /etc/nginx/sites-available/default
 	rm -f /tmp/nginx.conf
 	service nginx restart
 	msg "php-fpm"
 	#curl -L https://raw.github.com/gyuha/ubuntu_setting/master/conf/php.dev.14.04.ini > /tmp/php.dev.ini
-	curl -L https://raw.githubusercontent.com/gyuha/settings/master/conf/php.dev.14.04.ini > /tmp/php.dev.ini
+	curl -L https://raw.githubusercontent.com/gyuha/settings/master/conf/php.dev.ini > /tmp/php.dev.ini
 	cp -f /tmp/php.dev.ini /etc/php5/fpm/php.ini
 	rm -f /tmp/php.dev.ini
 	service php5-fpm restart
