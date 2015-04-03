@@ -241,12 +241,12 @@ fi
 if [ $1 == "all" ]; then
 	msg "Install all packages."
 	disableUnnecessayErrorMessage;
-	languagePack;
+	#languagePack;
 	serviceManager;
 	#uiTweakTools;
 	cpuMemIndicator;
 	#removeLens;
-	flash;
+	#flash;
 	torrent;
 	copyQ;
 	media;
