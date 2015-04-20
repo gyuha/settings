@@ -94,8 +94,6 @@ update() {
 copyconf() {
 	msg "Copy application settings"
 	cp -rf ./conf/geany/colorschemes ~/.config/geany
-	cp -rf ./conf/terminator ~/.config/
-	cp -rf ./conf/copyq  ~/.config/
 	# 한글 폴더명을 영문으로 바꾸기
 	cp -rf ./conf/user-dirs.dirs  ~/.config/
 	mv -f ~/바탕화면 ~/Desktop
@@ -164,24 +162,24 @@ torrent() {
 	apt_add qbittorrent
 }
 
-copyQ() {
-	repo_add ppa:samrog131/ppa
-	apt_add copyq
-}
-
 media() {
-	apt_add vlc audacious goldendict
+	apt_add vlc audacious
 	apt_add smplayer
 }
 
 dictionary() {
-	apt_add -y goldendict
+	apt_add goldendict
 	# 다음 미니 영한사전 : http://engdic.daum.net/dicen/small_search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
 	# 다음 일반 영한사전: http://engdic.daum.net/dicen/search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
 }
 
 gimp() {
 	apt_add gimp
+}
+
+everpad() {
+	repo_add ppa:nvbn-rm/ppa
+	apt_add everpad
 }
 
 restrictedExtras() {
@@ -197,18 +195,13 @@ serviceManager() {
 	apt_add bum rcconf
 }
 
-googleCalendar() {
-	repo_add ppa:atareao/atareao
-	apt_add calendar-indicator
-}
-
 utilities() {
 	apt_add p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
 	apt_add gnome-commander libgnomevfs2-extra krusader krename
 	apt_add filezilla
 	apt_add chromium-browser
 	apt_add geany geany-common geany-plugins
-	apt_add terminator
+	#apt_add terminator
 	apt_add arandr
 	apt_add clipit
 	# apt_add gnome-do gnome-doc-utils gnome-do-plugins
@@ -247,13 +240,12 @@ if [ $1 == "all" ]; then
 	cpuMemIndicator;
 	#removeLens;
 	#flash;
+	everpad;
 	torrent;
-	copyQ;
 	media;
 	dictionary;
 	gimp;
 	restrictedExtras;
-	googleCalendar;
 	utilities;
 	guiDevTools;
 	run_all;
