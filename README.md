@@ -11,14 +11,14 @@ Simply copying and pasting the following line into a terminal.
 
 ### 기본 서비스 패키지 설치
 
-#### 
+####
 
     wget -O - https://raw.github.com/gyuha/settings/master/start.sh | sudo bash -s all
 
 #### 리눅스 사용자 설정
 vim 및 리눅스 터미널용 설정.
 
-    wget -O - https://raw.github.com/gyuha/settings/master/vim_bootstrap.sh | bash
+    wget -O - https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash
 
 -----
 ### Server
