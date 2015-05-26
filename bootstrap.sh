@@ -163,5 +163,4 @@ clone_vundle    "Successfully cloned vundle"
 setup_vundle    "Now updating/installing plugins using Vundle"
 
 cd "$HOME/.$app_name"
-./setup.sh -p
-#./vimsetup.sh
+./shell.sh -p
