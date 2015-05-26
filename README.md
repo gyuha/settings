@@ -13,7 +13,7 @@ Simply copying and pasting the following line into a terminal.
 
 #### 
 
-    wget -O - https://raw.github.com/gyuha/settings/master/start.sh | bash
+    sudo wget -O - https://raw.github.com/gyuha/settings/master/start.sh | bash
 
 #### 리눅스 사용자 설정
 vim 및 리눅스 터미널용 설정.
