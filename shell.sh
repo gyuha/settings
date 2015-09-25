@@ -48,6 +48,7 @@ fi
 BASHRC_SRC="# GYUHA SETTINGS
 if [ -f $BASEDIR/conf/bash_profile ]; then
     . $BASEDIR/conf/bash_profile
+    . $BASEDIR/conf/bash_powerline.sh
 fi
 "
 
