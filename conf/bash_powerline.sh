@@ -14,24 +14,7 @@ __powerline() {
     readonly GIT_NEED_PULL_SYMBOL='⇣'
 
     # Solarized colorscheme
-    readonly FG_BASE00="\[$(tput setaf 0)\]"
-    readonly FG_BASE07="\[$(tput setaf 7)\]"
-    readonly FG_BASE08="\[$(tput setaf 8)\]"
-    readonly FG_BASE10="\[$(tput setaf 10)\]"
-    readonly FG_BASE11="\[$(tput setaf 11)\]"
-    readonly FG_BASE12="\[$(tput setaf 12)\]"
-    readonly FG_BASE14="\[$(tput setaf 14)\]"
-    readonly FG_BASE15="\[$(tput setaf 15)\]"
-
-    readonly BG_BASE00="\[$(tput setab 0)\]"
-    readonly BG_BASE07="\[$(tput setab 7)\]"
-    readonly BG_BASE08="\[$(tput setab 8)\]"
-    readonly BG_BASE10="\[$(tput setab 10)\]"
-    readonly BG_BASE11="\[$(tput setab 11)\]"
-    readonly BG_BASE12="\[$(tput setab 12)\]"
-    readonly BG_BASE14="\[$(tput setab 14)\]"
-    readonly BG_BASE15="\[$(tput setab 15)\]"
-
+    readonly FG_BLACK="\[$(tput setaf 0)\]"
     readonly FG_BLUE="\[$(tput setaf 4)\]"
     readonly FG_CYAN="\[$(tput setaf 6)\]"
     readonly FG_GREEN="\[$(tput setaf 2)\]"
@@ -42,6 +25,7 @@ __powerline() {
     readonly FG_YELLOW="\[$(tput setaf 3)\]"
     readonly FG_WHITE="\[$(tput setaf 7)\]"
 
+    readonly BG_BLACK="\[$(tput setab 0)\]"
     readonly BG_BLUE="\[$(tput setab 4)\]"
     readonly BG_CYAN="\[$(tput setab 6)\]"
     readonly BG_GREEN="\[$(tput setab 2)\]"
@@ -90,7 +74,7 @@ __powerline() {
             local BG_EXIT="$BG_RED"
         fi
 
-		PS1="$BG_YELLOW$FG_BASE00 \u@\h $RESET"
+		PS1="$BG_YELLOW$FG_BLACK \u@\h $RESET"
 		PS1+="$BG_ORANGE$FG_YELLOW$PS_SEPARATOR_BOLD"
         PS1+="$BG_ORANGE$FG_WHITE$(__git_info)"
 		PS1+="$BG_BLUE$FG_ORANGE$PS_SEPARATOR_BOLD"
