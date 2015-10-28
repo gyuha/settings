@@ -1,0 +1,2 @@
+#!/bin/bash
+wget -qO- https://registry.hub.docker.com//v1/repositories/$1/tags | jq '.[].name'
