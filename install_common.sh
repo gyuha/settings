@@ -74,7 +74,7 @@ function_exists() {
 update() {
 	msg "Ubuntu update start."
 	apt-get update
-	apt-get upgrade
+#	apt-get upgrade
 	success "Update Complete"
 }
 
