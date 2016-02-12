@@ -155,9 +155,6 @@ setup_vundle() {
 }
 
 ############################ MAIN()
-apt-get update
-apt-get install -y vim git
-
 program_exists "vim" "To install $app_name you first need to install Vim."
 
 clone_repo "Successfully cloned $app_name"
