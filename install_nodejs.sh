@@ -17,8 +17,5 @@ if ! [[ $VERSION =~ $re ]]; then
 	exit 1
 fi
 
-apt-get remove --purge nodejs
-echo Install : https://deb.nodesource.com/setup_$VERSION.x
 curl -sL https://deb.nodesource.com/setup_$VERSION.x | bash -s
 apt-get install -y nodejs
-apt-get install -y build-essential
