@@ -20,32 +20,33 @@ vim 및 리눅스 터미널용 설정.
 	wget -O - https://goo.gl/ti6IoK | bash
 
 -----
-### Server
+### Server Install
+
+#### 각종 유틸리티 설치
+	cd ~/.settings
+	sudo ./install_utility.sh
 
 #### node js 설치
 	cd ~/.settings
-	sudo ./nodejsInstall.sh [VERSION]
+	sudo ./install_nodejs.sh [VERSION]
 
-#### php-fpm 개발 환경
-nodejs, java, nginx, vim, mysql, php-fpm 등 웹서비스에 필요한 패키지들 설치
+#### php-fpm & nginx 설치
+	cd ~/.settings
+	sudo ./install_nginx_phpfpm.sh
+	# 설정 파일 설치
+	sudo ./install_nginx_phpfpm.sh copyconf
 
-    wget -O - https://raw.github.com/gyuha/settings/master/phpfpm.sh | sudo bash -s all
-
-#### 설정 파일 설치
-
-    wget -O - https://raw.github.com/gyuha/settings/master/phpfpm.sh | sudo bash -s copyconf
+#### java 8 설치
+	cd ~/.settings
+	sudo ./install_utility.sh java
 
 
 -----
 ### Desktop
 
 #### Desktop 어플리케이션 설치
-
-    wget -O - https://raw.github.com/gyuha/settings/master/desktop.sh | sudo bash -s all
-
-#### 어플케이션 설정 복사
-리눅스 사용자 설정을 한 이후에 해야 함.
-
-    cd ~/.settings
-	./ubuntu_14.04_desktop.sh copyconf
+	cd ~/.settings
+	sudo ./install_desktop_app.sh
+	# 어플케이션 설정 복사
+	./install_desktop_app copyconf
 

@@ -41,3 +41,4 @@ if [ $1 == "copyconf" ]; then
 	exit;
 fi
 
+source ./install_run.sh
