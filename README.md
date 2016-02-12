@@ -11,17 +11,20 @@ Simply copying and pasting the following line into a terminal.
 
 ### 기본 서비스 패키지 설치
 
-####
-
-    wget -O - https://raw.github.com/gyuha/settings/master/start.sh | sudo bash -s all
-
 #### 리눅스 사용자 설정
 vim 및 리눅스 터미널용 설정.
 
+	sudo apt-get install git
     wget -O - https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash
+	# 또는
+	wget -O - https://goo.gl/ti6IoK | bash
 
 -----
 ### Server
+
+#### node js 설치
+	cd ~/.settings
+	sudo ./nodejsInstall.sh [VERSION]
 
 #### php-fpm 개발 환경
 nodejs, java, nginx, vim, mysql, php-fpm 등 웹서비스에 필요한 패키지들 설치
