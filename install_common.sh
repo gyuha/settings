@@ -91,7 +91,7 @@ run_all() {
 	for p in ${APTS[@]};
 	do
 		msg "$p Install.."
-		apt-get install -y $p
+		apt-get -y install $p
 	done;
 	success "Complete"
 }
