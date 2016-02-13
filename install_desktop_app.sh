@@ -126,7 +126,7 @@ guiDevTools() {
 	success "Complete"
 }
 
-if [ $1 == "all" ]; then
+if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	disableUnnecessayErrorMessage;
 	#languagePack;
