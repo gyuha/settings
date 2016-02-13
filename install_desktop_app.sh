@@ -74,6 +74,7 @@ dictionary() {
 }
 
 gimp() {
+	repo_add ppa:otto-kesselgulasch/gimp
 	apt_add gimp
 }
 
@@ -136,7 +137,7 @@ if [ $PACKAGES == "all" ]; then
 	disableUnnecessayErrorMessage;
 	#languagePack;
 	serviceManager;
-	#uiTweakTools;
+	uiTweakTools;
 	cpuMemIndicator;
 	#removeLens;
 	#flash;

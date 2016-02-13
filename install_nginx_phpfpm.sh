@@ -18,13 +18,14 @@ copyconf() {
 
 	msg "Nginx"
 	cp -f /etc/nginx/sites-available/default /tmp/nginx.conf
-	cp -f ./conf/nginx/nginx.conf /etc/nginx/sites-available/default
-	service nginx restart
+	cp -f ./conf/nginx.conf /etc/nginx/sites-available/default
 
 	msg "php-fpm"
 	cp -f /etc/php5/fpm/php.ini /tmp/php.dev.ini
 	cp -f ./conf/php.dev.ini /etc/php5/fpm/php.ini
+
 	service php5-fpm restart
+	service nginx restart
 	success "Copy complete"
 }
 
