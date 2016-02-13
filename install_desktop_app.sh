@@ -126,6 +126,11 @@ guiDevTools() {
 	success "Complete"
 }
 
+atom() {
+	repo_add ppa:webupd8team/atom
+	apt_add atom
+}
+
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	disableUnnecessayErrorMessage;
@@ -145,6 +150,7 @@ if [ $PACKAGES == "all" ]; then
 	guiDevTools;
 	run_all;
 	powerlinefont;
+	atom
 	#freeUpSpace;
 	msg "Complete."
 	exit;
