@@ -77,6 +77,7 @@ if [ $PACKAGES == "all" ]; then
 	run_all;
 	php7_redis;
 	php7_mongodb;
+	copyconf;
 	exit;
 fi
 
