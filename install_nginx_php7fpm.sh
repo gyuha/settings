@@ -18,6 +18,20 @@ redis_server() {
 	apt_add redis-server
 }
 
+php7_mongodb() {
+	apt-get install -y libcurl4-openssl-dev
+	pecl install mongodb
+
+	cd /etc/php/mods-available
+	echo "extension=mongodb.so" > mongodb.ini
+
+	cd /etc/php/7.0/fpm/conf.d/
+	ln -sf /etc/php/mods-available/mongodb.ini ./20-mongodb.ini
+
+	cd /etc/php/7.0/cli/conf.d/
+	ln -sf /etc/php/mods-available/mongodb./20-mongodb.ini
+}
+
 php7_redis() {
 	# Install php 7 redis
 	git clone https://github.com/phpredis/phpredis.git
@@ -62,6 +76,7 @@ if [ $PACKAGES == "all" ]; then
 	redis_server;
 	run_all;
 	php7_redis;
+	php7_mongodb;
 	exit;
 fi
 
