@@ -42,14 +42,15 @@ copyconf() {
 	msg "Copy service conf"
 
 	msg "Nginx"
-	cp -f /etc/nginx/sites-available/default /tmp/nginx.conf
+	copy_increase_number /etc/nginx/sites-available/default /tmp/nginx.conf
 	cp -f ./conf/nginx/nginx.conf /etc/nginx/sites-available/default
-	service nginx restart
 
 	msg "php-fpm"
-	cp -f /etc/php5/fpm/php.ini /tmp/php.dev.ini
+	copy_increase_number /etc/php7/fpm/php.ini /tmp/php.dev.ini
 	cp -f ./conf/php.dev.ini /etc/php5/fpm/php.ini
-	service php5-fpm restart
+
+	service nginx restart
+	service php7.0-fpm restart
 	success "Copy complete"
 }
 

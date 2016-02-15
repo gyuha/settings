@@ -101,3 +101,22 @@ if [ $# -eq 1 ]; then
 	PACKAGES=$1
 fi
 
+# exist file increase number
+copy_increase_number() {
+	name=$2
+	path=$(dirname "$name")
+	filename=$(basename "$name")
+	extension="${filename##*.}"
+	filename="${filename%.*}"
+	if [[ -e $path/$filename.$extension ]] ; then
+		i=1
+		while [[ -e $path/$filename-$i.$extension ]] ; do
+			let i++
+		done
+		filename=$filename-$i
+	fi
+	tar=$path/$filename.$extension
+	msg "COPY : $1 => $tar"
+	cp -f $1 $tar
+}
+
