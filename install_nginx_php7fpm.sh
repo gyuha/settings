@@ -26,6 +26,7 @@ php7_redis() {
 	phpize
 	./configure
 	make && make install
+	cd ..
 	rm -rf phpredis
 
 	cd /etc/php/mods-available
@@ -43,11 +44,11 @@ copyconf() {
 
 	msg "Nginx"
 	copy_increase_number /etc/nginx/sites-available/default /tmp/nginx.conf
-	cp -f ./conf/nginx/nginx.conf /etc/nginx/sites-available/default
+	cp -f ./conf/php7.0/nginx-site-default.conf /etc/nginx/sites-enabled/default
 
 	msg "php-fpm"
 	copy_increase_number /etc/php7/fpm/php.ini /tmp/php.dev.ini
-	cp -f ./conf/php.dev.ini /etc/php5/fpm/php.ini
+	cp -f ./conf/php7.0/php-fpm.ini /etc/php/7.0/fpm/php.ini
 
 	service nginx restart
 	service php7.0-fpm restart
