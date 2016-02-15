@@ -47,7 +47,7 @@ copyconf() {
 	cp -f ./conf/php7.0/nginx-site-default.conf /etc/nginx/sites-enabled/default
 
 	msg "php-fpm"
-	copy_increase_number /etc/php7/fpm/php.ini /tmp/php.dev.ini
+	copy_increase_number /etc/php/7.0/fpm/php.ini /tmp/php.dev.ini
 	cp -f ./conf/php7.0/php-fpm.ini /etc/php/7.0/fpm/php.ini
 
 	service nginx restart
