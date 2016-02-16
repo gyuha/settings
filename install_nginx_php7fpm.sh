@@ -29,7 +29,12 @@ php7_mongodb() {
 	ln -sf /etc/php/mods-available/mongodb.ini ./20-mongodb.ini
 
 	cd /etc/php/7.0/cli/conf.d/
-	ln -sf /etc/php/mods-available/mongodb./20-mongodb.ini
+	ln -sf /etc/php/mods-available/mongodb.ini ./20-mongodb.ini
+}
+
+composer() {
+	curl -sS https://getcomposer.org/installer | php
+	mv composer.phar /usr/local/bin/composer
 }
 
 php7_redis() {
@@ -77,6 +82,7 @@ if [ $PACKAGES == "all" ]; then
 	run_all;
 	php7_redis;
 	php7_mongodb;
+	composer;
 	copyconf;
 	exit;
 fi
