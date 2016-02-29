@@ -80,7 +80,7 @@ if [ $PACKAGES == "all" ]; then
 	phpfpm;
 	redis_server;
 	run_all;
-	php7_redis;
+	#php7_redis;
 	#php7_mongodb;
 	#composer;
 	#copyconf;
