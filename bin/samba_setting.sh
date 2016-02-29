@@ -15,9 +15,9 @@ Samba Settings
 Usage: `basename $0` [-i] [-p] [-h] [-u] [-r]
 
 	-i : Install samba service
-    -p : Add samba share path
-    -u : Add samba user
-    -h : help
+	-p : Add samba share path
+	-u : Add samba user
+	-h : help
 	-r : Restart samba service
     "
 }
