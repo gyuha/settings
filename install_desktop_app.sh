@@ -132,6 +132,11 @@ atom() {
 	apt_add atom
 }
 
+sublime_text3() {
+	repo_add ppa:webupd8team/sublime-text-3
+	apt_add sublime-text-installer
+}
+
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	disableUnnecessayErrorMessage;
@@ -152,6 +157,7 @@ if [ $PACKAGES == "all" ]; then
 	run_all;
 	powerlinefont;
 	atom
+	sublime_text3
 	#freeUpSpace;
 	msg "Complete."
 	exit;
