@@ -10,7 +10,7 @@ nginx() {
 
 # PHP-FPM install
 phpfpm() {
-	apt_add php5-fpm php5 php-apc php-pear php5-cli php5-common php5-curl php5-dev php5-fpm php5-gd php5-gmp php5-imap php5-ldap php5-mcrypt php5-memcache php5-memcached php5-mysql php5-odbc php5-pspell php5-recode php5-sqlite php5-sybase php5-tidy php5-xmlrpc php5-xsl php5-mongo php5-xmlrpc php5-json php5-imagick php5-redis
+	apt_add php7.0 php7.0-fpm php7.0-cli php7.0-common php7.0-curl php7.0-gd php7.0-gmp php7.0-json php7.0-ldap php7.0-mysql php7.0-odbc php7.0-pspell php7.0-readline php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xml php7.0-xmlrpc php7.0-bcmath php7.0-bz2 php7.0-enchant php7.0-fpm php7.0-imap php7.0-interbase php7.0-intl php7.0-mbstring php7.0-mcrypt php7.0-phpdbg php7.0-soap php7.0-sybase php7.0-xsl php7.0-zip php-imagick php-redis php-apc php-pear
 }
 
 copyconf() {
