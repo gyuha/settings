@@ -7,7 +7,7 @@ Gyuha's Linux Setting...
 
 Simply copying and pasting the following line into a terminal.
 
-#Ubuntu 14.04
+#Ubuntu 16.04
 
 ### 기본 서비스 패키지 설치
 
