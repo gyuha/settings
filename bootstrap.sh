@@ -154,11 +154,11 @@ setup_vundle() {
     debug
 }
 
+
 setup_vim() {
 	############################ MAIN()
 	program_exists "vim" "To install $app_name you first need to install Vim."
 
-	clone_repo "Successfully cloned $app_name"
 	create_symlinks "Setting up vim symlinks"
 	clone_vundle    "Successfully cloned vundle"
 	setup_vundle    "Now updating/installing plugins using Vundle"
@@ -172,6 +172,8 @@ Usage: `basename $0` [-a OR ID OR name] [-h]
 	-h : help
 	"
 }
+
+clone_repo "Successfully cloned $app_name"
 
 POWERLINE=""
 case "$1" in
