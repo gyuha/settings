@@ -115,10 +115,10 @@ powerlinefont() {
 	msg "Install powerline font"
 	cd /tmp
 	git clone https://github.com/powerline/fonts.git
-	mv /tmp/fonts/* /usr/share/fonts/truetype
+	./fonts/install.sh
 	rm -rf fonts
 	wget https://github.com/eugeneching/consolas-powerline-vim/raw/master/CONSOLA-Powerline.ttf
-	mv /tmp/CONSOLA-Powerline.ttf /usr/share/fonts/truetype
+	mv /tmp/CONSOLA-Powerline.ttf $HOME/.local/share/fonts
 	fc-cache -f
 	cd -
 	success "Complete"
