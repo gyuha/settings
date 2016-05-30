@@ -12,12 +12,18 @@ Simply copying and pasting the following line into a terminal.
 ### 기본 서비스 패키지 설치
 
 #### 리눅스 사용자 설정
-vim 및 리눅스 터미널용 설정.
+리눅스 터미널용 설정.
 
 	sudo apt-get install git vim
     wget -O - https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash
 	# 또는
 	wget -O - https://goo.gl/ti6IoK | bash
+
+	# vim 설정
+    wget -O - https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash -s -- -v
+
+	# Powerline 설정
+    wget -O - https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash -s -- -p
 
 -----
 ### Server Install
