@@ -154,7 +154,7 @@ set hidden							" Allow buffer switching without saving
 " If you have .vim-backup in the current directory, it'll use that.
 " Otherwise it saves it to ~/.vim/backup or . if all else fails.
 if isdirectory($HOME . '/.vim/backup') == 0
-  :silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
+	:silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
 endif
 set backupdir-=.
 set backupdir+=.
@@ -167,7 +167,7 @@ set backup
 " If you have .vim-swap in the current directory, it'll use that.
 " Otherwise it saves it to ~/.vim/swap, ~/tmp or .
 if isdirectory($HOME . '/.vim/swap') == 0
-  :silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+	:silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
 endif
 set directory=./.vim-swap//
 set directory+=~/.vim/swap//
@@ -178,16 +178,16 @@ set directory+=.
 set viminfo+=n~/.vim/viminfo
 
 if exists("+undofile")
-  " undofile - This allows you to use undos after exiting and restarting
-  " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
-  " :help undo-persistence
-  " This is only present in 7.3+
-  if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
-  endif
-  set undodir=./.vim-undo//
-  set undodir+=~/.vim/undo//
-  set undofile
+	" undofile - This allows you to use undos after exiting and restarting
+	" This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+	" :help undo-persistence
+	" This is only present in 7.3+
+	if isdirectory($HOME . '/.vim/undo') == 0
+		:silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+	endif
+	set undodir=./.vim-undo//
+	set undodir+=~/.vim/undo//
+	set undofile
 endif
 
 " Instead of reverting the cursor to the last position in the buffer, we
@@ -624,18 +624,21 @@ let g:indent_guides_enable_on_vim_startup = 0
 " }
 
 " airline {
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='powerlineish'		" airline users use the powerline theme
-
-let g:airline_left_sep='⮀'				" Slightly fancier separator, instead of '⮀'
-let g:airline_right_sep='⮂'				" Slightly fancier separator, instead of '⮂'
-let g:airline_powerline_fonts=0
-if exists('g:airline_powerline_fonts')
-	let g:airline_left_sep='⮀'				" Slightly fancier separator, instead of '⮀'
-	let g:airline_right_sep='⮂'				" Slightly fancier separator, instead of '⮂'
-	"let g:airline_left_sep=' ›'				" Slightly fancier separator, instead of '>'
-	"let g:airline_right_sep='‹'				" Slightly fancier separator, instead of '<'
+if !exists('g:airline_symbols')
+	let g:airline_symbols = {}
 endif
+
+let g:airline#extensions#tabline#enabled = 1
+let g:Powerline_symbols = 'fancy'
+
+" unicode symbols
+"let g:airline_left_sep='⮀'				" Slightly fancier separator, instead of '⮀'
+"let g:airline_right_sep='⮂'				" Slightly fancier separator, instead of '⮂'
+"let g:airline_left_sep='>'				" Slightly fancier separator, instead of '>'
+"let g:airline_right_sep='<'				" Slightly fancier separator, instead of '<'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.branch = '⎇'
 " }
 
 " vim-gitgutter {
@@ -653,12 +656,12 @@ if has('gui_running')
 	set lines=80 columns=120
 	set guifont=Consolas\ for\ Powerline\ 12
 	"if has("gui_gtk2")
-		"set guifont=NanumConsolasPowerLine\ 14
-		""set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
+	"set guifont=NanumConsolasPowerLine\ 14
+	""set guifont=Andale\ Mono\ Regular\ 16,Menlo\ Regular\ 15,Consolas\ Regular\ 16,Courier\ New\ Regular\ 18
 	"elseif has("gui_mac")
-		"set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
+	"set guifont=Andale\ Mono\ Regular:h16,Menlo\ Regular:h15,Consolas\ Regular:h16,Courier\ New\ Regular:h18
 	"elseif has("gui_win32")
-		"set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
+	"set guifont=Andale_Mono:h10,Menlo:h10,Consolas:h10,Courier_New:h10
 	"endif
 	if has('gui_macvim')
 		set transparency=5		" Make the window slightly transparent
@@ -763,30 +766,30 @@ endif
 
 
 "if v:version < 703 || (v:version == 703 && !has('patch584'))
-	" Disable AutoComplPop.
-	let g:acp_enableAtStartup = 0
-	" Use neocomplcache.
-	let g:neocomplcache_enable_at_startup = 1
-	" Use smartcase.
-	let g:neocomplcache_enable_smart_case = 1
-	" Use camel case completion.
-	let g:neocomplcache_enable_camel_case_completion = 1
-	" Use underbar completion.
-	let g:neocomplcache_enable_underbar_completion = 1
-	" Set minimum syntax keyword length.
-	let g:neocomplcache_min_syntax_length = 3
-	let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Use camel case completion.
+let g:neocomplcache_enable_camel_case_completion = 1
+" Use underbar completion.
+let g:neocomplcache_enable_underbar_completion = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
-	" Define dictionary.
-	let g:neocomplcache_dictionary_filetype_lists = {
-		\ 'default' : '',
-		\ 'vimshell' : $HOME.'/.vimshell_hist',
-		\ 'scheme' : $HOME.'/.gosh_completions'
-		\ }
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+			\ 'default' : '',
+			\ 'vimshell' : $HOME.'/.vimshell_hist',
+			\ 'scheme' : $HOME.'/.gosh_completions'
+			\ }
 
-	" Define keyword.
-	if !exists('g:neocomplcache_keyword_patterns')
-		let g:neocomplcache_keyword_patterns = {}
-	endif
-	let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+" Define keyword.
+if !exists('g:neocomplcache_keyword_patterns')
+	let g:neocomplcache_keyword_patterns = {}
+endif
+let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 "endif
