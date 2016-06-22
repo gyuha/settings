@@ -6,8 +6,12 @@ source ./install_common.sh
 copyconf() {
 	msg "Copy application settings"
 	cp -rf ./conf/geany/colorschemes ~/.config/geany
-	# 한글 폴더명을 영문으로 바꾸기
-	cp -rf ./conf/user-dirs.dirs  ~/.config/
+	success "Complete"
+}
+
+koreanHome() {
+	# 한글로 설치 후 기본 폴더명 변경.
+	cp -rf ~/.settings/conf/user-dirs.dirs  ~/.config/
 	mv -f ~/바탕화면 ~/Desktop
 	mv -f ~/다운로드 ~/Downloads
 	mv -f ~/템플릿 ~/Templates
@@ -16,7 +20,6 @@ copyconf() {
 	mv -f ~/음악 ~/Music
 	mv -f ~/사진 ~/Pictures
 	mv -f ~/비디오 ~/Videos
-	success "Complete"
 }
 
 disableUnnecessayErrorMessage() {
@@ -111,8 +114,11 @@ utilities() {
 powerlinefont() {
 	msg "Install powerline font"
 	cd /tmp
+	git clone https://github.com/powerline/fonts.git
+	./fonts/install.sh
+	rm -rf fonts
 	wget https://github.com/eugeneching/consolas-powerline-vim/raw/master/CONSOLA-Powerline.ttf
-	mv /tmp/CONSOLA-Powerline.ttf /usr/share/fonts/truetype
+	mv /tmp/CONSOLA-Powerline.ttf $HOME/.local/share/fonts
 	fc-cache -f
 	cd -
 	success "Complete"

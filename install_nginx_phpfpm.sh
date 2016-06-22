@@ -10,22 +10,40 @@ nginx() {
 
 # PHP-FPM install
 phpfpm() {
-	apt_add php5-fpm php5 php-apc php-pear php5-cli php5-common php5-curl php5-dev php5-fpm php5-gd php5-gmp php5-imap php5-ldap php5-mcrypt php5-memcache php5-memcached php5-mysql php5-odbc php5-pspell php5-recode php5-sqlite php5-sybase php5-tidy php5-xmlrpc php5-xsl php5-mongo php5-xmlrpc php5-json php5-imagick php5-redis
+	apt_add php7.0 php7.0-fpm php7.0-cli php7.0-common php7.0-curl php7.0-gd php7.0-gmp php7.0-json php7.0-ldap php7.0-mysql php7.0-odbc php7.0-pspell php7.0-readline php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xml php7.0-xmlrpc php7.0-bcmath php7.0-bz2 php7.0-enchant php7.0-fpm php7.0-imap php7.0-interbase php7.0-intl php7.0-mbstring php7.0-mcrypt php7.0-phpdbg php7.0-soap php7.0-sybase php7.0-xsl php7.0-zip php-imagick php-redis php-apcu php-pear php-mongodb
 }
 
-copyconf() {
-	msg "Copy service conf"
+restart_service() {
+	service php7.0-fpm restart
+	service nginx restart
+}
+
+copy_dev_conf() {
+	msg "Copy development configure"
+	msg "Nginx"
+	copy_increase_number /etc/nginx/sites-available/default /tmp/nginx.conf
+	cp -f ./conf/php7.0/development/nginx.conf /etc/nginx/sites-available/default
+
+	msg "php-fpm"
+	copy_increase_number /etc/php/7.0/fpm/php.ini /tmp/php.ini
+	cp -f ./conf/php7.0/development/php.ini /etc/php/7.0/fpm/php.ini
+
+	restart_service;
+	success "Copy complete"
+}
+
+copy_product_conf() {
+	msg "Copy product configure"
 
 	msg "Nginx"
 	copy_increase_number /etc/nginx/sites-available/default /tmp/nginx.conf
-	cp -f ./conf/nginx.conf /etc/nginx/sites-available/default
+	cp -f ./conf/php7.0/product/nginx.conf /etc/nginx/sites-available/default
 
 	msg "php-fpm"
-	copy_increase_number /etc/php5/fpm/php.ini /tmp/php.dev.ini
-	cp -f ./conf/php5/php.dev.ini /etc/php5/fpm/php.ini
+	copy_increase_number /etc/php/7.0/fpm/php.ini /tmp/php.ini
+	cp -f ./conf/php7.0/product/php.ini /etc/php/7.0/fpm/php.ini
 
-	service php5-fpm restart
-	service nginx restart
+	restart_service;
 	success "Copy complete"
 }
 
@@ -37,9 +55,13 @@ if [ $PACKAGES == "all" ]; then
 	exit;
 fi
 
-if [ $1 == "copyconf" ]; then
-	copyconf;
+if [ $1 == "dev" ]; then
+	copy_dev_conf;
+	exit;
+elif [ $1 == "product" ]; then
+	copy_product_conf;
 	exit;
 fi
+
 
 source ./install_run.sh

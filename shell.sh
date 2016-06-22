@@ -39,18 +39,33 @@ function powerline_setting()
     cat $POWERLINE >> $PROFILE
 }
 
-
-if [ ! -f $PROFILE ]
-then
-    PROFILE=$HOME/.bashrc
-fi
-
 BASHRC_SRC="# GYUHA SETTINGS
 if [ -f $BASEDIR/conf/bash_profile ]; then
     . $BASEDIR/conf/bash_profile
+fi
+"
+
+while [[ "$1" == -* ]]; do
+    case $1 in
+        -h)
+            usage;
+            exit;
+            ;;
+        -p)
+            shift
+BASHRC_SRC=$BASHRC_SRC"
+if [ -f $BASEDIR/conf/bash_powerline.sh ]; then
     . $BASEDIR/conf/bash_powerline.sh
 fi
 "
+            powerline_setting;
+            ;;
+    esac
+    shift
+done
+
+echo $BASHRC_SRC
+
 
 LINE=`grep -n "# GYUHA" $PROFILE |sed 's/\:.*$//g'`
 LINE=`expr $LINE - 1`
@@ -66,19 +81,5 @@ then
 else
     echo "$BASHRC_SRC" >> $PROFILE
 fi
-
-while [[ "$1" == -* ]]; do
-    case $1 in
-        -h)
-            usage;
-            exit;
-            ;;
-        -p)
-            shift
-            powerline_setting;
-            ;;
-    esac
-    shift
-done
 
 echo -e "Type this \\n\\t# source $PROFILE"
