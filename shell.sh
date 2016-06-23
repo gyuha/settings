@@ -60,6 +60,14 @@ fi
 "
             powerline_setting;
             ;;
+        -c)
+            shift
+BASHRC_SRC=$BASHRC_SRC"
+if [ -f $BASEDIR/conf/bash_colorline.sh ]; then
+    . $BASEDIR/conf/bash_colorline.sh
+fi
+"
+            ;;
     esac
     shift
 done
