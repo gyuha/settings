@@ -20,7 +20,7 @@ mysql() {
 
 # mariadb install
 mariadb() {
-	apt_add mariadb-server
+	apt_add mariadb-server mariadb-client
 }
 
 
