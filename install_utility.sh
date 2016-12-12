@@ -18,6 +18,11 @@ mysql() {
 	apt_add mysql-server-5.6 mysql-client-5.6
 }
 
+# mariadb install
+mariadb() {
+	apt_add mariadb-server mariadb-client
+}
+
 
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
