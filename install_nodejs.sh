@@ -6,7 +6,7 @@ if [ $UID -ne 0 ]; then
 	exit 1;
 fi
 
-VERSION=5
+VERSION=7
 if [ -n "$1" ]; then
 	VERSION=$1
 fi
