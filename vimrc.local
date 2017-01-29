@@ -2,6 +2,7 @@ let g:snips_author = "Gyuha Shin"
 
 Plug 'easymotion/vim-easymotion'
 Plug 'jlanzarotta/bufexplorer'
+Plug 'scrooloose/nerdcommenter'
 
 "" Added Command
 noremap <F5> :NERDTreeToggle<CR>
