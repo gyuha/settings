@@ -6,11 +6,7 @@ if [ $UID -ne 0 ]; then
 	exit 1;
 fi
 
-<<<<<<< HEAD
-VERSION=7
-=======
 VERSION=6
->>>>>>> 81975282da7e3c856b42e34dd271c8d5f90f2dbe
 if [ -n "$1" ]; then
 	VERSION=$1
 fi
