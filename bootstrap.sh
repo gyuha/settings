@@ -155,20 +155,10 @@ setup_vundle() {
 }
 
 
-setup_vim() {
-	############################ MAIN()
-	program_exists "vim" "To install $app_name you first need to install Vim."
-
-	create_symlinks "Setting up vim symlinks"
-	clone_vundle    "Successfully cloned vundle"
-	setup_vundle    "Now updating/installing plugins using Vundle"
-}
-
 usage()
 {
 	echo -e "Setting ubuntu shell
 Usage: `basename $0` [-a OR ID OR name] [-h]
-	-v : setup vim
 	-h : help
 	"
 }
@@ -180,9 +170,6 @@ case "$1" in
 	"-h")
 		usage;
 		exit 0;
-		;;
-	"-v")
-		setup_vim;
 		;;
 	"-p")
 		POWERLINE="-p"

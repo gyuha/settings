@@ -1,0 +1,103 @@
+let g:snips_author = "Gyuha Shin"
+
+Plug 'easymotion/vim-easymotion'
+Plug 'jlanzarotta/bufexplorer'
+Plug 'scrooloose/nerdcommenter'
+
+"" Added Command
+noremap <F5> :NERDTreeToggle<CR>
+noremap <F6> :BufExplorer<CR>
+" Dos to Unix
+noremap <F8> :%s/\r\(\n\)/\1/g<CR>
+set pastetoggle=<F12>			" pastetoggle (sane indentation on pastes)
+
+let g:NERDTreeWinSize = 30
+
+let g:Powerline_symbols = 'fancy'
+let g:airline_powerline_fonts = 1
+
+"" Mouse Toggle
+nnoremap <silent> <F9> :call ToggleMouse()<CR>
+function! ToggleMouse()
+	if &mouse == 'a'
+		set mouse=
+		echo "Mouse usage disabled"
+	else
+		set mouse=a
+		echo "Mouse usage enabled"
+	endif
+endfunction
+
+filetype plugin indent on	" Automatically detect file types.
+syntax on					" Syntax highlighting
+
+" Formatting 
+set wrap						" Wrap long lines
+set autoindent					" Indent at the same level of the previous line
+
+set nospell							  " Spell checking off
+
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    %s/\($\n\s*\)\+\%$//e
+    call cursor(l, c)
+endfun
+
+" Remove trailing whitespaces and ^M chars
+autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
+" Save your backups to a less annoying place than the current directory.
+" If you have .vim-backup in the current directory, it'll use that.
+" Otherwise it saves it to ~/.vim/backup or . if all else fails.
+if isdirectory($HOME . '/.vim/backup') == 0
+	:silent !mkdir -p ~/.vim/backup >/dev/null 2>&1
+endif
+set backupdir-=.
+set backupdir+=.
+set backupdir-=~/
+set backupdir^=~/.vim/backup/
+set backupdir^=./.vim-backup/
+set backup
+
+" If you have .vim-swap in the current directory, it'll use that.
+" Save your swp files to a less annoying place than the current directory.
+" Otherwise it saves it to ~/.vim/swap, ~/tmp or .
+if isdirectory($HOME . '/.vim/swap') == 0
+	:silent !mkdir -p ~/.vim/swap >/dev/null 2>&1
+endif
+set directory=./.vim-swap//
+set directory+=~/.vim/swap//
+set directory+=~/tmp//
+set directory+=.
+
+" viminfo stores the the state of your previous editing session
+set viminfo+=n~/.vim/viminfo
+
+if exists("+undofile")
+	" undofile - This allows you to use undos after exiting and restarting
+	" This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+	" :help undo-persistence
+	" This is only present in 7.3+
+	if isdirectory($HOME . '/.vim/undo') == 0
+		:silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+	endif
+	set undodir=./.vim-undo//
+	set undodir+=~/.vim/undo//
+	set undofile
+endif
+
+" Instead of reverting the cursor to the last position in the buffer, we
+" set it to the first line when editing a git commit message
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+" Setting up the directories 
+set backup					" Backups are nice ...
+if has('persistent_undo')
+	set undofile				" So is persistent undo ...
+	set undolevels=1000			" Maximum number of changes that can be undone
+	set undoreload=10000		" Maximum number lines to save for undo on a buffer reload
+endif
+
+call plug#end()
