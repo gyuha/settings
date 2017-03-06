@@ -121,7 +121,7 @@
             "bundle 'kana/vim-textobj-indent'
             Bundle 'gcmt/wildfire.vim'
 			Bundle 'grep.vim'
-			Bundle 'jlanzarotta/bufexplorer'
+			"Bundle 'jlanzarotta/bufexplorer'
 		endif
 	" }
 
