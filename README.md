@@ -54,18 +54,9 @@ sudo ./install_utility.sh java
 
 -----
 ## vim 설정
-
-## Vim bootstrap 사용
+개인 적인 vim 설정
 ```
-curl 'http://vim-bootstrap.com/generate.vim' --data 'langs=javascript&langs=php&langs=html&langs=go&langs=python&editor=vim' > ~/.vimrc
-ln ~/.settings/vimrc.local ~/.vimrc.local
-```
-
-## 마지막 버전으로 업데이트
-vim에서 아래와 같이 사용합니다.
-```
-:VimBootstrapUpdate
-:PlugInstall
+curl https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
 ```
 
 ## 참고
