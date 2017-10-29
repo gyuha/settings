@@ -44,18 +44,6 @@ cpuMemIndicator() {
 	success "Complete"
 }
 
-freeUpSpace() {
-	msg "Freeing Up Disk Space"
-	du -sh /var/cache/apt/archives:w
-	apt-get clean
-	success "Complete"
-}
-
-removeLens() {
-	msg "Remove Lens"
-	apt-get remove -y unity-lens-shopping unity-lens-music unity-lens-photos  unity-lens-gwibber unity-lens-video
-	success "Complete"
-}
 
 flash() {
 	apt_add flashplugin-installer
@@ -66,8 +54,9 @@ torrent() {
 }
 
 media() {
-	apt_add vlc audacious
+	repo_add ppa:rvm/smplayer
 	apt_add smplayer
+	apt_add audacious
 }
 
 dictionary() {
@@ -77,7 +66,6 @@ dictionary() {
 }
 
 gimp() {
-	repo_add ppa:otto-kesselgulasch/gimp
 	apt_add gimp
 }
 
@@ -86,10 +74,6 @@ everpad() {
 	apt_add everpad
 }
 
-restrictedExtras() {
-	# 여러가지 멀티 미디어에 쓰이는코덱과 폰트등을 설치해주는 도구
-	apt_add ubuntu-restricted-extras libavformat-extra-53 libavcodec-extra-53
-}
 
 mysqlworkbench() {
 	apt_add mysql-workbench
@@ -150,14 +134,12 @@ if [ $PACKAGES == "all" ]; then
 	serviceManager;
 	uiTweakTools;
 	cpuMemIndicator;
-	#removeLens;
 	#flash;
 	everpad;
 	torrent;
 	media;
 	dictionary;
 	gimp;
-	restrictedExtras;
 	utilities;
 	guiDevTools;
 	run_all;
