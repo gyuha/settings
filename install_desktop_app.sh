@@ -56,7 +56,7 @@ torrent() {
 media() {
 	repo_add ppa:rvm/smplayer
 	apt_add smplayer
-	apt_add audacious
+	apt_add audacious comix okular
 }
 
 dictionary() {
@@ -79,15 +79,10 @@ mysqlworkbench() {
 	apt_add mysql-workbench
 }
 
-serviceManager() {
-	apt_add bum rcconf
-}
 
 utilities() {
 	apt_add p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
 	apt_add gnome-commander libgnomevfs2-extra krusader krename
-	apt_add filezilla
-	apt_add chromium-browser
 	apt_add geany geany-common geany-plugins
 	#apt_add terminator
 	apt_add arandr
@@ -131,7 +126,6 @@ if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	disableUnnecessayErrorMessage;
 	#languagePack;
-	serviceManager;
 	uiTweakTools;
 	cpuMemIndicator;
 	#flash;
@@ -143,7 +137,7 @@ if [ $PACKAGES == "all" ]; then
 	utilities;
 	guiDevTools;
 	run_all;
-	powerlinefont;
+	#powerlinefont;
 	atom
 	sublime_text3
 	#freeUpSpace;
