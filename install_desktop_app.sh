@@ -57,6 +57,7 @@ media() {
 	repo_add ppa:rvm/smplayer
 	apt_add smplayer
 	apt_add audacious comix okular
+	apt_add ubuntu-restricted-extras
 }
 
 dictionary() {
@@ -82,11 +83,13 @@ mysqlworkbench() {
 
 utilities() {
 	apt_add p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
-	apt_add gnome-commander libgnomevfs2-extra krusader krename
+	apt_add doublecmd-common
+	apt_add libgnomevfs2-extra krusader krename
 	apt_add geany geany-common geany-plugins
 	#apt_add terminator
 	apt_add arandr
-	apt_add clipit
+	#apt_add clipit
+	apt_add copyq
 	# apt_add gnome-do gnome-doc-utils gnome-do-plugins
 }
 
@@ -108,7 +111,6 @@ guiDevTools() {
 	repo_add ppa:eugenesan/ppa
 	apt_add gitg rapidsvn vim-gtk meld
 	apt_add smartgit
-	apt_add mysql-workbench
 	success "Complete"
 }
 
@@ -124,10 +126,10 @@ sublime_text3() {
 
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
-	disableUnnecessayErrorMessage;
+	#disableUnnecessayErrorMessage;
 	#languagePack;
-	uiTweakTools;
-	cpuMemIndicator;
+	#uiTweakTools;
+	#cpuMemIndicator;
 	#flash;
 	everpad;
 	torrent;
@@ -138,8 +140,8 @@ if [ $PACKAGES == "all" ]; then
 	guiDevTools;
 	run_all;
 	#powerlinefont;
-	atom
-	sublime_text3
+	#atom
+	#sublime_text3
 	#freeUpSpace;
 	msg "Complete."
 	exit;
