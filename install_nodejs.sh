@@ -6,7 +6,7 @@ if [ $UID -ne 0 ]; then
 	exit 1;
 fi
 
-VERSION=6
+VERSION=10
 if [ -n "$1" ]; then
 	VERSION=$1
 fi
@@ -17,5 +17,5 @@ if ! [[ $VERSION =~ $re ]]; then
 	exit 1
 fi
 
-curl -sL https://deb.nodesource.com/setup_$VERSION.x | bash -s
+curl -sL https://deb.nodesource.com/setup_$VERSION.x | sudo -E bash -
 apt-get install -y nodejs

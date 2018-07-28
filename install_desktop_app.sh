@@ -35,7 +35,7 @@ languagePack() {
 }
 
 uiTweakTools() {
-	apt_add compizconfig-settings-manager unity-tweak-tool gnome-tweak-tool
+	apt_add gnome-tweak-tool gnome-shell-extensions
 }
 
 cpuMemIndicator() {
@@ -88,8 +88,8 @@ utilities() {
 	apt_add geany geany-common geany-plugins
 	#apt_add terminator
 	apt_add arandr
-	#apt_add clipit
-	apt_add copyq
+	apt_add clipit
+	#apt_add copyq
 	# apt_add gnome-do gnome-doc-utils gnome-do-plugins
 }
 
@@ -128,7 +128,7 @@ if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	#disableUnnecessayErrorMessage;
 	#languagePack;
-	#uiTweakTools;
+	uiTweakTools;
 	#cpuMemIndicator;
 	#flash;
 	everpad;
