@@ -36,6 +36,8 @@ languagePack() {
 
 uiTweakTools() {
 	apt_add gnome-tweak-tool gnome-shell-extensions
+	# Theme add
+	apt_add adwaita-icon-theme-full arc-theme numix-gtk-theme numix-icon-theme
 }
 
 cpuMemIndicator() {
