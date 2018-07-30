@@ -126,6 +126,13 @@ sublime_text3() {
 	apt_add sublime-text-installer
 }
 
+typora() {
+	# Markdown editor
+	repo_add 'deb https://typora.io/linux ./'
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+	apt_add typora 
+}
+
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	#disableUnnecessayErrorMessage;
@@ -145,6 +152,7 @@ if [ $PACKAGES == "all" ]; then
 	#atom
 	#sublime_text3
 	#freeUpSpace;
+	#typora
 	msg "Complete."
 	exit;
 fi
