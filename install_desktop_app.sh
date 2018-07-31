@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# 설치 할 어플리케이션 검색 사이트
+# https://snapcraft.io/store
+
 source ./install_common.sh
 
 # only local run..
