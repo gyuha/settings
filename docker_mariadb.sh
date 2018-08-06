@@ -22,5 +22,4 @@ esac
 # 만약 파라메터 2개가 아니면 종료
 [ $# -lt 1 ] && usage && exit 1
 
-docker pull mariadb:latest
-docker run -p 3306:3306 --name mariadb -e MYSQL_ROOT_PASSWORD=$1 -d mysql:latest
+docker run -p 3306:3306 --restart=always --name mariadb -e MYSQL_ROOT_PASSWORD=$1 -d mariadb:latest

@@ -4,7 +4,7 @@ source ./install_common.sh
 
 # Utillity install
 utility() {
-	apt_add cronolog vim ctags git subversion build-essential g++ curl libssl-dev sysv-rc-conf expect tmux htop rcconf
+	apt_add cronolog vim ctags git subversion build-essential g++ curl libssl-dev sysv-rc-conf expect tmux htop rcconf gawk
 }
 
 # Java 8 install
@@ -23,7 +23,7 @@ mariadb() {
 	apt_add mariadb-server mariadb-client
 }
 
-# Docker 
+# Docker
 docker() {
 	apt_add docker.io
 }
