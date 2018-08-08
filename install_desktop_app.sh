@@ -34,8 +34,8 @@ languagePack() {
 	check-language-support -l ko
 }
 
-uiTweakTools() {
-	apt_add gnome-tweak
+gui() {
+	apt_add gnome-tweaks gnome-shell-extensions
 	# Theme add
 	apt_add adwaita-icon-theme-full arc-theme numix-gtk-theme numix-icon-theme
 	apt_add install chrome-gnome-shell
@@ -113,7 +113,7 @@ if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	#disableUnnecessayErrorMessage;
 	#languagePack;
-	uiTweakTools;
+	gui;
 	#flash;
 	torrent;
 	media;
