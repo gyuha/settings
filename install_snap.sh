@@ -58,6 +58,16 @@ office() {
 	snap install onlyoffice-desktopeditors
 }
 
+go() {
+	snap install go --classic
+	echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+	echo 'export PATH=${PATH}:${GOPATH}/bin' >> ~/.bashrc
+	echo "mkdir -p ~/go/bin"
+	echo "mkdir -p ~/go/src"
+	echo "source ~/.bashrc"
+	source ~/.bashrc
+}
+
 PACKAGES="all"
 if [ $# -eq 1 ]; then
 	PACKAGES=$1
@@ -72,6 +82,7 @@ if [ $PACKAGES == "all" ]; then
 	typora;
 	#android_studio;
 	#office;
+	#go
 	notepadqq;
 	msg "Complete.";
 	exit;
