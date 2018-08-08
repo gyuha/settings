@@ -38,9 +38,10 @@ languagePack() {
 }
 
 uiTweakTools() {
-	apt_add gnome-tweak-tool gnome-shell-extensions
+	apt_add gnome-tweak
 	# Theme add
 	apt_add adwaita-icon-theme-full arc-theme numix-gtk-theme numix-icon-theme
+	apt_add install chrome-gnome-shell
 }
 
 cpuMemIndicator() {
@@ -151,12 +152,12 @@ if [ $PACKAGES == "all" ]; then
 	gimp;
 	utilities;
 	guiDevTools;
-	typora
+	typora;
 	#powerlinefont;
-	#atom
-	#sublime_text3
+	#atom;
+	#sublime_text3;
 	run_all;
-	msg "Complete."
+	msg "Complete.";
 	exit;
 fi
 

@@ -78,3 +78,7 @@ sudo ./install_desktop_app.sh
 
 ### Nvidia driver install
  [How to install the NVIDIA drivers on Ubuntu 18.04 Bionic Beaver Linux ](https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux)
+
+-----
+## 참고
+ * [Top Things To Do After Installing Ubuntu 18.04 Bionic Beaver To Make It Your Own](https://www.linuxuprising.com/2018/04/top-things-to-do-after-installing.html)
