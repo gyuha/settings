@@ -44,12 +44,6 @@ uiTweakTools() {
 	apt_add install chrome-gnome-shell
 }
 
-cpuMemIndicator() {
-	repo_add ppa:indicator-multiload/stable-daily
-	apt_add indicator-multiload
-	success "Complete"
-}
-
 
 flash() {
 	apt_add flashplugin-installer
@@ -60,10 +54,14 @@ torrent() {
 }
 
 media() {
-	repo_add ppa:rvm/smplayer
 	apt_add smplayer
-	apt_add audacious comix okular
+	apt_add vlc
+	apt_add audacious okular
 	apt_add ubuntu-restricted-extras
+}
+
+comic() {
+	snap install mcomix-tabetai
 }
 
 dictionary() {
@@ -74,11 +72,6 @@ dictionary() {
 
 gimp() {
 	apt_add gimp
-}
-
-everpad() {
-	repo_add ppa:nvbn-rm/ppa
-	apt_add everpad
 }
 
 
@@ -114,28 +107,35 @@ powerlinefont() {
 
 
 guiDevTools() {
-	repo_add ppa:eugenesan/ppa
+	#repo_add ppa:eugenesan/ppa
 	apt_add gitg vim-gtk3 meld
 	#apt_add rapidsvn
-	apt_add smartgit
+	#apt_add smartgit
 	success "Complete"
 }
 
+vscode() {
+	snap install vscode --classic
+}
+
 atom() {
-	repo_add ppa:webupd8team/atom
-	apt_add atom
+	#repo_add ppa:webupd8team/atom
+	#apt_add atom
+	snap install sublime-text --classic
 }
 
 sublime_text3() {
-	repo_add ppa:webupd8team/sublime-text-3
-	apt_add sublime-text-installer
+	#repo_add ppa:webupd8team/sublime-text-3
+	#apt_add sublime-text-installer
+	snap install atom --classic
 }
 
 typora() {
 	# Markdown editor
-	repo_add 'deb https://typora.io/linux ./'
-	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
-	apt_add typora
+	snap install typora-alanzanattadev
+	#repo_add 'deb https://typora.io/linux ./'
+	#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
+	#apt_add typora
 }
 
 if [ $PACKAGES == "all" ]; then
@@ -143,17 +143,17 @@ if [ $PACKAGES == "all" ]; then
 	#disableUnnecessayErrorMessage;
 	#languagePack;
 	uiTweakTools;
-	#cpuMemIndicator;
 	#flash;
-	#everpad;
 	torrent;
 	media;
+	#comic
 	dictionary;
 	gimp;
 	utilities;
 	guiDevTools;
-	#typora;
 	#powerlinefont;
+	#vscode;
+	#typora;
 	#atom;
 	#sublime_text3;
 	run_all;
