@@ -19,3 +19,4 @@ fi
 
 curl -sL https://deb.nodesource.com/setup_$VERSION.x | sudo -E bash -
 apt-get install -y nodejs
+npm install -g yarn
