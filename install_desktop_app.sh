@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# 설치 할 어플리케이션 검색 사이트
-# https://snapcraft.io/store
-
 source ./install_common.sh
 
 # only local run..
@@ -60,9 +57,6 @@ media() {
 	apt_add ubuntu-restricted-extras
 }
 
-comic() {
-	snap install mcomix-tabetai
-}
 
 dictionary() {
 	apt_add goldendict
@@ -114,29 +108,6 @@ guiDevTools() {
 	success "Complete"
 }
 
-vscode() {
-	snap install vscode --classic
-}
-
-atom() {
-	#repo_add ppa:webupd8team/atom
-	#apt_add atom
-	snap install sublime-text --classic
-}
-
-sublime_text3() {
-	#repo_add ppa:webupd8team/sublime-text-3
-	#apt_add sublime-text-installer
-	snap install atom --classic
-}
-
-typora() {
-	# Markdown editor
-	snap install typora-alanzanattadev
-	#repo_add 'deb https://typora.io/linux ./'
-	#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
-	#apt_add typora
-}
 
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
@@ -146,16 +117,11 @@ if [ $PACKAGES == "all" ]; then
 	#flash;
 	torrent;
 	media;
-	#comic
 	dictionary;
 	gimp;
 	utilities;
 	guiDevTools;
 	#powerlinefont;
-	#vscode;
-	#typora;
-	#atom;
-	#sublime_text3;
 	run_all;
 	msg "Complete.";
 	exit;
