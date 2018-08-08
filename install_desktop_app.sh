@@ -152,7 +152,7 @@ if [ $PACKAGES == "all" ]; then
 	gimp;
 	utilities;
 	guiDevTools;
-	typora;
+	#typora;
 	#powerlinefont;
 	#atom;
 	#sublime_text3;

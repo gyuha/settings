@@ -39,6 +39,7 @@ mongodb() {
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	utility;
+	docker;
 	run_all;
 	exit;
 fi
