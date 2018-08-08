@@ -74,3 +74,7 @@ sudo ./install_desktop_app.sh
 # 어플케이션 설정 복사
 ./install_desktop_app copyconf
 ```
+
+
+### Nvidia driver install
+ [How to install the NVIDIA drivers on Ubuntu 18.04 Bionic Beaver Linux ](https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux)

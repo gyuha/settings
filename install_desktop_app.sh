@@ -95,7 +95,7 @@ utilities() {
 	apt_add arandr
 	apt_add clipit
 	#apt_add copyq
-	# apt_add gnome-do gnome-doc-utils gnome-do-plugins
+	#apt_add gnome-do gnome-doc-utils gnome-do-plugins
 }
 
 powerlinefont() {
@@ -114,7 +114,8 @@ powerlinefont() {
 
 guiDevTools() {
 	repo_add ppa:eugenesan/ppa
-	apt_add gitg rapidsvn vim-gtk meld
+	apt_add gitg vim-gtk3 meld
+	#apt_add rapidsvn
 	apt_add smartgit
 	success "Complete"
 }
@@ -133,7 +134,7 @@ typora() {
 	# Markdown editor
 	repo_add 'deb https://typora.io/linux ./'
 	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys BA300B7755AFCFAE
-	apt_add typora 
+	apt_add typora
 }
 
 if [ $PACKAGES == "all" ]; then
@@ -143,19 +144,18 @@ if [ $PACKAGES == "all" ]; then
 	uiTweakTools;
 	#cpuMemIndicator;
 	#flash;
-	everpad;
+	#everpad;
 	torrent;
 	media;
 	dictionary;
 	gimp;
 	utilities;
 	guiDevTools;
-	run_all;
+	typora
 	#powerlinefont;
 	#atom
 	#sublime_text3
-	#freeUpSpace;
-	#typora
+	run_all;
 	msg "Complete."
 	exit;
 fi
