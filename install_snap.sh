@@ -58,6 +58,10 @@ office() {
 	snap install onlyoffice-desktopeditors
 }
 
+mysql() {
+	snap install squirrelsql
+}
+
 go() {
 	snap install go --classic
 	echo 'export GOPATH=$HOME/go' >> ~/.bashrc
@@ -83,6 +87,7 @@ if [ $PACKAGES == "all" ]; then
 	#android_studio;
 	#office;
 	#go
+	mysql
 	notepadqq;
 	msg "Complete.";
 	exit;
