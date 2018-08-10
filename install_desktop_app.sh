@@ -38,7 +38,11 @@ gui() {
 	apt_add gnome-tweaks gnome-shell-extensions
 	# Theme add
 	apt_add adwaita-icon-theme-full arc-theme numix-gtk-theme numix-icon-theme
-	apt_add install chrome-gnome-shell
+	apt_add chrome-gnome-shell
+	# simple tool to view and install deb files
+	apt_add gdebi
+	# graphical user interface for ufw
+	apt_add gufw
 }
 
 
