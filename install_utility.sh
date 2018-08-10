@@ -4,7 +4,7 @@ source ./install_common.sh
 
 # Utillity install
 utility() {
-	apt_add cronolog vim ctags git subversion build-essential g++ curl libssl-dev sysv-rc-conf expect tmux htop rcconf gawk
+	apt_add cronolog vim ctags git subversion build-essential g++ curl libssl-dev sysv-rc-conf expect tmux htop rcconf gawk net-tools
 }
 
 # Java 8 install
