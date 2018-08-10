@@ -1,8 +1,8 @@
 #!/bin/bash
-if [ $UID -ne 0 ]; then
-	echo Non root user. Please run as root.
-	exit 1;
-fi
+#if [ $UID -ne 0 ]; then
+	#echo Non root user. Please run as root.
+	#exit 1;
+#fi
 
 function usage()
 {

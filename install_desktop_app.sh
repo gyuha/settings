@@ -53,6 +53,7 @@ torrent() {
 media() {
 	apt_add smplayer
 	apt_add vlc
+	apt_add mpv
 	apt_add audacious okular
 	apt_add ubuntu-restricted-extras
 }
