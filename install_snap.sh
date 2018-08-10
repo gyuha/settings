@@ -63,13 +63,15 @@ mysql() {
 }
 
 go() {
-	snap install go --classic
-	echo 'export GOPATH=$HOME/go' >> ~/.bashrc
-	echo 'export PATH=${PATH}:${GOPATH}/bin' >> ~/.bashrc
-	echo "mkdir -p ~/go/bin"
-	echo "mkdir -p ~/go/src"
-	echo "source ~/.bashrc"
-	source ~/.bashrc
+	# snap install go --classic
+	echo "Copy and paste the lines below.
+=================================
+echo 'export GOPATH=\$HOME/go' >> ~/.bashrc
+echo 'export PATH=\${PATH}:\${GOPATH}/bin' >> ~/.bashrc
+mkdir -p ~/go/bin
+mkdir -p ~/go/src
+source ~/.bashrc
+================================="
 }
 
 PACKAGES="all"

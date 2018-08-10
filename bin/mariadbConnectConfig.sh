@@ -16,7 +16,7 @@ echo -e "$MAGENTA
 ############################################### $END_COLOR
 "
 
-echo -n MySQL Password:
+echo -n Input MySQL Password:
 read -s password
 echo
 

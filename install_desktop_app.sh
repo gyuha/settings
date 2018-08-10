@@ -29,10 +29,6 @@ disableUnnecessayErrorMessage() {
 	success "Complete"
 }
 
-languagePack() {
-	apt-get install -y language-pack-ko language-pack-gnome-ko language-pack-ko-base language-pack-gnome-ko-base
-	check-language-support -l ko
-}
 
 gui() {
 	apt_add gnome-tweaks gnome-shell-extensions
@@ -69,8 +65,9 @@ dictionary() {
 	# 다음 일반 영한사전: http://engdic.daum.net/dicen/search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
 }
 
-gimp() {
-	apt_add gimp
+graphic() {
+	apt_add gimp pinta
+	apt_add inkscape
 }
 
 
@@ -87,8 +84,10 @@ utilities() {
 	#apt_add terminator
 	apt_add arandr
 	apt_add clipit
-	#apt_add copyq
-	#apt_add gnome-do gnome-doc-utils gnome-do-plugins
+
+	# 한글 입력기
+	# 참고 : ttp://la-nube.tistory.com/393
+	apt_add uim
 }
 
 powerlinefont() {
@@ -117,15 +116,15 @@ guiDevTools() {
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	#disableUnnecessayErrorMessage;
-	#languagePack;
 	gui;
 	#flash;
 	torrent;
 	media;
 	dictionary;
-	gimp;
+	graphic;
 	utilities;
 	guiDevTools;
+	mysqlworkbench;
 	#powerlinefont;
 	run_all;
 	msg "Complete.";

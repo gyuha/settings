@@ -19,7 +19,11 @@ case "$1" in
 		;;
 esac
 
-# 만약 파라메터 2개가 아니면 종료
-[ $# -lt 1 ] && usage && exit 1
+echo -n Input MySQL Password:
+read -s password
+echo
 
-docker run -p 3306:3306 --restart=always --name mariadb -e MYSQL_ROOT_PASSWORD=$1 -d mariadb:latest
+# 만약 파라메터 2개가 아니면 종료
+#[ $# -lt 1 ] && usage && exit 1
+
+docker run -p 3306:3306 --restart=always --name mariadb -e MYSQL_ROOT_PASSWORD=$password -d mariadb:latest
