@@ -81,7 +81,7 @@ utilities() {
 	apt_add doublecmd-common
 	apt_add libgnomevfs2-extra krusader krename
 	apt_add geany geany-common geany-plugins
-	#apt_add terminator
+	apt_add tilix
 	apt_add arandr
 	apt_add clipit
 
@@ -103,6 +103,16 @@ powerlinefont() {
 	success "Complete"
 }
 
+fonts() {
+	apt_add fonts-nanum*
+}
+
+wine() {
+	# 설치 후 현재 계정에서 아래와 같이 입력 함.
+	# > WINEARCH=win32 WINEPREFIX=~/.wine wine wineboot
+	apt_add wine-stable
+	sudo apt install gnome-shell-extension-top-icons-plus
+}
 
 guiDevTools() {
 	#repo_add ppa:eugenesan/ppa
@@ -126,6 +136,8 @@ if [ $PACKAGES == "all" ]; then
 	guiDevTools;
 	mysqlworkbench;
 	#powerlinefont;
+	fonts;
+	wine;
 	run_all;
 	msg "Complete.";
 	exit;
