@@ -3,7 +3,7 @@ sudo apt install -f fonts-nanum*
 sudo apt install -f wine-stable
 sudo apt install -f gnome-shell-extension-top-icons-plus
 winearch=win32 wineprefix=~/.wine wine wineboot
-cd ~/downloads/
+cd ~/Downloads/
 wget https://raw.githubusercontent.com/winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
 ./winetricks riched30 gdiplus msxml6
