@@ -54,16 +54,13 @@ notepadqq() {
 	snap install notepadqq
 }
 
-office() {
-	snap install onlyoffice-desktopeditors
-}
 
 mysql() {
 	snap install squirrelsql
 }
 
 go() {
-	# snap install go --classic
+	snap install go --classic
 	echo "Copy and paste the lines below.
 =================================
 echo 'export GOPATH=\$HOME/go' >> ~/.bashrc
@@ -87,8 +84,7 @@ if [ $PACKAGES == "all" ]; then
 	sublime_text;
 	typora;
 	#android_studio;
-	#office;
-	#go
+	go
 	mysql
 	notepadqq;
 	msg "Complete.";
