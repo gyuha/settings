@@ -137,7 +137,7 @@ if [ $PACKAGES == "all" ]; then
 	mysqlworkbench;
 	#powerlinefont;
 	fonts;
-	wine;
+	#wine;
 	run_all;
 	msg "Complete.";
 	exit;
