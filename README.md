@@ -33,13 +33,13 @@ sudo ./install_utility.sh
 ```
 
 ### node js 설치
-```
+```bash
 cd ~/.settings
 sudo ./install_nodejs.sh [VERSION]
 ```
 
 ### php-fpm & nginx 설치
-```
+```bash
 cd ~/.settings
 sudo ./install_nginx_phpfpm.sh
 # 설정 파일 설치
@@ -47,7 +47,7 @@ sudo ./install_nginx_phpfpm.sh copyconf
 ```
 
 ### java 8 설치
-```
+```bash
 cd ~/.settings
 sudo ./install_utility.sh java
 ```
@@ -55,7 +55,7 @@ sudo ./install_utility.sh java
 -----
 ## vim 설정
 개인 적인 vim 설정
-```
+```bash
 curl https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
 ```
 
@@ -68,7 +68,7 @@ curl https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
 ## Desktop
 
 ### Desktop 어플리케이션 설치
-```
+```bash
 cd ~/.settings
 sudo ./install_desktop_app.sh
 # 어플케이션 설정 복사
@@ -82,3 +82,11 @@ sudo ./install_desktop_app.sh
 -----
 ## 참고
  * [Top Things To Do After Installing Ubuntu 18.04 Bionic Beaver To Make It Your Own](https://www.linuxuprising.com/2018/04/top-things-to-do-after-installing.html)
+
+
+-----
+## Tips
+### 우분투 기본 터미널 바꾸기
+```bash
+sudo update-alternatives --config x-terminal-emulator
+```
