@@ -50,12 +50,8 @@ android_studio() {
 	snap install android-studio --classic
 }
 
-notepadqq() {
-	snap install notepadqq
-}
 
-
-mysql() {
+mysql_client() {
 	snap install squirrelsql
 }
 
@@ -71,7 +67,7 @@ source ~/.bashrc
 ================================="
 }
 
-PACKAGES="all"
+#PACKAGES="all"
 if [ $# -eq 1 ]; then
 	PACKAGES=$1
 fi
@@ -79,14 +75,13 @@ fi
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	comic;
-	vscode;
-	atom;
+	#vscode;
+	#atom;
 	sublime_text;
 	typora;
 	#android_studio;
+	mysql_client;
 	go
-	mysql
-	notepadqq;
 	msg "Complete.";
 	exit;
 fi
