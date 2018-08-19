@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-sudo apt install -f fonts-nanum*
-sudo apt install -f wine-stable
-sudo apt install -f gnome-shell-extension-top-icons-plus
+sudo apt install -y fonts-nanum*
+sudo apt install -y wine-stable
+sudo apt install -y gnome-shell-extension-top-icons-plus
 winearch=win32 wineprefix=~/.wine wine wineboot
 cd ~/Downloads/
 wget https://raw.githubusercontent.com/winetricks/winetricks/master/src/winetricks
