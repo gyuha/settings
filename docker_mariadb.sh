@@ -19,11 +19,24 @@ case "$1" in
 		;;
 esac
 
-echo -n Input MySQL Password:
+echo -n "Input MySQL Password : "
 read -s password
 echo
 
-# 만약 파라메터 2개가 아니면 종료
-#[ $# -lt 1 ] && usage && exit 1
+echo -n "Input Database volume path : "
+read path
+echo $path
 
-docker run -p 3306:3306 --restart=always --name mariadb -e MYSQL_ROOT_PASSWORD=$password -d mariadb:latest
+volume=""
+if [ -n "$path" ]; then
+	mkdir -p $path
+
+	if [ ! -d $path ]; then
+		echo "Can not make path : $path"
+		exit
+	fi
+	volume=" --volume $path:/var/lib/mysql "
+fi
+
+
+docker run -p 3306:3306 --restart=always $volume --name mariadb -e MYSQL_ROOT_PASSWORD=$password -d mariadb:latest
