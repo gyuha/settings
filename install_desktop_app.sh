@@ -35,6 +35,7 @@ gui() {
 	# Theme add
 	apt_add adwaita-icon-theme-full arc-theme numix-gtk-theme numix-icon-theme
 	apt_add chrome-gnome-shell
+	apt_add gir1.2-gtop-2.0
 	# simple tool to view and install deb files
 	apt_add gdebi
 	# graphical user interface for ufw
