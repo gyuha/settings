@@ -119,4 +119,3 @@ copy_increase_number() {
 	msg "COPY : $1 => $tar"
 	cp -f $1 $tar
 }
-

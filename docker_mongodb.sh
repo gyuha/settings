@@ -43,6 +43,10 @@ function createVolume()
 
 function runWithoutAuth()
 {
+	echo -n "Input Mongodb admin Password : "
+	read -s password
+	echo
+
 	createVolume;
 
 	docker run -p 27017:27017 --restart=always --name $PS_NAME -d -v $VOLUME_NAME:/data/db mongo:latest
@@ -53,8 +57,8 @@ function runWithoutAuth()
 	echo "> use admin
 db.createUser(
 {
-	user: "db_user",
-	pwd: "your_super_secure_password",
+	user: "admin",
+	pwd: "$password",
 	roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
 }
 )"

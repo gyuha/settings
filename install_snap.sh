@@ -67,7 +67,7 @@ source ~/.bashrc
 ================================="
 }
 
-#PACKAGES="all"
+PACKAGES="all"
 if [ $# -eq 1 ]; then
 	PACKAGES=$1
 fi
@@ -80,7 +80,7 @@ if [ $PACKAGES == "all" ]; then
 	sublime_text;
 	typora;
 	#android_studio;
-	mysql_client;
+	#mysql_client;
 	go
 	msg "Complete.";
 	exit;
