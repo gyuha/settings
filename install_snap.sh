@@ -81,7 +81,7 @@ if [ $PACKAGES == "all" ]; then
 	typora;
 	#android_studio;
 	#mysql_client;
-	go
+	#go
 	msg "Complete.";
 	exit;
 fi
