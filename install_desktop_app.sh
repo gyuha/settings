@@ -2,13 +2,6 @@
 
 source ./install_common.sh
 
-# only local run..
-copyconf() {
-	msg "Copy application settings"
-	cp -rf ./conf/geany/colorschemes ~/.config/geany
-	success "Complete"
-}
-
 koreanHome() {
 	# 한글로 설치 후 기본 폴더명 변경.
 	cp -rf ~/.settings/conf/user-dirs.dirs  ~/.config/
@@ -144,9 +137,5 @@ if [ $PACKAGES == "all" ]; then
 	exit;
 fi
 
-if [ $1 == "copyconf" ]; then
-	copyconf;
-	exit;
-fi
 
 source ./install_run.sh
