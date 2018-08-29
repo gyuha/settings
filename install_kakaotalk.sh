@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
+
+if [ $UID -eq 0 ]; then
+	echo Your root. Please run home user.
+	exit 1;
+fi
+
 sudo apt install -y fonts-nanum*
 sudo apt install -y wine-stable
 sudo apt install -y gnome-shell-extension-top-icons-plus
-winearch=win32 wineprefix=~/.wine wine wineboot
+WINEARCH=win32 WINEPREFIX=~/.wine wine wineboot
 cd ~/Downloads/
 wget https://raw.githubusercontent.com/winetricks/winetricks/master/src/winetricks
 chmod +x winetricks
