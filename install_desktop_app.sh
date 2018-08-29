@@ -59,6 +59,11 @@ dictionary() {
 	# 다음 일반 영한사전: http://engdic.daum.net/dicen/search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
 }
 
+krita() {
+	repo_add ppa:kritalime/ppa
+	apt_add krita
+}
+
 graphic() {
 	apt_add gimp pinta
 	apt_add inkscape
@@ -107,6 +112,8 @@ wine() {
 	apt_add wine-stable
 	sudo apt install gnome-shell-extension-top-icons-plus
 }
+
+krita
 
 guiDevTools() {
 	#repo_add ppa:eugenesan/ppa

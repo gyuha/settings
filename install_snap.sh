@@ -67,6 +67,11 @@ source ~/.bashrc
 ================================="
 }
 
+gravit_designer() {
+	# URL : https://designer.io/
+	sudo snap install gravit-designer
+}
+
 PACKAGES="all"
 if [ $# -eq 1 ]; then
 	PACKAGES=$1
