@@ -33,6 +33,7 @@ gui() {
 	apt_add gdebi
 	# graphical user interface for ufw
 	apt_add gufw
+	apt_add gnome-usage
 }
 
 
