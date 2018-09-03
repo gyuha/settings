@@ -70,7 +70,7 @@ if [ $PACKAGES == "all" ]; then
 	comic;
 	#vscode;
 	#atom;
-	#sublime_text;
+	sublime_text;
 	#typora;
 	#android_studio;
 	#mysql_client;
