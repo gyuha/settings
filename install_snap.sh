@@ -55,18 +55,6 @@ mysql_client() {
 	snap install squirrelsql
 }
 
-go() {
-	snap install go --classic
-	echo "Copy and paste the lines below.
-=================================
-echo 'export GOPATH=\$HOME/go' >> ~/.bashrc
-echo 'export PATH=\${PATH}:\${GOPATH}/bin' >> ~/.bashrc
-mkdir -p ~/go/bin
-mkdir -p ~/go/src
-source ~/.bashrc
-================================="
-}
-
 gravit_designer() {
 	# URL : https://designer.io/
 	sudo snap install gravit-designer
@@ -82,8 +70,8 @@ if [ $PACKAGES == "all" ]; then
 	comic;
 	#vscode;
 	#atom;
-	sublime_text;
-	typora;
+	#sublime_text;
+	#typora;
 	#android_studio;
 	#mysql_client;
 	#go
