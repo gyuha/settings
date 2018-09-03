@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-if [ $UID -ne 0 ]; then
-	echo Non root user. Please run as root.
-	exit 1;
-fi
+#if [ $UID -ne 0 ]; then
+	#echo Non root user. Please run as root.
+	#exit 1;
+#fi
 
 VERSION=1.11
 if [ -n "$1" ]; then
@@ -23,15 +23,13 @@ cd /tmp
 wget $URL
 
 tar -xvf $FILE
-mv go /usr/local
+sudo mv go /usr/local
 rm $FILE
 
-echo "Copy and paste the lines below.
-=================================
-echo 'export GOROOT=/usr/local/go' >> ~/.bashrc
-echo 'export GOPATH=\$HOME/go' >> ~/.bashrc
-echo 'export PATH=\${PATH}:\${GOPATH}/bin:\${GOROOT}/bin' >> ~/.bashrc
+echo "export GOROOT=/usr/local/go" >> ~/.bashrc
+echo "export GOPATH=${HOME}/go" >> ~/.bashrc
+echo "export PATH=\${PATH}:\${GOPATH}/bin:\${GOROOT}/bin" >> ~/.bashrc
 mkdir -p ~/go/bin
 mkdir -p ~/go/src
-source ~/.bashrc
-================================="
+
+echo -e "Type this \\n\\t# source $PROFILE"
