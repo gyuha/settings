@@ -4,12 +4,16 @@ source ./install_common.sh
 
 # Utillity install
 utility() {
-	apt_add cronolog vim ctags git build-essential g++ curl libssl-dev sysv-rc-conf expect tmux rcconf gawk
+	apt_add cronolog vim ctags git build-essential g++ curl
+	apt_add libssl-dev sysv-rc-conf expect tmux rcconf
+	apt_add gawk cmake apt_add exuberant-ctags ncurses-term
 	apt_add inxi htop net-tools
 }
 
 
+# Python3
 python3() {
+	apt_add python3-dev
 	apt_add python3-pip
 	apt_add python3-virtualenv
 }
