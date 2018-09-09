@@ -4,7 +4,14 @@ source ./install_common.sh
 
 # Utillity install
 utility() {
-	apt_add cronolog vim ctags git build-essential g++ curl libssl-dev sysv-rc-conf expect tmux htop rcconf gawk net-tools
+	apt_add cronolog vim ctags git build-essential g++ curl libssl-dev sysv-rc-conf expect tmux rcconf gawk
+	apt_add inxi htop net-tools
+}
+
+
+python3() {
+	apt_add python3-pip
+	apt_add python3-virtualenv
 }
 
 # Java 8 install
