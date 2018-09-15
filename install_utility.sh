@@ -5,9 +5,15 @@ source ./install_common.sh
 # Utillity install
 utility() {
 	apt_add cronolog vim ctags git build-essential g++ curl
-	apt_add libssl-dev sysv-rc-conf expect tmux rcconf
-	apt_add gawk cmake apt_add exuberant-ctags ncurses-term
+	apt_add libssl-dev expect tmux
+	apt_add gawk cmake
+	apt_add exuberant-ctags ncurses-term
 	apt_add inxi htop net-tools
+
+	# inxi : 시스템 사양 확인 / Ex) inxi -F
+	# htop : 시스템 사용 확인
+	# exuberant-ctags : build tag file indexes of source code definitions
+	# ncurses-term : 추가 터미널 타입 정의
 }
 
 
@@ -16,6 +22,7 @@ python3() {
 	apt_add python3-dev
 	apt_add python3-pip
 	apt_add python3-virtualenv
+	apt_add python3-bs4
 }
 
 # Java 8 install
