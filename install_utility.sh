@@ -9,6 +9,7 @@ utility() {
 	apt_add gawk cmake
 	apt_add exuberant-ctags ncurses-term
 	apt_add inxi htop net-tools
+	apt_add dos2unix
 
 	# inxi : 시스템 사양 확인 / Ex) inxi -F
 	# htop : 시스템 사용 확인
