@@ -26,7 +26,7 @@ mcomix() {
 }
 
 mpv() {
-	msg  "Copy MComix settings"
+	msg  "Copy Mpv settings"
 	cp -rf ./conf/mpv ~/.config
 	echo  "Complete"
 }
