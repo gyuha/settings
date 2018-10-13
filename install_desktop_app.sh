@@ -82,7 +82,7 @@ utilities() {
 	apt_add doublecmd-common
 	apt_add libgnomevfs2-extra krusader krename
 	apt_add geany geany-common geany-plugins
-	apt_add tilix
+	apt_add terminator
 	apt_add arandr
 	apt_add clipit
 
@@ -115,7 +115,6 @@ wine() {
 	sudo apt install gnome-shell-extension-top-icons-plus
 }
 
-krita
 
 guiDevTools() {
 	#repo_add ppa:eugenesan/ppa

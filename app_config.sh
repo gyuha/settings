@@ -31,7 +31,14 @@ mpv() {
 	echo  "Complete"
 }
 
+terminator() {
+	msg  "Copy terminator settings"
+	cp -rf ./conf/terminator ~/.config
+	echo  "Complete"
+}
+
 geany;
 doublecmd;
 mcomix;
 mpv;
+terminator;
