@@ -1,14 +1,15 @@
 #!/bin/bash
+# 참고 : https://gongzza.github.io/docker/db-sample/#postgres
 #if [ $UID -ne 0 ]; then
 	#echo Non root user. Please run as root.
 	#exit 1;
 #fi
 
-VOLUME_NAME=mariadb.data
+VOLUME_NAME=postgres.data
 
 function usage()
 {
-	echo "Install MariaDB by docker
+	echo "Install PostgreSQL by docker
 Usage: `basename $0` [-h] ROOT_PASSWORD
 	-h : help
 	ROOT_PASSWORD : database root account password"
@@ -31,7 +32,7 @@ case "$1" in
 		;;
 esac
 
-echo -n "Input MySQL Password : "
+echo -n "Input PostgreSQL Password : "
 read -s password
 echo
 
@@ -53,8 +54,10 @@ echo
 
 createVolume;
 
-docker run -p 3306:3306 --restart=always \
-	--volume $VOLUME_NAME:/var/lib/mysql \
-	--name mariadb \
-	-e MYSQL_ROOT_PASSWORD=$password \
-	-d mariadb:latest
+docker run -p 5432:5432 \
+       	--restart=always \
+	--volume $VOLUME_NAME:/var/lib/postgresql/data \
+	--name postgres \
+	-e POSTGRES_INITDB_ARGS="--data-checksums -E utf8 --no-locale" \
+	-e POSTGRES_PASSWORD=$password \
+	-d postgres:latest
