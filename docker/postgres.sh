@@ -10,17 +10,17 @@ VOLUME_NAME=postgres.data
 function usage()
 {
 	echo "Install PostgreSQL by docker
-Usage: `basename $0` [-h] ROOT_PASSWORD
+Usage: `basename $0` [-h] POSTGRESQL_PASSWORD
 	-h : help
-	ROOT_PASSWORD : database root account password"
+	POSTGRESQL_PASSWORD : database postgre account password"
 }
 
-# 기본 mariadb 만들기
+# 기본 postgresql 만들기
 function createVolume()
 {
 	dbexist=$(docker volume ls|awk '{print $2}'|grep $VOLUME_NAME)
 	if [ ! -n "$dbexist" ]; then
-		echo "Create mongodb voume"
+		echo "Create PostgreSQL voume"
 		docker volume create $VOLUME_NAME
 	fi
 }
@@ -35,22 +35,6 @@ esac
 echo -n "Input PostgreSQL Password : "
 read -s password
 echo
-
-#echo -n "Input Database volume path : "
-#read path
-#echo $path
-
-
-#volume=""
-#if [ -n "$path" ]; then
-	#mkdir -p $path
-
-	#if [ ! -d $path ]; then
-		#echo "Can not make path : $path"
-		#exit
-	#fi
-	#volume=" --volume $path:/var/lib/mysql "
-#fi
 
 createVolume;
 
