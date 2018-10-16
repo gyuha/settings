@@ -26,93 +26,34 @@ case "$1" in
 		;;
 esac
 
-echo "MondoDB Install Step "
-echo "  1. Install basic"
-echo "  2. Mongodb stop & remove"
-echo "  3. Run with auth"
-echo "  4. Monodb volume remove"
-echo -n "Select type : "
-read select_menu
-echo
 
 
 # 기본 mongodb 만들기
 function createVolume()
 {
-	dbexist=$(docker volume ls|awk '{print $2}'|grep mongodb.data)
+	dbexist=$(docker volume ls|awk '{print $2}'|grep $VOLUME_NAME)
 	if [ ! -n "$dbexist" ]; then
 		echo "Create mongodb voume"
 		docker volume create $VOLUME_NAME
 	fi
 }
 
-function runWithoutAuth()
-{
-	echo -n "Input database name : "
-	read databaseName
-	echo -n "Input admin Password : "
-	read -s password
-	echo
 
-	createVolume;
-
-	# docker run -p 27017:27017 --restart=always --name $PS_NAME -d -v $VOLUME_NAME:/data/db mongo:latest
-	docker run -p 27017:27017 --name $PS_NAME -d -v $VOLUME_NAME:/data/db mongo:latest
-	echo
-	echo "#  To do this, first log into the MongoDB container with:"
-	echo "> docker exec -it $PS_NAME bash"
-	echo "> mongo"
-	echo
-	echo "# Now, enter this stanza of code and press Enter:"
-	echo "> use $databaseName
-db.createUser(
-{
-	user: \"admin\",
-	pwd: \"$password\",
-	roles: [ { role: \"readWrite\", db: \"$databaseName\" } ]
-}
-)"
-}
-
-# 기존 docker를 중단하고 지움.
-function stopAndRemoveDocker()
-{
-	echo "Stop mongodb docker"
-	docker stop $PS_NAME
-	echo "Remove mongodb docker"
-	docker rm $PS_NAME
-}
-
-# 인증을 포함한 시작 만들기
-function runWithAuth()
-{
-	createVolume;
-	echo "Docker run with auth"
-	docker run -p 27017:27017 \
-		--restart=always \
-		--name $PS_NAME -d \
-		-v $VOLUME_NAME:/data/db \
-		mongo:latest --auth
-
-}
-
-# mongodb용 volume 지우기
-function removeVolume()
-{
-	dbexist=$(docker volume ls|awk '{print $2}'|grep mongodb.data)
-	if [ -n "$dbexist" ]; then
-		echo "Remove mongodb volume"
-		docker volume rm $VOLUME_NAME
-	fi
-}
+echo -n "Input $PS_NAME Password : "
+read -s password
+echo
 
 
-if [ $select_menu -eq "1" ]; then
-	runWithoutAuth;
-elif [ $select_menu -eq "2" ]; then
-	stopAndRemoveDocker;
-elif [ $select_menu -eq "3" ]; then
-	runWithAuth;
-elif [ $select_menu -eq "4" ]; then
-	removeVolume;
-fi
+createVolume;
+
+# docker run -p 27017:27017 --restart=always --name $PS_NAME -d -v $VOLUME_NAME:/data/db mongo:latest
+docker run -p 27017:27017 \
+	--restart=always \
+	--name $PS_NAME \
+	-e MONGO_INITDB_ROOT_USERNAME=root \
+	-e MONGO_INITDB_ROOT_PASSWORD=$password \
+	-d -v $VOLUME_NAME:/data/db \
+	mongo:latest
+
+
+echo "connect to : mongodb://root:$password@localhost:27017/admin"

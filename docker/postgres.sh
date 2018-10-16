@@ -5,7 +5,8 @@
 	#exit 1;
 #fi
 
-VOLUME_NAME=postgres.data
+PS_NAME=postgres
+VOLUME_NAME=PS_NAME.data
 
 function usage()
 {
@@ -20,7 +21,7 @@ function createVolume()
 {
 	dbexist=$(docker volume ls|awk '{print $2}'|grep $VOLUME_NAME)
 	if [ ! -n "$dbexist" ]; then
-		echo "Create PostgreSQL voume"
+		echo "Create $PS_NAME voume"
 		docker volume create $VOLUME_NAME
 	fi
 }
@@ -32,16 +33,21 @@ case "$1" in
 		;;
 esac
 
-echo -n "Input PostgreSQL Password : "
+echo -n "Input $PS_NAME Password : "
 read -s password
 echo
 
 createVolume;
 
 docker run -p 5432:5432 \
-       	--restart=always \
+	--restart=always \
 	--volume $VOLUME_NAME:/var/lib/postgresql/data \
-	--name postgres \
+	--name $PS_NAME \
 	-e POSTGRES_INITDB_ARGS="--data-checksums -E utf8 --no-locale" \
 	-e POSTGRES_PASSWORD=$password \
-	-d postgres:latest
+	-d $PS_NAME
+
+echo
+echo "connect to : postgres://postgres:$password@loclahost:5432/postgres"
+echo
+echo "$ node postgres.js"
