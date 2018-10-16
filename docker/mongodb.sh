@@ -48,6 +48,10 @@ function createVolume()
 
 function runWithoutAuth()
 {
+	echo -n "Input MongoDB Password : "
+	read -s password
+	echo
+
 	createVolume;
 
 	# docker run -p 27017:27017 --restart=always --name $PS_NAME -d -v $VOLUME_NAME:/data/db mongo:latest
@@ -66,6 +70,9 @@ db.createUser(
 	roles: [ { role: \"userAdminAnyDatabase\", db: \"admin\" } ]
 }
 )"
+	echo
+	echo "# Show added users"
+	echo "> show users"
 }
 
 # 기존 docker를 중단하고 지움.
@@ -80,7 +87,7 @@ function stopAndRemoveDocker()
 # 인증을 포함한 시작 만들기
 function runWithAuth()
 {
-	createVolume;
+#	createVolume;
 	echo "Docker run with auth"
 	docker run -p 27017:27017 \
 		--restart=always \
