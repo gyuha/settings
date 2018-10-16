@@ -14,7 +14,7 @@ Usage: `basename $0` [-h] ROOT_PASSWORD
 	ROOT_PASSWORD : database root account password"
 }
 
-# 기본 mongodb 만들기
+# 기본 mariadb 만들기
 function createVolume()
 {
 	dbexist=$(docker volume ls|awk '{print $2}'|grep $VOLUME_NAME)
@@ -53,4 +53,8 @@ echo
 
 createVolume;
 
-docker run -p 3306:3306 --restart=always --volume $VOLUME_NAME:/var/lib/mysql --name mariadb -e MYSQL_ROOT_PASSWORD=$password -d mariadb:latest
+docker run -p 3306:3306 --restart=always \
+	--volume $VOLUME_NAME:/var/lib/mysql \
+	--name mariadb \
+	-e MYSQL_ROOT_PASSWORD=$password \
+	-d mariadb:latest

@@ -76,9 +76,18 @@ function stopAndRemoveDocker()
 # 인증을 포함한 시작 만들기
 function runWithAuth()
 {
+	echo -n "Input Mongodb admin Password : "
+	read -s password
+	echo
 	createVolume;
 	echo "Docker run with auth"
-	docker run -p 27017:27017 --restart=always --name $PS_NAME -d -v $VOLUME_NAME:/data/db mongo:latest --auth
+	docker run -p 27017:27017 \
+		--restart=always \
+		--name $PS_NAME -d \
+	       	-v $VOLUME_NAME:/data/db \
+		mongo:latest \
+		--auth
+
 }
 
 # mongodb용 volume 지우기

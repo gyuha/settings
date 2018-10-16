@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mongodb": "^3.1.8",
+    "mysql2": "^1.6.1",
+    "pg": "^7.5.0",
+    "readline-sync": "^1.4.9"
+  }
+}
