@@ -77,6 +77,16 @@ auth 적용 후 로그인 하는 방법
 ### 3. Run with auth
 인증을 포함해서 몽고DB를 실행하고 시작시 자동으로 시작하기 해 준다.
 
+
+## Docker 이미지들을 자동으로 시작하기
+
+docker가 등록이 되어 있지만.. 한번 건드려 줘야 이미지 들이 시작 해서..
+서비스에서 시스템이 시작 하면서 한번 건드려 준다.
+
+> sudo ./docker_service.sh
+
+
+
 ### 참고
  * [Securing a Containerized Instance of MongoDB](https://rancher.com/securing-containerized-instance-mongodb/)
  * [Enable mongodb authentication with docker](https://medium.com/@itseranga/enable-mongodb-authentication-with-docker-1b9f7d405a94)
