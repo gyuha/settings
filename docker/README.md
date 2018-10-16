@@ -1,4 +1,41 @@
 # Docker settings
+
+## Mariadb
+
+### 설치
+
+```bash
+$ sudo ./mariadb.sh
+input Mariadb Password :
+```
+
+### 접속 테스트
+
+```bash
+$ yarn
+$ node mariadb.js
+root Password :
+```
+```
+
+## PostgreSQL
+
+### 설치
+
+```bash
+$ sudo ./postgres.sh
+input PostgreSQL Password :
+```
+
+### 접속 테스트
+
+```bash
+$ yarn
+$ node postgres.js
+root Password :
+```
+
+
 ## Mongodb
 ### 실행
 > ./install_mongodb.sh
@@ -21,15 +58,18 @@ docker의 이미지의 bash에 접근 한다.
 ```json
 db.createUser(
 {
-	user: db_user,
-	pwd: your_super_secure_password,
-	roles: [ { role: userAdminAnyDatabase, db: admin } ]
+	user: "db_user",
+	pwd: "your_super_secure_password",
+	roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
 }
 )
 ```
 
 추가 후 2, 3을 실행하면 됨.
 여기 역시도 설치하면 시스템 시작시 자동 시작을 해 준다.
+
+auth 적용 후 로그인 하는 방법
+> mongo -u admin -p [password] --authenticationDatabase admin
 
 ### 2. Mongo stop & remove
 1에서 설치한 몽고db를 중단하고 지워 준다.
@@ -39,3 +79,5 @@ db.createUser(
 
 ### 참고
  * [Securing a Containerized Instance of MongoDB](https://rancher.com/securing-containerized-instance-mongodb/)
+ * [Enable mongodb authentication with docker](https://medium.com/@itseranga/enable-mongodb-authentication-with-docker-1b9f7d405a94)
+ * [Docker로 개발용 DB 만들기](https://gongzza.github.io/docker/db-sample/)

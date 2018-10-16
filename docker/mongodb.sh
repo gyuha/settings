@@ -1,4 +1,9 @@
 #!/bin/bash
+# 참고
+# - https://medium.com/@itseranga/enable-mongodb-authentication-with-docker-1b9f7d405a94
+# - https://www.mkyong.com/mongodb/mongodb-authentication-example/
+# CLI login
+#  > mongo -u admin -p [password] --authenticationDatabase admin
 #if [ $UID -ne 0 ]; then
 	#echo Non root user. Please run as root.
 	#exit 1;
@@ -43,23 +48,21 @@ function createVolume()
 
 function runWithoutAuth()
 {
-	echo -n "Input Mongodb admin Password : "
-	read -s password
-	echo
-
 	createVolume;
 
 	docker run -p 27017:27017 --restart=always --name $PS_NAME -d -v $VOLUME_NAME:/data/db mongo:latest
+	echo
 	echo "#  To do this, first log into the MongoDB container with:"
 	echo "> docker exec -it $PS_NAME bash"
 	echo "> mongo"
+	echo
 	echo "# Now, enter this stanza of code and press Enter:"
 	echo "> use admin
 db.createUser(
 {
-	user: "admin",
-	pwd: "$password",
-	roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
+	user: \"admin\",
+	pwd: \"$password\",
+	roles: [ { role: \"userAdminAnyDatabase\", db: \"admin\" } ]
 }
 )"
 }
@@ -76,17 +79,13 @@ function stopAndRemoveDocker()
 # 인증을 포함한 시작 만들기
 function runWithAuth()
 {
-	echo -n "Input Mongodb admin Password : "
-	read -s password
-	echo
 	createVolume;
 	echo "Docker run with auth"
 	docker run -p 27017:27017 \
 		--restart=always \
 		--name $PS_NAME -d \
-	       	-v $VOLUME_NAME:/data/db \
-		mongo:latest \
-		--auth
+		-v $VOLUME_NAME:/data/db \
+		mongo:latest --auth
 
 }
 
