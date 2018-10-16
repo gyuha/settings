@@ -50,7 +50,8 @@ function runWithoutAuth()
 {
 	createVolume;
 
-	docker run -p 27017:27017 --restart=always --name $PS_NAME -d -v $VOLUME_NAME:/data/db mongo:latest
+	# docker run -p 27017:27017 --restart=always --name $PS_NAME -d -v $VOLUME_NAME:/data/db mongo:latest
+	docker run -p 27017:27017 --name $PS_NAME -d -v $VOLUME_NAME:/data/db mongo:latest
 	echo
 	echo "#  To do this, first log into the MongoDB container with:"
 	echo "> docker exec -it $PS_NAME bash"
