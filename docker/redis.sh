@@ -42,4 +42,4 @@ docker run -p 6379:6379 --restart=always \
 	--name $NAME \
 	-e REDIS_PASSWORD=$password \
 	-v $VOLUME_NAME:/bitnami/redis/data \
-	bitnami/redis:latest
+	bitnami/redis
