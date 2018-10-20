@@ -56,6 +56,7 @@ media() {
 
 dictionary() {
 	apt_add goldendict
+	# 다음 사전 : http://small.dic.daum.net/search.do?q=%GDWORD%
 	# 다음 미니 영한사전 : http://engdic.daum.net/dicen/small_search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
 	# 다음 일반 영한사전: http://engdic.daum.net/dicen/search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
 	# 네이버 사전 :  http://endic.naver.com/search.nhn?sLn=kr&isOnlyViewEE=N&query=%GDWORD%

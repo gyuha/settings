@@ -6,7 +6,7 @@
 #fi
 
 PS_NAME=postgres
-VOLUME_NAME=PS_NAME.data
+VOLUME_NAME=$PS_NAME.data
 
 function usage()
 {

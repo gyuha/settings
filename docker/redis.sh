@@ -38,8 +38,8 @@ echo
 
 createVolume;
 
-docker run -p 6379:6379 --restart=always \
+docker run -p 6379:6379 --restart=always -d \
 	--name $NAME \
 	-e REDIS_PASSWORD=$password \
 	-v $VOLUME_NAME:/bitnami/redis/data \
-	bitnami/redis:latest
+	bitnami/redis
