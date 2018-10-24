@@ -23,6 +23,8 @@ alias vi='vim'
 alias of='/usr/bin/nautilus .' # 우분투에서 현재 폴더 탐색기로 열기
 alias devgrep="grep --exclude-dir='.svn' --exclude='*.swp'"
 
+alias tn='ts-node'
+
 # A two-line colored Bash prompt (PS1) with Git branch and a line decoration
 # which adjusts automatically to the width of the terminal.
 # Recognizes and shows Git, SVN, HG and Fossil branch/revision.
