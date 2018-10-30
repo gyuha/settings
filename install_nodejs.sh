@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-if [ $UID -ne 0 ]; then
+if [ $UID -eq 0 ]; then
 	echo Non root user. Please run as root.
 	exit 1;
 fi
@@ -17,6 +17,9 @@ if ! [[ $VERSION =~ $re ]]; then
 	exit 1
 fi
 
-curl -sL https://deb.nodesource.com/setup_$VERSION.x | sudo -E bash -
-apt-get install -y nodejs
+sudo curl -sL https://deb.nodesource.com/setup_$VERSION.x | sudo -E bash -
+sudo apt-get install -y nodejs
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+echo "export PATH=~/.npm-global/bin:\$PATH" >> ~/.profile
 npm install -g yarn

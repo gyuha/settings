@@ -137,8 +137,8 @@ if [ $PACKAGES == "all" ]; then
 	graphic;
 	utilities;
 	guiDevTools;
-	mysqlworkbench;
-	#powerlinefont;
+	#mysqlworkbench;
+	powerlinefont;
 	fonts;
 	#wine;
 	run_all;
