@@ -102,8 +102,10 @@ git config --global alias.sa 'stash apply'
 git config --global alias.ss 'stash save'
 git config --global alias.url 'config remote.origin.url'
 
-# Git Aliases Setting
+# git https auth cache
+git config --global credential.helper cache
 
+# Git Aliases Setting
 if [ "$3" = "YES" ]
 then
 	cd ~/.ssh
