@@ -26,10 +26,13 @@ tar -xvf $FILE
 sudo mv go /usr/local
 rm $FILE
 
-echo "export GOROOT=/usr/local/go" >> ~/.bashrc
-echo "export GOPATH=${HOME}/go" >> ~/.bashrc
-echo "export PATH=\${PATH}:\${GOPATH}/bin:\${GOROOT}/bin" >> ~/.bashrc
+BASH_RC=~/.bashrc
+
+echo "" >> $BASH_RC
+echo "export GOROOT=/usr/local/go" >> $BASH_RC
+echo "export GOPATH=${HOME}/go" >> $BASH_RC
+echo "export PATH=\${PATH}:\${GOPATH}/bin:\${GOROOT}/bin" >> $BASH_RC
 mkdir -p ~/go/bin
 mkdir -p ~/go/src
 
-echo -e "Type this \\n\\t# source $PROFILE"
+echo -e "Type this \\n\\t# source ${BASH_RC}"
