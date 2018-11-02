@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-#if [ $UID -ne 0 ]; then
-	#echo Non root user. Please run as root.
-	#exit 1;
-#fi
+if [ $UID -eq 0 ]; then
+	echo You are root. Please run home user.
+	exit 1;
+fi
 
 VERSION=1.11
 if [ -n "$1" ]; then

@@ -37,8 +37,15 @@ terminator() {
 	echo  "Complete"
 }
 
+goldendict() {
+	msg  "Copy GoldenDict settings"
+	cp -rf ./conf/goldendict ~/.goldendict
+	echo  "Complete"
+}
+
 geany;
 doublecmd;
 mcomix;
 mpv;
 terminator;
+goldendict;
