@@ -10,11 +10,11 @@ nginx() {
 
 # PHP-FPM install
 phpfpm() {
-	apt_add php7.0 php7.0-fpm php7.0-cli php7.0-common php7.0-curl php7.0-gd php7.0-gmp php7.0-json php7.0-ldap php7.0-mysql php7.0-odbc php7.0-pspell php7.0-readline php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xml php7.0-xmlrpc php7.0-bcmath php7.0-bz2 php7.0-enchant php7.0-fpm php7.0-imap php7.0-interbase php7.0-intl php7.0-mbstring php7.0-mcrypt php7.0-phpdbg php7.0-soap php7.0-sybase php7.0-xsl php7.0-zip php-imagick php-redis php-apcu php-pear php-mongodb
+	apt_add php-fpm php-cli php-common php-curl php-gd php-gmp php-json php-ldap php-mysql php-odbc php-pspell php-readline php-recode php-sqlite3 php-tidy php-xml php-xmlrpc php-bcmath php-bz2 php-enchant php-fpm php-imap php-interbase php-intl php-mbstring php-mcrypt php-phpdbg php-soap php-sybase php-xsl php-zip php-imagick php-redis php-apcu php-pear php-mongodb
 }
 
 restart_service() {
-	service php7.0-fpm restart
+	service php-fpm restart
 	service nginx restart
 }
 
@@ -22,11 +22,11 @@ copy_dev_conf() {
 	msg "Copy development configure"
 	msg "Nginx"
 	copy_increase_number /etc/nginx/sites-available/default /tmp/nginx.conf
-	cp -f ./conf/php7.0/development/nginx.conf /etc/nginx/sites-available/default
+	cp -f ./conf/php/development/nginx.conf /etc/nginx/sites-available/default
 
 	msg "php-fpm"
-	copy_increase_number /etc/php/7.0/fpm/php.ini /tmp/php.ini
-	cp -f ./conf/php7.0/development/php.ini /etc/php/7.0/fpm/php.ini
+	copy_increase_number /etc/php//fpm/php.ini /tmp/php.ini
+	cp -f ./conf/php/development/php.ini /etc/php//fpm/php.ini
 
 	restart_service;
 	success "Copy complete"
@@ -37,11 +37,11 @@ copy_product_conf() {
 
 	msg "Nginx"
 	copy_increase_number /etc/nginx/sites-available/default /tmp/nginx.conf
-	cp -f ./conf/php7.0/product/nginx.conf /etc/nginx/sites-available/default
+	cp -f ./conf/php/product/nginx.conf /etc/nginx/sites-available/default
 
 	msg "php-fpm"
-	copy_increase_number /etc/php/7.0/fpm/php.ini /tmp/php.ini
-	cp -f ./conf/php7.0/product/php.ini /etc/php/7.0/fpm/php.ini
+	copy_increase_number /etc/php//fpm/php.ini /tmp/php.ini
+	cp -f ./conf/php/product/php.ini /etc/php//fpm/php.ini
 
 	restart_service;
 	success "Copy complete"

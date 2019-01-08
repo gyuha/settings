@@ -73,8 +73,8 @@ function_exists() {
 
 update() {
 	msg "Ubuntu update start."
-	apt-get update
-#	apt-get upgrade
+	apt update
+#	apt upgrade
 	success "Update Complete"
 }
 
@@ -91,7 +91,7 @@ run_all() {
 	for p in ${APTS[@]};
 	do
 		msg "$p Install.."
-		apt-get -y install $p
+		apt -y install $p
 	done;
 	success "Complete"
 }
