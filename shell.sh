@@ -27,7 +27,6 @@ function powerline_setting()
 {
     echo "Use powerline"
     # Tmux 세팅
-    ln -snf $BASEDIR/conf/tmux.conf $HOME/.tmux.conf
     sed -i "s/\t\"wan_ip/\t\#\"wan_ip/" $BASEDIR/bin/tmux-powerline/themes/default.sh
     sed -i "s/\t\"mailcount/\t\#\"mailcount/" $BASEDIR/bin/tmux-powerline/themes/default.sh
     sed -i "s/\t\"now_playing/\t\#\"now_playing/" $BASEDIR/bin/tmux-powerline/themes/default.sh
@@ -74,6 +73,7 @@ done
 
 echo $BASHRC_SRC
 
+ln -snf $BASEDIR/conf/tmux.conf $HOME/.tmux.conf
 
 LINE=`grep -n "# GYUHA" $PROFILE |sed 's/\:.*$//g'`
 LINE=`expr $LINE - 1`
