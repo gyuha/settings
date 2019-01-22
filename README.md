@@ -24,35 +24,6 @@ wget -O - https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash -s --
 ```
 
 -----
-## Server Install
-
-### 각종 유틸리티 설치
-```bash
-cd ~/.settings
-sudo ./install_utility.sh
-```
-
-### node js 설치
-```bash
-cd ~/.settings
-sudo ./install_nodejs.sh [VERSION]
-```
-
-### php-fpm & nginx 설치
-```bash
-cd ~/.settings
-sudo ./install_nginx_phpfpm.sh
-# 설정 파일 설치
-sudo ./install_nginx_phpfpm.sh copyconf
-```
-
-### java 8 설치
-```bash
-cd ~/.settings
-sudo ./install_utility.sh java
-```
-
------
 ## vim 설정
 개인 적인 vim 설정
 ```bash
@@ -62,22 +33,6 @@ curl https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
 ## 참고
 * https://vim-bootstrap.com/
 * http://vim.spf13.com/
-
-
------
-## Desktop
-
-### Desktop 어플리케이션 설치
-```bash
-cd ~/.settings
-sudo ./install_desktop_app.sh
-# 어플케이션 설정 복사
-./install_desktop_app copyconf
-```
-
-
-### Nvidia driver install
- [How to install the NVIDIA drivers on Ubuntu 18.04 Bionic Beaver Linux ](https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux)
 
 -----
 ## 참고
