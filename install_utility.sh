@@ -63,4 +63,4 @@ if [ $PACKAGES == "all" ]; then
 	exit;
 fi
 
-source ./install_run.sh
+install_start;

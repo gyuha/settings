@@ -63,5 +63,4 @@ elif [ $1 == "product" ]; then
 	exit;
 fi
 
-
-source ./install_run.sh
+install_start;
