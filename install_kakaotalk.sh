@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 if [ $UID -eq 0 ]; then
-	echo Your root. Please run home user.
+	echo You are root. Please run home user.
 	exit 1;
 fi
 

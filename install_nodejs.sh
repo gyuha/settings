@@ -2,7 +2,7 @@
 set -e
 
 if [ $UID -eq 0 ]; then
-	echo Non root user. Please run as root.
+	echo You are root. Please run home user.
 	exit 1;
 fi
 

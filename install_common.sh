@@ -1,8 +1,3 @@
-if [ $UID -ne 0 ]; then
-	echo Non root user. Please run as root.
-	exit 1;
-fi
-
 BLACK='\e[0;30m'
 RED='\e[0;31m'
 GREEN='\e[0;32m'
@@ -20,6 +15,13 @@ APTS=()
 # apt-repository array
 REPOS=()
 APTS=()
+
+root_require() {
+	if [ $UID -ne 0 ]; then
+		echo Non root user. Please run as root.
+		exit 1;
+	fi
+}
 
 apt_add() {
 	for p in $*;
@@ -79,14 +81,16 @@ update() {
 }
 
 run_all() {
-	apt_add python-software-properties software-properties-common
+	apt install -y software-properties-common
 
 	for p in ${REPOS[@]};
 	do
 		add-apt-repository -y $p
 	done;
 
-	update;
+	if [ ${#REPOS[@]} -eq 1 ]; then
+		update;
+	fi
 
 	for p in ${APTS[@]};
 	do
@@ -120,10 +124,13 @@ copy_increase_number() {
 	cp -f $1 $tar
 }
 
-instart_start() {
+ARGS_COUNT=$#
+install_start() {
+	echo "install_start"
 	RUN=false;
-	for (( i=1;$i<=$#;i=$i+1 ))
+	for (( i=1;$i<=$ARGS_COUNT;i=$i+1 ))
 	do
+		echo $i
 		function_exists ${!i} && eval ${!i} && RUN=true || msg "${!i} Can't find function..";
 	done
 	if $RUN eq true

@@ -2,6 +2,8 @@
 
 source ./install_common.sh
 
+root_require;
+
 # Nginx install
 nginx() {
 	repo_add "ppa:nginx/stable"

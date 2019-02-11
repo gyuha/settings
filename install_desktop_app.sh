@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 source ./install_common.sh
+root_require;
 
 koreanHome() {
 	# 한글로 설치 후 기본 폴더명 변경.
@@ -24,38 +25,38 @@ disableUnnecessayErrorMessage() {
 
 
 gui() {
-	apt_add gnome-tweaks gnome-shell-extensions
+	apt install -y gnome-tweaks gnome-shell-extensions
 	# Theme add
-	apt_add adwaita-icon-theme-full arc-theme numix-gtk-theme numix-icon-theme
-	apt_add chrome-gnome-shell
-	apt_add gir1.2-gtop-2.0
+	apt install -y adwaita-icon-theme-full arc-theme numix-gtk-theme numix-icon-theme
+	apt install -y chrome-gnome-shell
+	apt install -y gir1.2-gtop-2.0
 	# simple tool to view and install deb files
-	apt_add gdebi
+	apt install -y gdebi
 	# graphical user interface for ufw
-	apt_add gufw
-	apt_add gnome-usage
+	apt install -y gufw
+	apt install -y gnome-usage
 }
 
 
 flash() {
-	apt_add flashplugin-installer
+	apt install -y flashplugin-installer
 }
 
 torrent() {
-	apt_add qbittorrent
+	apt install -y qbittorrent
 }
 
 media() {
-	apt_add smplayer
-	apt_add vlc
-	apt_add mpv
-	apt_add audacious okular
-	apt_add ubuntu-restricted-extras
+	apt install -y smplayer
+	apt install -y vlc
+	apt install -y mpv
+	apt install -y audacious okular
+	apt install -y ubuntu-restricted-extras
 }
 
 
 dictionary() {
-	apt_add goldendict
+	apt install -y goldendict
 	# 다음 사전 : http://small.dic.daum.net/search.do?q=%GDWORD%
 	# 다음 미니 영한사전 : http://engdic.daum.net/dicen/small_search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
 	# 다음 일반 영한사전: http://engdic.daum.net/dicen/search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
@@ -68,28 +69,28 @@ krita() {
 }
 
 graphic() {
-	apt_add gimp pinta
-	apt_add inkscape
+	apt install -y gimp pinta
+	apt install -y inkscape
 }
 
 
 mysqlworkbench() {
-	apt_add mysql-workbench
+	apt install -y mysql-workbench
 }
 
 
 utilities() {
-	apt_add p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
-	apt_add doublecmd-common
-	apt_add libgnomevfs2-extra krusader krename
-	apt_add geany geany-common geany-plugins
-	apt_add terminator
-	apt_add arandr
-	apt_add clipit
+	apt install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
+	apt install -y doublecmd-common
+	apt install -y libgnomevfs2-extra krusader krename
+	apt install -y geany geany-common geany-plugins
+	apt install -y terminator
+	apt install -y arandr
+	apt install -y clipit
 
 	# 한글 입력기
 	# 참고 : ttp://la-nube.tistory.com/393
-	apt_add uim
+	# apt install -y uim
 }
 
 powerlinefont() {
@@ -106,20 +107,20 @@ powerlinefont() {
 }
 
 fonts() {
-	apt_add fonts-nanum*
+	apt install -y fonts-nanum*
 }
 
 wine() {
 	# 설치 후 현재 계정에서 아래와 같이 입력 함.
 	# > WINEARCH=win32 WINEPREFIX=~/.wine wine wineboot
 	apt_add wine-stable
-	sudo apt install gnome-shell-extension-top-icons-plus
+	apt install -y gnome-shell-extension-top-icons-plus
 }
 
 
 guiDevTools() {
 	#repo_add ppa:eugenesan/ppa
-	apt_add gitg vim-gtk3 meld
+	apt install -y gitg vim-gtk3 meld
 	#apt_add rapidsvn
 	#apt_add smartgit
 	success "Complete"

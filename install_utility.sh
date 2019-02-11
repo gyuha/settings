@@ -2,14 +2,16 @@
 
 source ./install_common.sh
 
+root_require;
+
 # Utillity install
 utility() {
-	apt_add cronolog vim ctags git build-essential g++ curl
-	apt_add libssl-dev expect tmux
-	apt_add gawk cmake
-	apt_add exuberant-ctags ncurses-term
-	apt_add inxi htop net-tools
-	apt_add dos2unix
+	apt install -y cronolog vim ctags git build-essential g++ curl
+	apt install -y libssl-dev expect tmux
+	apt install -y gawk cmake
+	apt install -y exuberant-ctags ncurses-term
+	apt install -y inxi htop net-tools
+	apt install -y dos2unix
 
 	# inxi : 시스템 사양 확인 / Ex) inxi -F
 	# htop : 시스템 사용 확인
@@ -20,10 +22,10 @@ utility() {
 
 # Python3
 python3() {
-	apt_add python3-dev
-	apt_add python3-pip
-	apt_add python3-virtualenv
-	apt_add python3-bs4
+	apt install -y python3-dev
+	apt install -y python3-pip
+	apt install -y python3-virtualenv
+	apt install -y python3-bs4
 }
 
 # Java 8 install
@@ -34,17 +36,17 @@ java() {
 
 # mysql 5.6 install
 mysql() {
-	apt_add mysql-server-5.6 mysql-client-5.6
+	apt install -y mysql-server-5.6 mysql-client-5.6
 }
 
 # mariadb install
 mariadb() {
-	apt_add mariadb-server mariadb-client
+	apt install -y mariadb-server mariadb-client
 }
 
 # Docker
 docker() {
-	apt_add docker.io
+	apt install -y docker.io
 }
 
 # mongodb install
