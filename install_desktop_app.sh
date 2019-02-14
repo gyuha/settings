@@ -147,4 +147,4 @@ if [ $PACKAGES == "all" ]; then
 	exit;
 fi
 
-install_start;
+source ./install_start.sh

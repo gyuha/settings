@@ -24,7 +24,7 @@ utility() {
 python3() {
 	apt install -y python3-dev
 	apt install -y python3-pip
-	apt install -y python3-virtualenv
+	apt install -y python3-venv
 	apt install -y python3-bs4
 }
 
@@ -65,4 +65,4 @@ if [ $PACKAGES == "all" ]; then
 	exit;
 fi
 
-install_start;
+source ./install_start.sh

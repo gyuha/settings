@@ -123,18 +123,3 @@ copy_increase_number() {
 	msg "COPY : $1 => $tar"
 	cp -f $1 $tar
 }
-
-ARGS_COUNT=$#
-install_start() {
-	echo "install_start"
-	RUN=false;
-	for (( i=1;$i<=$ARGS_COUNT;i=$i+1 ))
-	do
-		echo $i
-		function_exists ${!i} && eval ${!i} && RUN=true || msg "${!i} Can't find function..";
-	done
-	if $RUN eq true
-	then
-		run_all;
-	fi
-}
