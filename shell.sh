@@ -39,8 +39,9 @@ function powerline_setting()
 }
 
 BASHRC_SRC="# GYUHA SETTINGS
-if [ -f $BASEDIR/conf/bash_profile ]; then
-    . $BASEDIR/conf/bash_profile
+if [ -f $BASEDIR/conf/sh_profile ]; then
+    . $BASEDIR/conf/sh_profile
+    . $BASEDIR/conf/bash_ps1
 fi
 "
 
@@ -73,21 +74,18 @@ done
 
 echo $BASHRC_SRC
 
-ln -snf $BASEDIR/conf/tmux.conf $HOME/.tmux.conf
-
 LINE=`grep -n "# GYUHA" $PROFILE |sed 's/\:.*$//g'`
-LINE=`expr $LINE - 1`
 
-# read the options
-if grep -Fxq "# GYUHA SETTINGS" $PROFILE
+if [ "$LINE" == "" ]
 then
-    echo "Exist profile Settings"
-    TMP_FILE="tmp"
-    head -n $LINE $PROFILE > $TMP_FILE
-    echo "$BASHRC_SRC" >> $TMP_FILE
-    mv -f $TMP_FILE $PROFILE
-else
     echo "$BASHRC_SRC" >> $PROFILE
+else
+	LINE=`expr $LINE - 1`
+	echo "Exist profile settings"
+	TMP_FILE="tmp"
+	head -n $LINE $PROFILE > $TMP_FILE
+	echo "$BASHRC_SRC" >> $TMP_FILE
+	mv -f $TMP_FILE $PROFILE
 fi
 
 echo -e "Type this \\n\\t# source $PROFILE"

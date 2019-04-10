@@ -1,4 +1,5 @@
 # GYUHA SETTINGS
-if [ -f ~/.settings/conf/bash_profile ]; then
-	. ~/.settings/conf/bash_profile
+if [ -f ~/.settings/conf/sh_profile ]; then
+	. ~/.settings/conf/sh_profile
+	. ~/.settings/conf/bash_ps1
 fi

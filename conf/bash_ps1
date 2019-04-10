@@ -1,30 +1,3 @@
-# GYUHA SETTINGS
-export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
-
-export SVN_EDITOR="vim --noplugin"
-
-PATH=$PATH:~/bin:~/.bin
-
-set -o vi
-
-#ryan 256 color support
-#if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-#	export TERM='xterm-256color'
-#else
-#	export TERM='xterm-color'
-#fi
-
-export TERM='screen-256color'
-export EDITOR=vim
-
-alias tmux="tmux -2"
-alias vi='vim'
-alias of='/usr/bin/nautilus .' # 우분투에서 현재 폴더 탐색기로 열기
-alias devgrep="grep --exclude-dir='.svn' --exclude='*.swp'"
-
-alias tn='ts-node'
-
 # A two-line colored Bash prompt (PS1) with Git branch and a line decoration
 # which adjusts automatically to the width of the terminal.
 # Recognizes and shows Git, SVN, HG and Fossil branch/revision.
