@@ -10,7 +10,7 @@ fi
 "
 
 # 테마 설정하기
-# sed -i "s/^ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"agnoster\"/" $PROFILE
+sed -i "s/^ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"agnoster\"/" $PROFILE
 
 # 개인 설정 적용하기
 LINE=`grep -n "# GYUHA" $PROFILE |sed 's/\:.*$//g'`
