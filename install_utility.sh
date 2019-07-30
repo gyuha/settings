@@ -19,6 +19,12 @@ utility() {
 	# ncurses-term : 추가 터미널 타입 정의
 }
 
+# fzf is a general-purpose command-line fuzzy finder.
+fzf() {
+	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+	~/.fzf/install
+}
+
 
 # Python3
 python3() {
@@ -60,6 +66,7 @@ mongodb() {
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	utility;
+	fzf;
 	docker;
 	run_all;
 	exit;
