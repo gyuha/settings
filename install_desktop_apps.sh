@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ./install_common.sh
+source ./lib/install_common.sh
 root_require;
 
 koreanHome() {
@@ -27,8 +27,11 @@ disableUnnecessayErrorMessage() {
 gui() {
 	apt install -y gnome-tweaks gnome-shell-extensions
 	# Theme add
+	add-apt-repository ppa:daniruiz/flat-remix
+	apt update
+	apt install -y flat-remix-gtk
 	apt install -y adwaita-icon-theme-full arc-theme numix-gtk-theme numix-icon-theme
-	apt install -y chrome-gnome-shell
+	# apt install -y chrome-gnome-shell
 	apt install -y gir1.2-gtop-2.0
 	# simple tool to view and install deb files
 	apt install -y gdebi
@@ -63,10 +66,6 @@ dictionary() {
 	# 네이버 사전 :  http://endic.naver.com/search.nhn?sLn=kr&isOnlyViewEE=N&query=%GDWORD%
 }
 
-krita() {
-	repo_add ppa:kritalime/ppa
-	apt_add krita
-}
 
 graphic() {
 	apt install -y gimp pinta
@@ -147,4 +146,4 @@ if [ $PACKAGES == "all" ]; then
 	exit;
 fi
 
-source ./install_start.sh
+source ./lib/install_start.sh

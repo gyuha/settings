@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ./install_common.sh
+source ./lib/install_common.sh
 
 root_require;
 
@@ -72,4 +72,4 @@ if [ $PACKAGES == "all" ]; then
 	exit;
 fi
 
-source ./install_start.sh
+source ./lib/install_start.sh
