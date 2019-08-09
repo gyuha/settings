@@ -85,7 +85,7 @@ utilities() {
 	apt install -y geany geany-common geany-plugins
 	apt install -y terminator
 	apt install -y arandr
-	apt install -y clipit
+	apt install -y copyq*
 
 	# 한글 입력기
 	# 참고 : ttp://la-nube.tistory.com/393
