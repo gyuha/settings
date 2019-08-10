@@ -62,13 +62,18 @@ mongodb() {
 	apt_add mongodb-org
 }
 
+vimconfig() {
+	curl https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
+}
+
 
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	utility;
 	fzf;
-	docker;
 	run_all;
+	python3;
+	vimconfig;
 	exit;
 fi
 

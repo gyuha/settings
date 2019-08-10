@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ./install_common.sh
+source ../lib/install_common.sh
 
 root_require;
 
