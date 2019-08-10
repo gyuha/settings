@@ -50,15 +50,23 @@ torrent() {
 }
 
 media() {
+	# 비디오 플레이어
 	apt install -y smplayer
 	apt install -y vlc
 	apt install -y mpv
+	# 오디오 플레이어
 	apt install -y audacious okular
+	# Ubuntu Restricted Extras는 법적 또는 저작권상의 이유로 아직
+	# 포함되지 않은 필수 소프트웨어를 사용자가 설치할 수있게 해주는
+	# 컴퓨터 운영 체제 우분투 용 소프트웨어 패키지
 	apt install -y ubuntu-restricted-extras
+	# 배경 그림 바꾸기
+	apt install -y variety
 }
 
 
 dictionary() {
+	# 사전 프로그램
 	apt install -y goldendict
 	# 다음 사전 : http://small.dic.daum.net/search.do?q=%GDWORD%
 	# 다음 미니 영한사전 : http://engdic.daum.net/dicen/small_search.do?endic_kind=all&m=all&nil_profile=vsearch&nil_src=engdic&q=%GDWORD%
