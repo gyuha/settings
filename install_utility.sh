@@ -6,7 +6,7 @@ root_require;
 
 # Utillity install
 utility() {
-	apt install -y cronolog vim ctags git build-essential g++ curl
+	apt install -y cronolog vim ctags git tig build-essential g++ curl
 	apt install -y libssl-dev expect tmux
 	apt install -y gawk cmake
 	apt install -y exuberant-ctags ncurses-term

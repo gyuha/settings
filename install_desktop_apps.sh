@@ -27,11 +27,12 @@ disableUnnecessayErrorMessage() {
 gui() {
 	apt install -y gnome-tweaks gnome-shell-extensions
 	# Theme add
-	add-apt-repository ppa:daniruiz/flat-remix
+	add-apt-repository -y ppa:daniruiz/flat-remix
 	apt update
 	apt install -y flat-remix-gtk
 	apt install -y adwaita-icon-theme-full arc-theme numix-gtk-theme numix-icon-theme
-	# apt install -y chrome-gnome-shell
+	# Gnome Extensions와 웹브라우저 연결을 위해서 필요.
+	apt install -y chrome-gnome-shell
 	apt install -y gir1.2-gtop-2.0
 	# simple tool to view and install deb files
 	apt install -y gdebi
