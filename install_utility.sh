@@ -7,6 +7,8 @@ root_require;
 # Utillity install
 utility() {
 	apt install -y cronolog vim ctags git tig build-essential g++ curl
+	# Tig 설정 복사하기
+	cp -f ./conf/tigrc ~/.tigrc
 	apt install -y libssl-dev expect tmux
 	apt install -y gawk cmake
 	apt install -y exuberant-ctags ncurses-term
