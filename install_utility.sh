@@ -15,6 +15,11 @@ utility() {
 	apt install -y inxi htop net-tools
 	apt install -y dos2unix
 
+	# Database tools
+	apt install -y mongodb-clients
+	apt install -y mycli
+	apt install -y redis-tools
+
 	# inxi : 시스템 사양 확인 / Ex) inxi -F
 	# htop : 시스템 사용 확인
 	# exuberant-ctags : build tag file indexes of source code definitions
