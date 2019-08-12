@@ -94,7 +94,7 @@ set reference-format = [branch] <tag> {remote} ~replace~
 
 # Git으로 부터 어떻게 정보를 읽을지를 조절하는 설정들
 set commit-order = auto # Enum: auto, default, topo, date, reverse (main view)
-set status-untracked-dirs = yes # 트래킹하고 있지 않은 디렉토리의 파일들도 보여주는가? (status)
+# set status-untracked-dirs = yes # 트래킹하고 있지 않은 디렉토리의 파일들도 보여주는가? (status)
 set ignore-space = no # Enum: no, all, some, at-eol (diff)
 set show-notes = yes # `--show-notes=...` 를 전달하는가? (diff)
 set diff-context = 6 # diff changes 를 보여줄 때 라인 수 (diff)
@@ -161,11 +161,12 @@ set mouse-scroll = 3 # 마우스로 스크롤할 때 한번에 넘길 라인수
 
 bind main    C    ?git cherry-pick %(commit)                               # 체리픽 (해당 커밋을 현재 브랜치에 새로 커밋)
 bind main    <Hash>    !@bash -c "echo -n %(commit) | pbcopy"              # 현재 커밋의 해시를 복사
-bind main    R    ?git rebase -i %(commit)                             # 커밋의 순서를 재정렬하고 첨삭
+bind main    R    ?git rebase -i %(commit)                                 # 커밋의 순서를 재정렬하고 첨삭
 bind main    !    ?git rebase --abort                                      # 리베이스를 취소
+bind main    U    !git pull												   # 리모트에서 변경사항 가져오기
 bind main    L    ?git pull --rebase %(remote) "%(prompt Branch name to pull : )"   # 리모트에서 변경사항 가져오기
 bind main    P    ?git push %(remote) "%(prompt Branch name to push : )"   # 리모트에 변경사항 커밋
-bind main    <A-P>    ?git push --force %(remote) "%(prompt Branch name to +push : )"  # 리모트에 변경사항 강제 커밋bind main    T    !git tag "%(prompt Tag name : )" %(commit)               # 해당 커밋에 태그 추가
+bind main    <C-F>    ?git push --force %(remote) "%(prompt Branch name to +push : )"  # 리모트에 변경사항 강제 커밋bind main    T    !git tag "%(prompt Tag name : )" %(commit)               # 해당 커밋에 태그 추가
 bind main    <C-T>    ?git push %(remote) %(tag)                           # 리모트에 현재 태그 커밋
 
 bind status    C    !git commit                                            # 스테이지(인덱스)에 올라간 파일 로컬에 커밋하기
@@ -196,9 +197,7 @@ bind generic    h    view-help
 bind generic    s    view-status
 # bind generic    S    view-status
 bind generic    c    view-stage
-# bind generic    y    view-stash
-bind generic    y    none                   # 기본 키바인딩을 제거
-bind generic    S    view-stash
+bind generic    y    view-stash
 bind generic    g    view-grep
 
 
