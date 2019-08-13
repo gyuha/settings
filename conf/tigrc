@@ -169,7 +169,8 @@ bind main    C    ?git cherry-pick %(commit)                               # 체
 bind main    <Hash>    !@bash -c "echo -n %(commit) | pbcopy"              # 현재 커밋의 해시를 복사
 bind main    R    ?git rebase -i %(commit)                                 # 커밋의 순서를 재정렬하고 첨삭
 # bind main    !    ?git rebase --abort                                    # 리베이스를 취소
-bind main    !    ?git reset --hard			                               # 리셋 헤드
+# bind main    !    ?git reset --hard			                               # 리셋 헤드
+bind main    !    ?git reset --hard	%(commit)		                               # 리셋 헤드
 bind main    U    !git pull												   # 리모트에서 변경사항 가져오기
 # bind main    L    ?git pull --rebase %(remote) "%(prompt Branch name to pull : )"   # 리모트에서 변경사항 가져오기
 bind main    P    ?git push %(remote) "%(prompt Branch name to push : )"   # 리모트에 변경사항 커밋
