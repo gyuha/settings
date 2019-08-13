@@ -192,7 +192,7 @@ bind branch M !git merge %(branch)
 # Bind Settings
 bind generic <C-f> move-page-down
 bind generic <C-b> move-page-up
-bind generic g move-first-line
+bind generic 1 move-first-line
 bind main    G  none
 bind main    G  move-last-line
 bind generic G  move-last-line
@@ -222,7 +222,7 @@ bind generic    s    view-status
 # bind generic    S    view-status
 bind generic    c    view-stage
 bind generic    y    view-stash
-# bind generic    g    view-grep
+bind generic    g    view-grep
 
 
 # 화면 조작 키 설정
@@ -315,6 +315,7 @@ bind generic    v    show-version        # Tig 버전을 표시한다.
 bind status    u    status-update           # 파일을 인덱스에 추가/삭제한다.
 bind status    !    status-revert           # 파일의 변경 사항을 Revert 한다.
 bind status    M    status-merge            # git-mergetool(1) 을 연다.
+bind status    A    @git add -A             # add to all 
 # bind status    키값    :toggle status       # 짧은/긴 status label 을 표시한다.
 
 

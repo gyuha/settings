@@ -10,8 +10,8 @@ utility() {
 	apt install -y cronolog vim ctags git tig build-essential g++ curl
 	apt install -y gawk cmake
 	apt install -y exuberant-ctags ncurses-term
-	# Tig 설정 복사하기
-	cp -f ./conf/tigrc ~/.tigrc
+	# Tig 설정
+	ln -snf `pwd`/conf/tigrc ~/.tigrc
 
 	apt install -y libssl-dev expect tmux
 
