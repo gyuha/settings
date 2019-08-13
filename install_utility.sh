@@ -6,13 +6,28 @@ root_require;
 
 # Utillity install
 utility() {
+	# 개발 관련
 	apt install -y cronolog vim ctags git tig build-essential g++ curl
-	# Tig 설정 복사하기
-	cp -f ./conf/tigrc ~/.tigrc
-	apt install -y libssl-dev expect tmux
 	apt install -y gawk cmake
 	apt install -y exuberant-ctags ncurses-term
-	apt install -y inxi htop net-tools
+	# Tig 설정 복사하기
+	cp -f ./conf/tigrc ~/.tigrc
+
+	apt install -y libssl-dev expect tmux
+
+	# System
+	#  - inxi : 시스템 사양 확인 / Ex) inxi -F
+	#  - htop : 시스템 사용 확인
+	apt install -y inxi htop
+
+	# network
+	#  - namp : port Scanning 툴로서 호스트나 네트워크를 스캐닝
+	#    - 내부망 IP확인 : nmap -sn 192.168.0.0/24
+	#  - net-tools : 네트워크 툴 netstate
+	#  - iftop : 네트워크 용 top
+	apt install -y net-tools nmap iftop
+
+	# Text
 	apt install -y dos2unix
 
 	# Database tools
@@ -20,8 +35,6 @@ utility() {
 	apt install -y mycli
 	apt install -y redis-tools
 
-	# inxi : 시스템 사양 확인 / Ex) inxi -F
-	# htop : 시스템 사용 확인
 	# exuberant-ctags : build tag file indexes of source code definitions
 	# ncurses-term : 추가 터미널 타입 정의
 }
