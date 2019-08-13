@@ -5,7 +5,8 @@ let password = readline.question("Input redis Password : ");
 var redis = require("redis"),
 
 client = redis.createClient();
-client.auth(password)
+if (password)
+	client.auth(password)
 
 client.on("error", function (err) {
 	console.log("Error " + err);

@@ -46,12 +46,16 @@ echo
 
 createVolume;
 
+PW=""
+if [ -n "$password" ]; then
+	PW="-e MONGO_INITDB_ROOT_USERNAME=root \
+	-e MONGO_INITDB_ROOT_PASSWORD=$password "
+fi
+
 # docker run -p 27017:27017 --restart=always --name $PS_NAME -d -v $VOLUME_NAME:/data/db mongo:latest
 docker run -p 27017:27017 \
 	--restart=always \
-	--name $PS_NAME \
-	-e MONGO_INITDB_ROOT_USERNAME=root \
-	-e MONGO_INITDB_ROOT_PASSWORD=$password \
+	--name $PS_NAME $PW \
 	-d -v $VOLUME_NAME:/data/db \
 	mongo:latest
 
