@@ -1,3 +1,4 @@
+#!/usr/bin/node
 const readline = require('readline-sync')
 const mysql = require('mysql2')
 

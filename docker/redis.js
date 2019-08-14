@@ -1,3 +1,4 @@
+#!/usr/bin/node
 const readline = require('readline-sync')
 
 let password = readline.question("Input redis Password : ");

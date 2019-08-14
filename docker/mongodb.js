@@ -1,3 +1,4 @@
+#!/usr/bin/node
 const readline = require('readline-sync')
 
 let password = readline.question("Input admin Password : ");
@@ -8,7 +9,7 @@ const test = require('assert');
 // Connection url
 let url = 'mongodb://localhost:27017';
 if (password) {
-  url = 'mongodb://root:'+password+'@localhost:27017/admin';
+  url = 'mongodb://root:'+password+'@localhost:27017';
 }
 
 console.log("connect to : " + url)
