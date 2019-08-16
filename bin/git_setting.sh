@@ -50,6 +50,7 @@ git config --global core.editor vim
 git config --global push.default matching
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
+git config --global core.autocrlf false
 
 # Default git alias settings
 #  Reference URL : http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples
