@@ -85,6 +85,13 @@ docker가 등록이 되어 있지만.. 한번 건드려 줘야 이미지 들이 
 
 > sudo ./docker_service.sh
 
+### Docker tools for Windows
+윈도우에서 간이 서버용 스크립트
+```bash
+docker run -d --restart=always -p 6379:6379 --name redis redis
+docker run -d --restart=always -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password mysql:5.7.27
+docker run -d --restart=always -p 27017:27017 --name mongo --restart=always mongo:3.6.14
+```
 
 
 ### 참고
