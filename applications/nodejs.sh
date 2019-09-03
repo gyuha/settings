@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-if [ $UID -eq 0 ]; then
-	echo You are root. Please run home user.
-	exit 1;
-fi
 
 VERSION=12
 if [ -n "$1" ]; then
@@ -34,8 +30,16 @@ npm install -g gtop
 npm install -g pm2
 # 간이 http-server
 npm install -g http-server
-# nvm
+# nvm : Node Version Manager
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+
+# pm2 plugins
+pm2 install typescript ts-node
+
+# pm2 로거 설정
+pm2 install pm2-logrotate
+# 로그는 60일만 보관
+pm2 set pm2-logrotate:retain 60
 
 node -v
 npm -v
