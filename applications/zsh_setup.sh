@@ -9,8 +9,14 @@ if [ -f $BASEDIR/conf/sh_profile ]; then
 fi
 "
 
+# bullet-train 테마 받기
+wget http://raw.github.com/caiogondim/bullet-train-oh-my-zsh-theme/master/bullet-train.zsh-theme && mv bullet-train.zsh-theme $ZSH_CUSTOM/themes/
+
 # 테마 설정하기
-sed -i "s/^ZSH_THEME=\"robbyrussell\"/ZSH_THEME=\"agnoster\"/" $PROFILE
+sed -i "s/^ZSH_THEME=\".*$"/ZSH_THEME=\"bullet-train\"/" $PROFILE
+
+# 플러그인 설치
+
 
 # 개인 설정 적용하기
 LINE=`grep -n "# GYUHA" $PROFILE |sed 's/\:.*$//g'`

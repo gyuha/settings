@@ -71,7 +71,7 @@ if [ $PACKAGES == "all" ]; then
 	#vscode;
 	#atom;
 	sublime_text;
-	#typora;
+	typora;
 	#android_studio;
 	#mysql_client;
 	#go

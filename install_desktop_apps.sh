@@ -112,7 +112,7 @@ powerlinefont() {
 }
 
 fonts() {
-	apt install -y fonts-nanum*
+	apt install -y fonts-nanum* fonts-naver-d2coding
 }
 
 wine() {
