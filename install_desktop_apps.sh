@@ -131,6 +131,11 @@ guiDevTools() {
 	success "Complete"
 }
 
+uim() {
+	# ref : https://luckyyowu.tistory.com/409
+	apt install -y uim uim-byeoru
+}
+
 
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
@@ -147,6 +152,7 @@ if [ $PACKAGES == "all" ]; then
 	powerlinefont;
 	fonts;
 	#wine;
+	uim;
 	run_all;
 	msg "Complete.";
 	exit;

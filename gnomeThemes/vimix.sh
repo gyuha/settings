@@ -4,4 +4,4 @@ mkdir ~/temp
 cd ~/temp
 git clone https://github.com/vinceliuice/vimix-gtk-themes
 cd vimix-gtk-themes
-./Install
+./install.sh
