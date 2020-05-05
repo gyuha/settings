@@ -32,6 +32,14 @@ echo "" >> $BASH_RC
 echo "export GOROOT=/usr/local/go" >> $BASH_RC
 echo "export GOPATH=${HOME}/go" >> $BASH_RC
 echo "export PATH=\${PATH}:\${GOPATH}/bin:\${GOROOT}/bin" >> $BASH_RC
+
+ZSH_RC=~/.bashrc
+
+echo "" >> $ZSH_RC
+echo "export GOROOT=/usr/local/go" >> $ZSH_RC
+echo "export GOPATH=${HOME}/go" >> $ZSH_RC
+echo "export PATH=\${PATH}:\${GOPATH}/bin:\${GOROOT}/bin" >> $ZSH_RC
+
 mkdir -p ~/go/bin
 mkdir -p ~/go/src
 
