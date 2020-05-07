@@ -43,6 +43,7 @@ if [ -f $BASEDIR/conf/sh_profile.sh ]; then
     . $BASEDIR/conf/sh_profile.sh
     . $BASEDIR/conf/bash_ps1.sh
 fi
+# GYUHA SETTINGS END
 "
 
 while [[ "$1" == -* ]]; do

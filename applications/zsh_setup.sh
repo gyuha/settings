@@ -4,9 +4,10 @@ SCRIPT=$(readlink -f "$0")
 BASEDIR=$(dirname "$SCRIPT")
 PROFILE=$HOME"/.zshrc"
 BASHRC_SRC="# GYUHA SETTINGS
-if [ -f $BASEDIR/conf/sh_profile ]; then
-    . $BASEDIR/conf/sh_profile
+if [ -f $HOME/.settings/conf/sh_profile.sh ]; then
+    . $HOME/.ssettings/conf/sh_profile.sh
 fi
+# GYUHA SETTINGS END
 "
 
 # 테마 설정하기
