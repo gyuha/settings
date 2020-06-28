@@ -37,6 +37,10 @@ utility() {
 
 	# exuberant-ctags : build tag file indexes of source code definitions
 	# ncurses-term : 추가 터미널 타입 정의
+
+	# https://switowski.com/blog/favorite-cli-tools
+	apt install -y fd-find
+	apt install -y ripgrep
 }
 
 # fzf is a general-purpose command-line fuzzy finder.
