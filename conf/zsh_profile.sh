@@ -31,3 +31,5 @@ function fzfp() {
 					  rougify {} ||
 					  cat {}) 2> /dev/null | head -500'
 }
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

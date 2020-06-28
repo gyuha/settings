@@ -4,8 +4,8 @@ SCRIPT=$(readlink -f "$0")
 BASEDIR=$(dirname "$SCRIPT")
 PROFILE=$HOME"/.zshrc"
 BASHRC_SRC="# GYUHA SETTINGS
-if [ -f $HOME/.settings/conf/sh_profile.sh ]; then
-    . $HOME/.ssettings/conf/sh_profile.sh
+if [ -f $HOME/.settings/conf/zsh_profile.sh ]; then
+    . $HOME/.settings/conf/zsh_profile.sh
 fi
 # GYUHA SETTINGS END
 "
