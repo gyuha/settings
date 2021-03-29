@@ -11,6 +11,7 @@ nvs link lts
 npm install -g yarn
 # Typescript
 npm install -g typescript ts-node tslint
+npm install -g typescript-language-server
 # gtop : 시스템 모니터링 - https://www.npmjs.com/package/gtop
 npm install -g gtop
 # 간이 http-server
