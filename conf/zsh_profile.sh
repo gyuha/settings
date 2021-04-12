@@ -4,7 +4,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 PATH=$PATH:~/bin:~/.bin
 
-ZSH_THEME="agnoster"
+# ZSH_THEME="agnoster"
 
 set -o vi
 
