@@ -8,18 +8,7 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
 done
 
 CONF="
-zstyle ':prezto:load' pmodule \
-	'environment' \
-	'terminal' \
-	'editor' \
-	'history' \
-	'directory' \
-	'spectrum' \
-	'utility' \
-	'completion' \
-	'prompt' \
-	'git' \
-	'syntax-highlighting' \
-	'history-substring-search' \
+source \"${ZDOTDIR:-$HOME}/.zprezto/init.zsh\"
 "
-cat $CONF >> ~/.zpreztorc
+
+echo $CONF >> ~/.zshrc

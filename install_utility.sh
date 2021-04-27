@@ -20,6 +20,9 @@ utility() {
 	#  - htop : 시스템 사용 확인
 	apt install -y inxi htop
 
+	#  - ncdu : 폴더 사용 용량 확인 툴
+	apt install -y ncdu
+
 	# network
 	#  - namp : port Scanning 툴로서 호스트나 네트워크를 스캐닝
 	#    - 내부망 IP확인 : nmap -sn 192.168.0.0/24
@@ -96,8 +99,8 @@ if [ $PACKAGES == "all" ]; then
 	utility;
 	fzf;
 	run_all;
-	# python3;
-	# vimconfig;
+	python3;
+	vimconfig;
 	exit;
 fi
 
