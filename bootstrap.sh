@@ -2,7 +2,7 @@
 
 # SETUP Paramters
 app_name=settings
-git_uri='https://github.com/gyuha/settings.git'
+git_uri='git@github.com:gyuha/settings.git'
 git_branch=''
 debug_mode=0
 fork_maintainer='0'
