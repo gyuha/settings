@@ -43,7 +43,13 @@ utility() {
 
 	# https://switowski.com/blog/favorite-cli-tools
 	apt install -y fd-find
+	ln -s $(which fdfind) /usr/local/bin/fd
+
 	apt install -y ripgrep
+
+	apt install -y autojump
+
+	apt install -y bat
 }
 
 # fzf is a general-purpose command-line fuzzy finder.
