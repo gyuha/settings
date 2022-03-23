@@ -4,11 +4,8 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 PATH=$PATH:~/bin:~/.bin
 
-<<<<<<< HEAD
-=======
-# ZSH_THEME="agnoster"
+ZSH_THEME="bira"
 
->>>>>>> b350361dac7904fcd780a289a3373d1e6a29b340
 set -o vi
 
 alias tmux="tmux -2"
