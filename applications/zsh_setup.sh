@@ -15,14 +15,15 @@ sed -i "s/^ZSH_THEME=\".*\"$/ZSH_THEME=\"bira\"/" $PROFILE
 # sed -i "s/^ZSH_THEME=\".*\"$/ZSH_THEME=\"agnoster\"/" $PROFILE
 
 # 플러그인 설치
-git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions --depth=1
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting --depth=1
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions --depth=1
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting --depth=1
 git clone https://github.com/lukechilds/zsh-better-npm-completion ~/.oh-my-zsh/custom/plugins/zsh-better-npm-completion --depth=1
 
 # 플로그인 붙여 넣기
 PLUGIN="
 plugins=(
   git
+  autojump
   zsh-autosuggestions
   zsh-syntax-highlighting
   zsh-better-npm-completion
