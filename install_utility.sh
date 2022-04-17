@@ -50,6 +50,10 @@ utility() {
 	apt install -y autojump
 
 	apt install -y bat
+
+	# DNS 검색 유틸 dig 설치 용
+	# https://www.ibm.com/docs/ko/aix/7.2?topic=d-dig-command
+	apt install -y bind9-utils
 }
 
 # fzf is a general-purpose command-line fuzzy finder.
