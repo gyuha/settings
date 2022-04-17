@@ -43,7 +43,6 @@ utility() {
 
 	# https://switowski.com/blog/favorite-cli-tools
 	apt install -y fd-find
-	ln -s $(which fdfind) /usr/local/bin/fd
 
 	apt install -y ripgrep
 
@@ -54,6 +53,9 @@ utility() {
 	# DNS 검색 유틸 dig 설치 용
 	# https://www.ibm.com/docs/ko/aix/7.2?topic=d-dig-command
 	apt install -y bind9-utils
+
+	ln -s $(which fdfind) /usr/local/bin/fd
+	ln -s $(which batcat) /usr/local/bin/bat
 }
 
 # fzf is a general-purpose command-line fuzzy finder.

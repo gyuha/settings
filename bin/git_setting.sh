@@ -51,6 +51,7 @@ git config --global push.default matching
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
 git config --global core.autocrlf false
+git config --global credential.helper store
 
 # Default git alias settings
 #  Reference URL : http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples
@@ -84,6 +85,7 @@ git config --global alias.cp 'cherry-pick'
 git config --global alias.st 'status -s'
 git config --global alias.cl 'clone'
 git config --global alias.ci 'commit'
+git config --global alias.ca 'commit --amend'
 git config --global alias.co 'checkout'
 git config --global alias.br 'branch'
 git config --global alias.diff 'diff --word-diff'
@@ -102,9 +104,10 @@ git config --global alias.sl 'stash list'
 git config --global alias.sa 'stash apply'
 git config --global alias.ss 'stash save'
 git config --global alias.url 'config remote.origin.url'
+git config --global alias.authReset 'config --system --unset credential.helper'
 
 # git https auth cache
-git config --global credential.helper cache
+# git config --global credential.helper cache
 
 # Git Aliases Setting
 if [ "$3" = "YES" ]
