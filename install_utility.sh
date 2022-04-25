@@ -102,7 +102,7 @@ mongodb() {
 }
 
 vimconfig() {
-	curl https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
+	wget -O - https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
 }
 
 
