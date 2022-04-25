@@ -43,7 +43,7 @@ cd ~/.settings/applications
 ## vim 설정
 개인 적인 vim 설정
 ```bash
-curl https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
+wget -O - https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
 ```
 
 ## 참고
