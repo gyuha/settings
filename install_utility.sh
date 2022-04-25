@@ -111,7 +111,7 @@ if [ $PACKAGES == "all" ]; then
 	utility;
 	fzf;
 	run_all;
-	python3;
+	# python3;
 	vimconfig;
 	exit;
 fi
