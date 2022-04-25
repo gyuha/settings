@@ -7,7 +7,7 @@ Gyuha's Linux Setting...
 
 Simply copying and pasting the following line into a terminal.
 
-# Ubuntu 20.04
+# Ubuntu 22.04
 
 ## 기본 서비스 패키지 설치
 

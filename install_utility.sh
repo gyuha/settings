@@ -34,28 +34,30 @@ utility() {
 	apt install -y dos2unix
 
 	# Database tools
-	apt install -y mongodb-clients
-	apt install -y mycli
-	apt install -y redis-tools
+	#apt install -y mongodb-clients
+	#apt install -y mycli
+	#apt install -y redis-tools
 
 	# exuberant-ctags : build tag file indexes of source code definitions
 	# ncurses-term : 추가 터미널 타입 정의
 
 	# https://switowski.com/blog/favorite-cli-tools
 	apt install -y fd-find
-
 	apt install -y ripgrep
-
 	apt install -y autojump
-
 	apt install -y bat
 
 	# DNS 검색 유틸 dig 설치 용
 	# https://www.ibm.com/docs/ko/aix/7.2?topic=d-dig-command
 	apt install -y bind9-utils
 
-	ln -s $(which fdfind) /usr/local/bin/fd
-	ln -s $(which batcat) /usr/local/bin/bat
+	if [ -f $(which fdfind) ]; then
+		ln -s $(which fdfind) /usr/local/bin/fd
+	fi
+
+	if [ -f $(which batcat) ]; then
+		ln -s $(which batcat) /usr/local/bin/bat
+	fi
 }
 
 # fzf is a general-purpose command-line fuzzy finder.
@@ -108,9 +110,10 @@ vimconfig() {
 
 if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
+	apt update
 	utility;
-	fzf;
-	run_all;
+	# fzf;
+	# run_all;
 	# python3;
 	vimconfig;
 	exit;
