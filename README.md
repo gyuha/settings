@@ -7,7 +7,7 @@ Gyuha's Linux Setting...
 
 Simply copying and pasting the following line into a terminal.
 
-# Ubuntu 20.04
+# Ubuntu 22.04
 
 ## 기본 서비스 패키지 설치
 
@@ -43,7 +43,7 @@ cd ~/.settings/applications
 ## vim 설정
 개인 적인 vim 설정
 ```bash
-curl https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
+wget -O - https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
 ```
 
 ## 참고
