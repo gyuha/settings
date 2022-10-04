@@ -24,6 +24,7 @@ export FZF_DEFAULT_OPTS='
 '
 
 
+# 파일 검색 및 미리보기
 function fzfp() {
 	fzf --height 100% --color=bg+:24 --preview '[[ $(file --mime {}) =~ binary ]] &&
 					 echo {} is a binary file ||
@@ -32,3 +33,25 @@ function fzfp() {
 					  rougify {} ||
 					  cat {}) 2> /dev/null | head -500'
 }
+
+# vim을 이용한 replase
+function vsed() {
+	search=$1
+	replace=$2
+	shift
+	shift
+	vim -c "bufdo! set eventignore-=Syntax| %s/
+	$search/$replace/gce" $*
+}
+
+# Removing Temporary Python Files
+alias pyclean='find . \
+	\( -type f -name "*.py[co]" -o -type d -name
+	"__pycache__" \) -delete &&
+		echo "Removed pycs and __pycache__"'
+
+# Listing and Filtering Processes
+alias pg='ps aux | grep -v grep | grep $1'
+
+# Unix Timestamp
+alias timestamp='date "+%s"'
