@@ -4,7 +4,8 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 
 PATH=$PATH:~/bin:~/.bin
 
-ZSH_THEME="bira"
+# for oh-my-zsh
+# ZSH_THEME="bira"
 
 set -o vi
 
@@ -35,4 +36,5 @@ function fzfp() {
 					  cat {}) 2> /dev/null | head -500'
 }
 
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# for oh-my-zsh
+# source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
