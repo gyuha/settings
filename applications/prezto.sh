@@ -1,4 +1,5 @@
 #!/usr/bin/zsh
+## 윈도우 wsl2 에서는 더럽게 느리다..
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
