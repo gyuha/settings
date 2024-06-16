@@ -36,5 +36,5 @@ function parse_rep_branch {
 PROMPT_COMMAND=parse_rep_branch
 PS_INFO="$GREEN\u$RESET@$YELLOW\h$RESET:$BLUE\w"
 PS_REP="\[\033[\$((COLUMNS-\${#PS_VCS}-\${#PS_BRANCH}-1))G\] $RED\$PS_VCS $D_RED\$PS_BRANCH"
-# export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_REP}\n${RESET}\$ "
+export PS1="\${PS_FILL}\[\033[0G\]${PS_INFO} ${PS_REP}\n${RESET}\$ "
 export PS1="$PS1\[\e]1337;CurrentDir="'$(pwd)\a\]'
