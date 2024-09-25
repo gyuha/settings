@@ -14,7 +14,7 @@ Simply copying and pasting the following line into a terminal.
 ### 리눅스 사용자 설정
 리눅스 터미널용 설정.
 ```bash
-sudo apt install git
+sudo apt install git curl
 wget -O - https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash
 # 또는
 wget -O - https://goo.gl/ti6IoK | bash
