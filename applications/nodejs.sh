@@ -8,7 +8,7 @@ nvs use lts
 nvs link lts
 
 
-npm install -g yarn
+npm install -g pnpm
 # Typescript
 npm install -g typescript ts-node tslint
 npm install -g typescript-language-server
@@ -28,6 +28,6 @@ npm install -g http-server
 # pm2 set pm2-logrotate:retain 60
 
 node -v
-yarn -v
+pnpm -v
 npm -v
 tsc -v
