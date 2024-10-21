@@ -47,6 +47,9 @@ utility() {
 	apt install -y autojump
 	apt install -y bat
 
+	# https://github.com/scop/bash-completion
+	apt install -y bash-completion
+
 	# DNS 검색 유틸 dig 설치 용
 	# https://www.ibm.com/docs/ko/aix/7.2?topic=d-dig-command
 	apt install -y bind9-utils

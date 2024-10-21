@@ -2,4 +2,5 @@
 if [ -f ~/.settings/conf/sh_profile ]; then
 	. ~/.settings/conf/sh_profile
 	. ~/.settings/conf/bash_ps1
+	. ~/.settings/conf/inputrc
 fi

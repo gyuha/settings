@@ -42,6 +42,7 @@ BASHRC_SRC="# GYUHA SETTINGS
 if [ -f $BASEDIR/conf/sh_profile.sh ]; then
     . $BASEDIR/conf/sh_profile.sh
     . $BASEDIR/conf/bash_ps1.sh
+    . $BASEDIR/conf/inputrc.sh
 fi
 # GYUHA SETTINGS END
 "
