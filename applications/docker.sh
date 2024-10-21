@@ -21,6 +21,7 @@ echo \
 # 4. Install Docker
 sudo apt-get update
 sudo apt-get -y install docker-ce docker-ce-cli containerd.io
+newgrp docker
 
 # 5. Add user to docker group
 sudo groupadd docker
