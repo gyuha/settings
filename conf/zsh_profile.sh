@@ -26,8 +26,10 @@ alias l='ls -CF'
 
 ## NVS 설정
 export NVS_HOME="$HOME/.nvs"
-[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
-nvs auto on
+if [ -s "$NVS_HOME/nvs.sh" ]; then
+    . "$NVS_HOME/nvs.sh"
+    nvs auto on
+fi
 
 
 ## fzf 설정
