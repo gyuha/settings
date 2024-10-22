@@ -2,7 +2,7 @@
 
 # Update package list and install zsh
 sudo apt update
-sudo apt install -y zsh curl git
+sudo apt install -y zsh zsh-syntax-highlighting curl git
 
 # Set zsh as default shell
 chsh -s $(which zsh)
