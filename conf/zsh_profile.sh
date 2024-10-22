@@ -1,8 +1,10 @@
 # GYUHA SETTINGS
+
+## 기본 ls 색상 사용 (dircolors가 없는 경우를 대비)
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-PATH=$PATH:~/bin:~/.bin
+PATH=$PATH:~/bin:~/.bin:~/.local/bin
 
 set -o vi
 
@@ -16,7 +18,19 @@ alias pip='pip3'
 
 alias tn='ts-node'
 
-# FZF
+## ls와 관련된 별칭 설정
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+
+## NVS 설정
+export NVS_HOME="$HOME/.nvs"
+[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
+nvs auto on
+
+
+## fzf 설정
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_OPTS='
@@ -34,11 +48,3 @@ function fzfp() {
 					  rougify {} ||
 					  cat {}) 2> /dev/null | head -500'
 }
-
-
-# NVS
-export NVS_HOME="$HOME/.nvs"
-[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
-nvs auto on
-
-# for oh-my-zsh
