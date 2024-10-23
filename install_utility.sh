@@ -46,6 +46,7 @@ utility() {
 	apt install -y ripgrep
 	apt install -y autojump
 	apt install -y bat
+	apt install -y tree
 
 	# https://github.com/scop/bash-completion
 	apt install -y bash-completion
