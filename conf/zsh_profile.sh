@@ -23,6 +23,7 @@ alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ls -A'
 alias l='ls -CF'
+alias lt='tree -d'
 
 ## NVS 설정
 export NVS_HOME="$HOME/.nvs"
