@@ -45,6 +45,11 @@ fi
 create_alias_if_exists "ts-node" "ts"
 create_alias_if_exists "pnpm" "pn"
 
+# Basic ZSH configurations
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
 
 ## fzf 설정
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
