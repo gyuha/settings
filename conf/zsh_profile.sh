@@ -14,7 +14,7 @@ create_alias_if_exists() {
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-PATH=$PATH:~/bin:~/.bin:~/.local/bin
+PATH=$PATH:~/bin:~/.bin:~/.local/bin:~/.settings/bin
 
 set -o vi
 
@@ -69,3 +69,6 @@ function fzfp() {
 					  rougify {} ||
 					  cat {}) 2> /dev/null | head -500'
 }
+
+# Tabby ssh config
+precmd () { echo -n "\x1b]1337;CurrentDir=$(pwd)\x07" }

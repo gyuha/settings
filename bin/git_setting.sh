@@ -106,8 +106,6 @@ git config --global alias.ss 'stash save'
 git config --global alias.url 'config remote.origin.url'
 git config --global alias.authReset 'config --system --unset credential.helper'
 
-git config --global oh-my-zsh.hide-status 1
-git config --global oh-my-zsh.hide-dirty 1
 
 # git https auth cache
 # git config --global credential.helper cache
