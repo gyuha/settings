@@ -12,9 +12,6 @@
 #
 #   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 
-# IP 주소 표시 설정
-POWERLEVEL9K_IP_SHOW=1  # IP 주소 표시
-POWERLEVEL9K_IP_COLOR=red  # IP 주소 색상 설정
 
 # Temporarily change options.
 'builtin' 'local' '-a' 'p10k_config_opts'
@@ -1667,7 +1664,7 @@ POWERLEVEL9K_IP_COLOR=red  # IP 주소 색상 설정
   ###############################[ public_ip: public IP address ]###############################
   # Public IP color.
   typeset -g POWERLEVEL9K_PUBLIC_IP_FOREGROUND=7
-  typeset -g POWERLEVEL9K_PUBLIC_IP_BACKGROUND=0
+  typeset -g POWERLEVEL9K_PUBLIC_IP_BACKGROUND=2
   # Custom icon.
   # typeset -g POWERLEVEL9K_PUBLIC_IP_VISUAL_IDENTIFIER_EXPANSION='⭐'
 

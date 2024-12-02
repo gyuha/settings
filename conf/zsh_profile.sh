@@ -34,14 +34,6 @@ create_alias_if_exists "python3" "python"
 create_alias_if_exists "pip3" "pip"
 create_alias_if_exists "fdfind" "fd"
 
-## NVS 설정
-export NVS_HOME="$HOME/.nvs"
-if [ -s "$NVS_HOME/nvs.sh" ]; then
-    . "$NVS_HOME/nvs.sh"
-    nvs auto on
-fi
-
-
 create_alias_if_exists "ts-node" "ts"
 create_alias_if_exists "pnpm" "pn"
 
