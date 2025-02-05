@@ -18,7 +18,8 @@ utility() {
 	# System
 	#  - inxi : 시스템 사양 확인 / Ex) inxi -F
 	#  - htop : 시스템 사용 확인
-	apt install -y inxi htop
+	#  - btop : 시스템 사용 확인
+	apt install -y inxi htop btop
 
 	#  - ncdu : 폴더 사용 용량 확인 툴
 	apt install -y ncdu
