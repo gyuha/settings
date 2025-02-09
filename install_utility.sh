@@ -72,12 +72,9 @@ fzf() {
 }
 
 
-# Python3
-python3() {
-	apt install -y python3-dev
-	apt install -y python3-pip
-	apt install -y python3-venv
-	apt install -y python3-bs4
+# Python
+python() {
+	curl -fsSL https://pyenv.run | bash
 }
 
 # Java 8 install
@@ -119,7 +116,7 @@ if [ $PACKAGES == "all" ]; then
 	utility;
 	# fzf;
 	# run_all;
-	# python3;
+	python;
 	vimconfig;
 	exit;
 fi

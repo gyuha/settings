@@ -11,8 +11,8 @@ alias vi='vim'
 alias of='/usr/bin/nautilus .' # 우분투에서 현재 폴더 탐색기로 열기
 alias dgrep="grep --exclude-dir='.git' --exclude='*.swp'"
 alias fd='fdfind'
-alias python='python3'
-alias pip='pip3'
+# alias python='python3'
+# alias pip='pip3'
 
 alias tn='ts-node'
 
