@@ -47,11 +47,60 @@ git config --global color.diff auto
 git config --global color.interactive auto
 git config --global color.status auto
 git config --global core.editor vim
-git config --global push.default matching
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
-git config --global core.autocrlf false
 git config --global credential.helper store
+
+
+# text
+git config --global core.autocrlf false
+git config --global column.ui auto
+
+# branch
+git config --global branch.sort -committerdate
+git config --global init.defaultBranch main
+
+# tag
+git config --global tag.sort "version:refname"
+
+
+# push
+git config --global push.default simple
+git config --global push.autoSetupRemote true
+git config --global push.followTags true
+
+# diff
+git config --global diff.algorithm histogram
+git config --global diff.colorMoved plain
+git config --global diff.mnemonicPrefix true
+git config --global diff.renames true
+
+# pull
+git config --global pull.rebase true
+
+# fetch
+git config --global fetch.prune true
+git config --global fetch.pruneTags true
+git config --global fetch.all true
+
+# help
+git config --global help.autocorrect prompt
+
+# commit
+git config --global commit.verbose true
+
+# rerere
+git config --global rerere.enabled true
+git config --global rerere.autoupdate true
+
+# core
+git config --global core.excludesfile ~/.gitignore
+
+# rebase
+git config --global rebase.autoSquash true
+git config --global rebase.autoStash true
+git config --global rebase.updateRefs true
+
 
 # Default git alias settings
 #  Reference URL : http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples
