@@ -22,7 +22,7 @@ utility() {
 	apt install -y inxi htop btop
 
 	#  - ncdu : 폴더 사용 용량 확인 툴
-	apt install -y ncdu
+	apt install -y ncdu duf
 
 	# network
 	#  - namp : port Scanning 툴로서 호스트나 네트워크를 스캐닝
