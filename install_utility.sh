@@ -96,7 +96,7 @@ if [ $PACKAGES == "all" ]; then
 	apt update
 	utility;
 	fzf;
-	python;
+	#python;
 	exit;
 fi
 
