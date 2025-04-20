@@ -18,6 +18,7 @@ utility() {
 	# System
 	#  - inxi : 시스템 사양 확인 / Ex) inxi -F
 	#  - htop : 시스템 사용 확인
+	#
 	#  - btop : 시스템 사용 확인
 	apt install -y inxi htop btop
 
@@ -72,37 +73,17 @@ fzf() {
 }
 
 
-# Python
+# Python UV로 변경
+#  https://github.com/astral-sh/uv
 python() {
-	curl -fsSL https://pyenv.run | bash
+	# curl -fsSL https://pyenv.run | bash
+	curl -LsSf https://astral.sh/uv/install.sh | sh
 }
 
 # Java 8 install
 java() {
 	repo_add "ppa:webupd8team/java"
 	apt_add oracle-java8-installer
-}
-
-# mysql 5.6 install
-mysql() {
-	apt install -y mysql-server-5.6 mysql-client-5.6
-}
-
-# mariadb install
-mariadb() {
-	apt install -y mariadb-server mariadb-client
-}
-
-# Docker
-docker() {
-	apt install -y docker.io
-}
-
-# mongodb install
-mongodb() {
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-	echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
-	apt_add mongodb-org
 }
 
 vimconfig() {
@@ -114,10 +95,8 @@ if [ $PACKAGES == "all" ]; then
 	msg "Install all packages."
 	apt update
 	utility;
-	# fzf;
-	# run_all;
+	fzf;
 	python;
-	vimconfig;
 	exit;
 fi
 
