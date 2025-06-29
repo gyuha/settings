@@ -34,7 +34,7 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     # os_icon               # os identifier
-	ip
+# 	ip
     dir                     # current directory
     # vcs                     # git status
     # =========================[ Line #2 ]=========================

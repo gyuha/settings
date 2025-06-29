@@ -14,7 +14,7 @@ create_alias_if_exists() {
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 
-PATH=$PATH:~/bin:~/.bin:~/.local/bin:~/.settings/bin
+PATH=$PATH:~/bin:~/.bin:~/.local/bin:~/.settings/bin:/snap/bin
 
 set -o vi
 

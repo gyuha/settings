@@ -42,8 +42,9 @@ zinit light trapd00r/LS_COLORS
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.settings/conf/zinit/p10k.zsh ]] || source ~/.settings/conf/zinit/p10k.zsh
-# [[ ! -f ~/.settings/conf/zinit/p10k-lite.zsh ]] || source ~/.settings/conf/zinit/p10k-lite.zsh
+# [[ ! -f ~/.settings/conf/zinit/p10k.zsh ]] || source ~/.settings/conf/zinit/p10k.zsh
+#[[ ! -f ~/.settings/conf/zinit/p10k-lite.zsh ]] || source ~/.settings/conf/zinit/p10k-lite.zsh
+[[ ! -f ~/.settings/conf/zinit/p10k-wsl.zsh ]] || source ~/.settings/conf/zinit/p10k-wsl.zsh
 # [[ ! -f ~/.settings/conf/zinit/p10k-prd.zsh ]] || source ~/.settings/conf/zinit/p10k-prd.zsh
 
 ### End of Zinit's installer chunk
