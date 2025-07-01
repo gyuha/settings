@@ -11,19 +11,19 @@ get_platform_icon() {
     case "$OSTYPE" in
         linux*)
             if [[ -f /proc/version ]] && grep -q -i Microsoft /proc/version; then
-                echo "" # Windows icon for WSL
+                echo "" # Windows icon for WSL (Nerd Font)
             else
-                echo "🐧" # Linux
+                echo "" # Linux (Nerd Font)
             fi
             ;;
         darwin*)
-            echo "" # macOS
+            echo "" # macOS (Nerd Font)
             ;;
         msys*|cygwin*)
-            echo "" # Windows
+            echo "" # Windows (Nerd Font)
             ;;
         *)
-            echo "💻" # Generic
+            echo "" # Generic (Nerd Font)
             ;;
     esac
 }
@@ -60,16 +60,16 @@ get_git_info() {
 
 # This function is executed before each prompt
 precmd() {
-    # --- Colors (darker shades) ---
-    local C_BG_BLUE='%K{25}'       # Darker Blue
-    local C_BG_YELLOW='%K{178}'    # Darker Yellow/Gold
-    local C_FG_WHITE='%F{white}'
-    local C_FG_BLACK='%F{black}'
-    local C_FG_BLUE='%F{25}'
-    local C_FG_YELLOW='%F{178}'
+    # --- Colors ---
+    local C_BG_ICON='%K{white}'      # White background for the icon
+    local C_FG_ICON='%F{black}'      # Black foreground for the icon
+    local C_BG_PATH='%K{25}'         # Darker Blue for path
+    local C_FG_PATH='%F{white}'      # White foreground for path
+    local C_BG_GIT='%K{178}'        # Darker Yellow/Gold for git
+    local C_FG_GIT='%F{black}'       # Black foreground for git
     local C_RESET='%k%f'
 
-    # --- Powerline Separators (requires a Nerd Font or Powerline font) ---
+    # --- Powerline Separator ---
     local SEP_R=''
 
     # --- Left Prompt (PROMPT) ---
@@ -78,18 +78,30 @@ precmd() {
     local git_info=$(get_git_info)
 
     local prompt_left=""
-    prompt_left+="${C_BG_BLUE}${C_FG_WHITE} ${platform_icon} ${current_path} ${C_RESET}"
+
+    # Segment 1: Platform Icon (White BG, Black FG)
+    prompt_left+="${C_BG_ICON}${C_FG_ICON} ${platform_icon} "
+
+    # Separator from Icon to Path
+    prompt_left+="${C_BG_PATH}%F{white}${SEP_R}"
+
+    # Segment 2: Path (Blue BG, White FG)
+    prompt_left+="${C_FG_PATH} ${current_path} "
 
     if [[ -n "$git_info" ]]; then
-        prompt_left+="${C_FG_BLUE}${C_BG_YELLOW}${SEP_R}${C_RESET}"
-        prompt_left+="${C_BG_YELLOW}${C_FG_BLACK} ${git_info} ${C_RESET}"
-        prompt_left+="${C_FG_YELLOW}${SEP_R}${C_RESET}"
+        # Separator from Path to Git
+        prompt_left+="${C_BG_GIT}%F{25}${SEP_R}"
+        # Segment 3: Git (Yellow BG, Black FG)
+        prompt_left+="${C_FG_GIT} ${git_info} "
+        # Final separator for the git segment
+        prompt_left+="${C_RESET}%F{178}${SEP_R}"
     else
-        prompt_left+="${C_FG_BLUE}${SEP_R}${C_RESET}"
+        # Final separator if no git info
+        prompt_left+="${C_RESET}%F{25}${SEP_R}"
     fi
 
     # --- Final Assembly ---
-    PROMPT="${prompt_left} "
+    PROMPT="${prompt_left}${C_RESET} "
     RPROMPT="" # Right prompt is disabled
     
     PROMPT+=$'
