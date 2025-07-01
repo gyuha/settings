@@ -5,6 +5,7 @@ npm install -g typescript-language-server
 npm install -g gtop
 # 간이 http-server
 npm install -g http-server
+npm install -g @go-task/cli
 
 # node 프로세스 메니저
 # npm install -g pm2

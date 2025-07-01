@@ -1,9 +1,9 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+#fi
 
 ### Added by Zinit's installer  
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then  
@@ -33,7 +33,7 @@ zinit light zsh-users/zsh-autosuggestions
 # 명령어 완성  
 zinit light zsh-users/zsh-completions
 
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # ls 색상 활성화
 zinit ice atclone"dircolors -b LS_COLORS > c.zsh" atpull'%atclone' pick"c.zsh" nocompile'!'
@@ -44,8 +44,11 @@ zinit light trapd00r/LS_COLORS
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.settings/conf/zinit/p10k.zsh ]] || source ~/.settings/conf/zinit/p10k.zsh
 #[[ ! -f ~/.settings/conf/zinit/p10k-lite.zsh ]] || source ~/.settings/conf/zinit/p10k-lite.zsh
-[[ ! -f ~/.settings/conf/zinit/p10k-wsl.zsh ]] || source ~/.settings/conf/zinit/p10k-wsl.zsh
+# [[ ! -f ~/.settings/conf/zinit/p10k-wsl.zsh ]] || source ~/.settings/conf/zinit/p10k-wsl.zsh
 # [[ ! -f ~/.settings/conf/zinit/p10k-prd.zsh ]] || source ~/.settings/conf/zinit/p10k-prd.zsh
+
+# Custom simple prompt
+[[ ! -f ~/.settings/conf/zinit/pp.zsh ]] || source ~/.settings/conf/zinit/pp.zsh
 
 ### End of Zinit's installer chunk
 
