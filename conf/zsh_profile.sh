@@ -31,6 +31,7 @@ alias l='ls -CF'
 alias lt='tree -d'
 
 alias cl='claude'
+alias ge='gemini'
 
 # create_alias_if_exists "python3" "python"
 # create_alias_if_exists "pip3" "pip"
