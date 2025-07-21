@@ -140,7 +140,7 @@ git config --global alias.br 'branch'
 git config --global alias.diff 'diff --word-diff'
 git config --global alias.dc 'diff --cached'
 git config --global alias.d difftool
-git config --global alias.r 'reset'
+git config --global alias.r '!git reset --hard HEAD && git clean -fd'
 git config --global alias.r1 'reset HEAD^'
 git config --global alias.r2 'reset HEAD^^'
 git config --global alias.rh 'reset --hard HEAD'
