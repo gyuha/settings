@@ -30,9 +30,14 @@ alias la='ls -A'
 alias l='ls -CF'
 alias lt='tree -d'
 
+## AI Cli
 alias cl='claude'
-alias ge='gemini'
 alias cld='claude --dangerously-skip-permissions'
+
+alias ge='gemini'
+
+alias tm='task-master'
+alias taskmaster='task-master'
 
 # create_alias_if_exists "python3" "python"
 # create_alias_if_exists "pip3" "pip"
