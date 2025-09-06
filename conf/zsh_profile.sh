@@ -19,7 +19,7 @@ PATH=$PATH:~/bin:~/.bin:~/.local/bin:~/.settings/bin:/snap/bin
 set -o vi
 
 alias tmux="tmux -2"
-alias vi='vim'
+alias vi='nvim'
 alias of='/usr/bin/nautilus .' # 우분투에서 현재 폴더 탐색기로 열기
 alias dgrep="grep --exclude-dir='.git' --exclude='*.swp'"
 

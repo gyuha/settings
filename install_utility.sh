@@ -7,6 +7,7 @@ root_require;
 # Utillity install
 utility() {
 	# 개발 관련
+	apt install -y neovim
 	apt install -y cronolog vim ctags git tig build-essential g++ curl
 	apt install -y gawk cmake
 	apt install -y exuberant-ctags ncurses-term
