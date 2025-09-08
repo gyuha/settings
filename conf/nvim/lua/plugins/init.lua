@@ -145,7 +145,6 @@ return {
 
 
   -- 코멘트 토글
-  -- 코멘트 토글
   {
     "numToStr/Comment.nvim",
     -- 키를 누를 때 자동 로드되도록 keys에 선언
@@ -232,16 +231,16 @@ return {
       })
     end
   },
-  -- { "tpope/vim-fugitive", cmd = { "Git", "Gdiffsplit", "Gblame" } },
+  { "tpope/vim-fugitive", cmd = { "Git", "Gdiffsplit", "Gblame" } },
 
   -- 알림/메시지 UI
-  { "rcarriga/nvim-notify", config = function() vim.notify = require("notify") end },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
-    opts = { presets = { lsp_doc_border = true } }
-  },
+  -- { "rcarriga/nvim-notify", config = function() vim.notify = require("notify") end },
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+  --   opts = { presets = { lsp_doc_border = true } }
+  -- },
 
   -- 문제/리스트 UI
   {
