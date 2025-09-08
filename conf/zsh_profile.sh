@@ -35,6 +35,8 @@ alias cl='claude'
 alias cld='claude --dangerously-skip-permissions'
 
 alias ge='gemini'
+alias gey='gemini -y'
+alias cx='codex'
 
 alias tm='task-master'
 alias taskmaster='task-master'
