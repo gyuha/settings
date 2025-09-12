@@ -37,7 +37,7 @@ alias cld='claude --dangerously-skip-permissions'
 alias ge='gemini'
 alias gey='gemini -y'
 alias cx='codex'
-alias cxa='codex -a on-failure'
+alias cxd='codex --dangerously-bypass-approvals-and-sandbox'
 
 alias tm='task-master'
 alias taskmaster='task-master'
