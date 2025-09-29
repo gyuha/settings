@@ -31,17 +31,16 @@ alias l='ls -CF'
 alias lt='tree -d'
 
 ## AI Cli
-create_alias_if_exists cl='claude'
-create_alias_if_exists cld='claude --dangerously-skip-permissions'
+alias cl='claude'
+alias cld='claude --dangerously-skip-permissions'
 
-create_alias_if_exists ge='gemini'
-create_alias_if_exists ged='gemini -y'
-create_alias_if_exists cx='codex'
-create_alias_if_exists cxd='codex --dangerously-bypass-approvals-and-sandbox'
-create_alias_if_exists oc='opencode'
+alias ge='gemini'
+alias tm='task-master'
 
-create_alias_if_exists tm='task-master'
-create_alias_if_exists taskmaster='task-master'
+alias cx='codex'
+alias oc='opencode'
+
+alias taskmaster='task-master'
 
 # create_alias_if_exists "python3" "python"
 # create_alias_if_exists "pip3" "pip"
