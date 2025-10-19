@@ -6,7 +6,7 @@ if [ $UID -eq 0 ]; then
 	exit 1;
 fi
 
-VERSION=1.14.2
+VERSION=1.25.1
 if [ -n "$1" ]; then
 	VERSION=$1
 fi
@@ -33,7 +33,7 @@ echo "export GOROOT=/usr/local/go" >> $BASH_RC
 echo "export GOPATH=${HOME}/go" >> $BASH_RC
 echo "export PATH=\${PATH}:\${GOPATH}/bin:\${GOROOT}/bin" >> $BASH_RC
 
-ZSH_RC=~/.bashrc
+ZSH_RC=~/.zshrc
 
 echo "" >> $ZSH_RC
 echo "export GOROOT=/usr/local/go" >> $ZSH_RC
