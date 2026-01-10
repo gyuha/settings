@@ -307,4 +307,10 @@ return {
     end,
   },
 
+  -- fcitx: 한영 전환 자동화
+  {
+    "lilydjwg/fcitx.vim",
+    event = "InsertEnter",
+  },
+
 }
