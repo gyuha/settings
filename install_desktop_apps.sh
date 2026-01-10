@@ -152,7 +152,7 @@ if [ $PACKAGES == "all" ]; then
 	powerlinefont;
 	fonts;
 	#wine;
-	uim;
+	#uim;
 	run_all;
 	msg "Complete.";
 	exit;
