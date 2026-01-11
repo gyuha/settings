@@ -56,11 +56,6 @@ ln ~/.settings/conf/nvim ~/.config/nvim
 * https://vim-bootstrap.com/
 * http://vim.spf13.com/
 
------
-## 참고
- * [Top Things To Do After Installing Ubuntu 18.04 Bionic Beaver To Make It Your Own](https://www.linuxuprising.com/2018/04/top-things-to-do-after-installing.html)
- * [Ubuntu 18.04 한글 입력기 UIM 설정하기](http://progtrend.blogspot.com/2018/06/ubuntu-1804-uim.html)
-
 
 -----
 ## Tips
