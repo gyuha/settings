@@ -30,7 +30,6 @@ gui() {
 	# apt install -y adwaita-icon-theme-full arc-theme numix-gtk-theme numix-icon-theme
 	# Gnome Extensions와 웹브라우저 연결을 위해서 필요.
 	apt install -y chrome-gnome-shell
-	apt install -y gir1.2-gtop-2.0
 	# simple tool to view and install deb files
 	apt install -y gdebi
 	# graphical user interface for ufw
@@ -38,10 +37,6 @@ gui() {
 	apt install -y gnome-usage
 }
 
-
-flash() {
-	apt install -y flashplugin-installer
-}
 
 torrent() {
 	apt install -y qbittorrent
@@ -92,6 +87,7 @@ utilities() {
 	apt install -y terminator
 	apt install -y arandr
 	apt install -y copyq*
+  apt install -y shutter
 
 	# 한글 입력기
 	# 참고 : ttp://la-nube.tistory.com/393
