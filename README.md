@@ -26,7 +26,7 @@ wget -O - https://raw.github.com/gyuha/settings/master/bootstrap.sh | bash -s --
 ### zsh 설치
 ```bash
 cd ~/.settings/applications
-./zsh.sh
+./zinit.sh
 ```
 
 ### fzf 설치
