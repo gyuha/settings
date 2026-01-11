@@ -116,9 +116,7 @@ fonts() {
 }
 
 wine() {
-	# 설치 후 현재 계정에서 아래와 같이 입력 함.
-	# > WINEARCH=win32 WINEPREFIX=~/.wine wine wineboot
-	apt_add wine-stable
+	apt install -y wine64 wine32 winetricks
 	apt install -y gnome-shell-extension-top-icons-plus
 }
 
