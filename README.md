@@ -7,7 +7,7 @@ Gyuha's Linux Setting...
 
 Simply copying and pasting the following line into a terminal.
 
-# Ubuntu 22.04
+# Ubuntu 24.04
 
 ## 기본 서비스 패키지 설치
 
@@ -44,6 +44,12 @@ cd ~/.settings/applications
 개인 적인 vim 설정
 ```bash
 wget -O - https://raw.githubusercontent.com/gyuha/vim-start/master/vimrc > ~/.vimrc
+```
+
+## neovim 설정
+개인 적인 vim 설정
+```bash
+ln ~/.settings/conf/nvim ~/.config/nvim
 ```
 
 ## 참고
