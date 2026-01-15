@@ -1,7 +1,7 @@
 #!/bin/zsh
 
-# Directory for fonts
-font_dir="$HOME/Library/Fonts"
+# Directory for fonts (Ubuntu uses ~/.local/share/fonts)
+font_dir="$HOME/.local/share/fonts"
 mkdir -p "$font_dir"
 
 # Function to download and install fonts
@@ -29,8 +29,12 @@ fonts_to_install=(
     "FiraCode"  
 )  
 
+sudo apt install fonts-nanum fonts-noto-cjk
+
 # Install additional fonts using the function  
 for font_name in "${fonts_to_install[@]}"; do  
     font_url="$base_url/$font_name.zip"  
     install_font "$font_name" "$font_url"  
-done  
+done
+
+fc-cache -fv
