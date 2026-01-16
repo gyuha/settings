@@ -24,13 +24,39 @@ install_latest_python() {
     echo -e "${YELLOW}최신 Python 버전 설치를 시작합니다...${NC}"
 
     # 가장 최신 안정 버전의 Python 설치
-    uv python install 3.12
+    uv python install 3.14
 
-    echo -e "${GREEN}Python 3.12 설치가 완료되었습니다.${NC}"
+    echo -e "${GREEN}Python 3.14 설치가 완료되었습니다.${NC}"
 
     # Python 버전 확인
     uv python list
-	uv python pin 3.12
+    uv python pin 3.14
+}
+
+setup_python_symlink() {
+    echo -e "${YELLOW}python 명령어 설정 중...${NC}"
+
+    local python_path=$(uv python find 3.14 2>/dev/null)
+
+    if [ -z "$python_path" ]; then
+        echo -e "${RED}Python 3.14 경로를 찾을 수 없습니다.${NC}"
+        return 1
+    fi
+
+    mkdir -p ~/.local/bin
+    rm -f ~/.local/bin/python ~/.local/bin/python3
+
+    ln -sf "$python_path" ~/.local/bin/python
+    ln -sf "$python_path" ~/.local/bin/python3
+
+    echo -e "${GREEN}심볼릭 링크가 생성되었습니다:${NC}"
+    echo "  ~/.local/bin/python -> $python_path"
+    echo "  ~/.local/bin/python3 -> $python_path"
+
+    if [[ ":$PATH:" != *":$HOME/.local/bin:"* ]]; then
+        echo -e "${YELLOW}~/.local/bin이 PATH에 없습니다. 다음을 쉘 설정 파일에 추가하세요:${NC}"
+        echo 'export PATH="$HOME/.local/bin:$PATH"'
+    fi
 }
 
 # 메인 스크립트 로직
@@ -40,8 +66,8 @@ main() {
         install_uv
     fi
 
-    # 최신 Python 설치
     install_latest_python
+    setup_python_symlink
 
     echo -e "${GREEN}모든 작업이 성공적으로 완료되었습니다.${NC}"
 }
