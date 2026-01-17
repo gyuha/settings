@@ -82,16 +82,12 @@ mysqlworkbench() {
 utilities() {
 	apt install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
 	apt install -y doublecmd-common
-	apt install -y libgnomevfs2-extra krusader krename
-	apt install -y geany geany-common geany-plugins
+	# apt install -y libgnomevfs2-extra krusader krename
+	# apt install -y geany geany-common geany-plugins
 	apt install -y terminator
-	apt install -y arandr
-	apt install -y copyq*
-  apt install -y shutter
-
-	# 한글 입력기
-	# 참고 : ttp://la-nube.tistory.com/393
-	# apt install -y uim
+	# apt install -y arandr
+	# apt install -y copyq* # gnome clipboard manager로 변경
+  # apt install -y shutter
 }
 
 powerlinefont() {
@@ -138,10 +134,10 @@ if [ $PACKAGES == "all" ]; then
 	#flash;
 	torrent;
 	media;
-	dictionary;
+	# dictionary;
 	graphic;
 	utilities;
-	guiDevTools;
+	#guiDevTools;
 	#mysqlworkbench;
 	powerlinefont;
 	fonts;
